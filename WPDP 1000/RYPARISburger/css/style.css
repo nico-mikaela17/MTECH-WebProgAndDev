@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+nav{
+  background-color: #F1A536;
+  display: flex;
+  justify-content: space-between;
+}
+
+#navOptions{
+  display: flex;
+  
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+li{
+  list-style: none;
+  padding: 2rem;
+}
+
+#heroImg img{
+  width: 100vw;
+}
