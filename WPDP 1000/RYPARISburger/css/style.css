@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: 'Poppins';
 }
 
 nav{
@@ -9,9 +10,13 @@ nav{
   justify-content: space-between;
 }
 
+nav img{
+  margin-left: 3rem;
+}
+
 #navOptions{
   display: flex;
-  
+  align-items: center;
 }
 
 a{
@@ -21,9 +26,19 @@ a{
 
 li{
   list-style: none;
-  padding: 2rem;
+  padding: 2rem 3rem;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-#heroImg img{
+#heroImg{
   width: 100vw;
+  height: 550px;
+  background: url(../images/hero-image.jpg) no-repeat;
+  background-size: cover; 
+}
+
+#heroImg h1{
+  background-color: white;
+  text-align: center;
 }
