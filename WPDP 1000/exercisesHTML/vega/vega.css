@@ -1,0 +1,130 @@
+* {
+  font-family: "Lora";
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url(./mountains.png) center no-repeat;
+  background-size: cover;
+}
+
+nav {
+  display: flex;
+  background-color: white;
+  margin: 0 2rem;
+  border-radius: 0 0 10px 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ul {
+  display: flex;
+  background-color: white;
+  margin-right: 2rem;
+}
+
+li {
+  list-style: none;
+  padding: 0.5rem 2rem;
+  background-color: white;
+  font-family: "Nunito";
+  font-weight: 700;
+}
+
+#logo {
+  background-color: rgb(216, 216, 216);
+  border-radius: 5px;
+  height: 50px;
+  width: 100px;
+  margin-left: 1rem;
+  font-size: 32px;
+  color: black;
+  text-align: center;
+  padding: 0.5rem 2rem;
+}
+
+#login {
+  border: black 1px solid;
+  border-radius: 50px;
+}
+
+#contentArea {
+  display: flex;
+  margin-top: 5rem;
+  justify-content: space-around;
+}
+
+#notification {
+  position: absolute;
+  background-color: rgba(202, 202, 202,0.8);
+  border-radius: 5px;
+  top: 500px;
+  margin: 0 3rem;
+  /* padding: 3rem 2rem; */
+  display: flex;
+  width: 400px;
+  height: 120px;
+}
+
+
+#logoBlue {
+  background-color: white;
+  color: rgb(14, 130, 255);
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+  margin: 2rem 1rem;
+  font-size: 32px;
+  text-align: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+#textNot{
+  margin: 0.75rem;
+  height: 40px;
+}
+
+#titleNot{
+  font-family: 'nunito';
+  font-size: 16px;
+  flex-wrap: wrap;
+  padding-bottom: 0.2rem;
+}
+
+#bodyNot{
+  font-family: 'nunito';
+  font-size: 16px;
+  flex-wrap: wrap;
+  font-weight: 400;
+}
+
+#your {
+  text-decoration: underline 5px orange;
+}
+
+#textArea {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin-top: 5rem;
+  color: white;
+}
+
+#textArea h3 {
+  padding-bottom: 0;
+  font-family: "nunito";
+}
+
+#textArea h1 {
+  font-size: 125px;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 1rem 4rem;
+  margin-left: 1rem;
+}
