@@ -30,11 +30,11 @@ ul {
 
 li {
   list-style: none;
-  padding: 2rem 1rem;
+  padding: 2rem;
   font-size: 18px;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
 }
@@ -42,11 +42,13 @@ a{
 button {
   border: none;
   background: none;
+  margin-top: 2rem;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .mi {
   color: red;
-  
 }
 
 .health {
@@ -57,10 +59,15 @@ button {
   background-image: url(images/noise_lines.webp);
   display: flex;
   padding: 4rem;
+  align-items: flex-start;
 }
 
 #textArea {
   padding-right: 2rem;
+}
+
+#textArea p {
+  font-size: 18px;
 }
 
 #images {
@@ -69,36 +76,29 @@ button {
 
 .image {
   margin: 0 0.5rem;
-  height: 550px;
-  width: 300px;
-}
-
-.image1 {
-  background: url(images/apple-breakfast-quinoa-7.jpg) no-repeat center;
-  background-size: cover;
+  height: 500px;
+  width: 320px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
+}
+
+.image1 {
+  background: url(images/apple-breakfast-quinoa-7.jpg) no-repeat ;
+  background-size: cover;
+
 }
 
 .image2 {
   background: url(images/pasta-salad-recipe-for-lunch.jpg) no-repeat center;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
 }
 
 .image3 {
   background: url(images/Screenshot_208.jpg) no-repeat center;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  align-items: flex-end;
-  justify-content: flex-end;
+
 }
 
 .firstBlock {
@@ -116,5 +116,4 @@ button {
   width: 110px;
   text-align: right;
   font-weight: 600;
-
 }
