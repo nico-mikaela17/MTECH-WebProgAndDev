@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.mapInfo{
+  color: white;
+  padding: 2rem;
+}
+
+.savedRoute{
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  display: flex;
+  margin: 1rem;
+  max-width: 500px;
+  border-radius: 10px;
+
+}
+
+#info{
+  display: flex;
+  padding: 0.2rem;
+  margin: 1rem;
+  border-radius: 20px;
+  background-color: darkslategray;
+  height: fit-content;
+
+}
+
+#mapArea{
+  background-color: rgb(221, 221, 221);
+  max-width: 500px;
+  height: 500px;
+  border-radius: 20px;
+}
+
+h6{
+  padding-bottom: 0.5rem;
+}
