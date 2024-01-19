@@ -1,0 +1,76 @@
+#link {
+  animation-name: sizeChange;
+  animation-duration: 5s;
+}
+
+@keyframes sizeChange {
+  from {
+    font-size: 14px;
+  }
+  to {
+    font-size: 20px;
+  }
+}
+
+#imgText {
+  animation-name: weightChange;
+  animation-duration: 5s;
+  font-weight: 100;
+  font-size: 16px;
+}
+
+@keyframes weightChange {
+  from {
+    font-weight: 300;
+  }
+  to {
+    font-weight: 800;
+  }
+}
+
+form {
+  margin: 0 auto;
+  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  animation-name: changeSize;
+  animation-duration: 4s;
+  max-width: 500px;
+}
+
+label {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  width: 40px;
+  height: auto;
+}
+
+input {
+  margin-bottom: 1rem;
+}
+
+/* TOFIX: transition */
+#color input{
+  transition-timing-function: linear;
+  transition-property: width;
+  transition-duration: 2s;
+  width: 100px;
+}
+
+#color input:hover{
+  width: 200px;
+}
+
+@keyframes changeSize {
+  from {
+    height: 500px;
+    width: 500px;
+  }
+  to {
+    height: 400px;
+    width: 400px;
+  }
+}
