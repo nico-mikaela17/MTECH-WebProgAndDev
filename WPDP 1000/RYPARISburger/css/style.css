@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: "Poppins";
+  flex-wrap: wrap;
 }
 
 nav {
@@ -36,12 +37,10 @@ li {
 }
 
 #heroImg {
-  width: 99.1vw;
   height: 700px;
   background: url(../images/hero-image.jpg) no-repeat;
   background-size: cover;
   background-position: 50% 20%;
-  position: relative;
 }
 
 #heroImg h1 {
@@ -50,15 +49,94 @@ li {
   padding: 0.5rem 2rem;
   font-size: 50px;
   font-weight: 700;
-  position: absolute;
+  position: relative;
   left: 32%;
   top: 72%;
 }
 
-#categories {
+/* #categories,
+#whereToEat {
   margin: 5rem;
+} */
+
+#healthyRecipes {
+  background-color: #dadfea;
+  width: 100vw;
+  /* padding: 5rem 0 5rem 5rem; */
+  margin-right: 5rem;
 }
 
-#categories h2{
+#categories h2,
+#healthyRecipes h2,
+#whereToEat h2 {
   margin-bottom: 1rem;
+  font-size: 32px;
+  width: fit-content;
+  padding: 5rem 0 0 5rem;
 }
+
+#categories p,
+#healthyRecipes p,
+#whereToEat p {
+  font-size: 20px;
+  width: fit-content;
+  padding: 0 5rem ;
+
+}
+
+#categoriesGallery,
+#whereToEatGallery {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5rem ;
+
+}
+
+#healthyRecipesGallery {
+  display: flex;
+  padding: 0 5rem ;
+
+}
+
+#categoriesGallery img,
+#whereToEatGallery img {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+  margin-top: 2rem;
+}
+
+#healthyRecipesGallery img {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  margin-top: 2rem;
+}
+
+#whereToEatGallery img {
+  border: 10px solid #dadfea;
+}
+#categoriesGallery figcaption,
+#healthyRecipesGallery figcaption,
+#whereToEatGallery figcaption {
+  margin: 0 1rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  background-color: white;
+}
+
+#healthyRecipesGallery figcaption {
+  padding: 0.5rem 2rem;
+  margin: 0;
+}
+
+.fajita,
+.muffins,
+.eggplant,
+.chicken {
+  display: flex;
+  flex-direction: column;
+}
+
+/* FIXME: gallery in healty recipes */
