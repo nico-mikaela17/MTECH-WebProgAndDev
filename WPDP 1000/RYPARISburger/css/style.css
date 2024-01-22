@@ -25,11 +25,11 @@ a {
   color: black;
 }
 
-ul {
+nav ul {
   margin-right: 3rem;
 }
 
-li {
+nav li {
   list-style: none;
   padding: 2rem;
   font-size: 20px;
@@ -42,8 +42,14 @@ li {
   background-size: cover;
   background-position: 50% 20%;
 }
+#heroImgRecipe {
+  height: 500px;
+  background: url(../images/bengal-burger.jpg) no-repeat;
+  background-size: cover;
+  background-position: 50% 20%;
+}
 
-#heroImg h1 {
+#heroImgRecipe h1 {
   background-color: white;
   width: max-content;
   padding: 0.5rem 2rem;
@@ -80,22 +86,20 @@ li {
 #whereToEat p {
   font-size: 20px;
   width: fit-content;
-  padding: 0 5rem ;
-
+  padding: 0 5rem;
 }
 
 #categoriesGallery,
 #whereToEatGallery {
   display: flex;
   justify-content: space-between;
-  padding: 0 5rem ;
-
+  padding: 0 5rem;
 }
 
 #healthyRecipesGallery {
   display: flex;
-  padding: 0 5rem ;
-
+  padding: 0 5rem;
+  justify-content: space-between;
 }
 
 #categoriesGallery img,
@@ -107,7 +111,7 @@ li {
 }
 
 #healthyRecipesGallery img {
-  width: 350px;
+  width: 375px;
   height: 300px;
   object-fit: cover;
   margin-top: 2rem;
@@ -116,10 +120,11 @@ li {
 #whereToEatGallery img {
   border: 10px solid #dadfea;
 }
+
 #categoriesGallery figcaption,
 #healthyRecipesGallery figcaption,
 #whereToEatGallery figcaption {
-  margin: 0 1rem;
+  margin: 0 1rem 4rem;
   text-align: center;
   font-weight: 500;
   font-size: 18px;
@@ -128,7 +133,7 @@ li {
 
 #healthyRecipesGallery figcaption {
   padding: 0.5rem 2rem;
-  margin: 0;
+  margin: 0 0 4rem;
 }
 
 .fajita,
@@ -140,3 +145,52 @@ li {
 }
 
 /* FIXME: gallery in healty recipes */
+
+footer {
+  background-color: #f1a536;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 5rem;
+}
+
+footer ul {
+  display: flex;
+}
+
+footer li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+
+/* RECIPE */
+
+.recipeInfoTime {
+  padding: 2rem 5rem;
+  background-color: #dadfea;
+}
+
+.recipeInfoTime div {
+  padding: 1rem 0;
+  display: flex;
+  flex-flow: column wrap;
+  max-height: 75px;
+}
+
+.recipeInfoTime span {
+  font-weight: bold;
+}
+
+.recipeInfoTime p {
+  padding-bottom: 0.5rem;
+}
+
+#recipe h1 {
+  text-align: center;
+  padding-top: 3rem;
+}
+
+.stars{
+  color: #A63223;
+}
