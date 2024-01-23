@@ -74,3 +74,17 @@ input {
     width: 400px;
   }
 }
+
+table{
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+tr,th,td{
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+td:nth-child(4), .weirdCell{
+  background-color: lightgreen;
+}
