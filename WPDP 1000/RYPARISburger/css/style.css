@@ -186,11 +186,82 @@ footer li {
   padding-bottom: 0.5rem;
 }
 
-#recipe h1 {
+#recipeTitle h1 {
   text-align: center;
   padding-top: 3rem;
 }
 
-.stars{
-  color: #A63223;
+.stars {
+  color: #a63223;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.stars p {
+  color: black;
+  padding-left: 0.5rem;
+}
+
+.button {
+  display: flex;
+  margin: 1rem 0;
+  justify-content: center;
+}
+
+.button button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #a63223;
+  color: white;
+}
+
+.button i {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.5);
+  margin-left: 0.5rem;
+}
+
+.quote {
+  text-align: center;
+  background-color: #f6f9ff;
+  margin: 3rem 5rem;
+  padding: 3rem;
+  color: rgb(97, 97, 97);
+  font-size: 20px;
+}
+
+.recipeBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 3rem 5rem;
+}
+
+.recipeBody h3{
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.ingredients,
+.directions {
+  max-width: 500px;
+}
+
+.ingredients ul,
+.directions ol {
+  padding: 1rem;
+}
+
+ol li{
+  padding-bottom: 1rem;
+}
+
+#spiceMix{
+  padding-top: 0.2rem;
+}
+
+/* FIXME:spacing(margin) */
