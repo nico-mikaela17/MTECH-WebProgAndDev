@@ -1,0 +1,27 @@
+$primary-color: #84a59d;
+$myNavyBlue: #003049;
+$blueGrayish: #778da9;
+$myBorderRadius: 5rem;
+$bodyText: 16px;
+$centerPage: 0 auto;
+$myBorder: 2px solid black;
+
+%my-button {
+  border-radius: 20px;
+  background-color: variables.$blueGrayish;
+  color: variables.$myNavyBlue;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+%my-card {
+  background-color: variables.$primary-color;
+  box-shadow: rgb(119, 119, 119) 0px 20px 30px -10px;
+  padding: 1rem 2rem;
+  max-width: 300px;
+  margin: 3rem;
+  border-radius: 5px;
+  color: #013a63;
+}

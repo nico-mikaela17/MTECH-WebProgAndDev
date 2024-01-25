@@ -1,19 +1,28 @@
-$myNavyBlue: #003049;
-$blueGrayish: #778da9;
-$myBorderRadius: 5rem;
-$bodyText: 16px;
-$centerPage: 0 auto;
-$myBorder: 2px solid black;
+@use "variables";
+$pillWidth: 300px;
+$pillFontSize: 18px;
+
+@mixin pill($theWidth, $fontSize) {
+  background-color: variables.$primary-color;
+  width: $theWidth;
+  font-size: $fontSize;
+  text-align: center;
+  margin: 1rem;
+}
 
 body {
   margin: 0;
-  background-color: $myNavyBlue;
-  color: $blueGrayish;
+  background-color: variables.$myNavyBlue;
+  color: variables.$blueGrayish;
 }
 
 .container {
-  border: 2px solid $blueGrayish;
+  border: 2px solid variables.$blueGrayish;
   margin: 3rem;
+
+  .myBtn {
+    @extend %my-button;
+  }
   ul {
     display: flex;
     flex-direction: column;
@@ -24,4 +33,12 @@ body {
       list-style: inside lower-roman;
     }
   }
+}
+
+.card {
+  @extend %my-card;
+}
+
+.pillTag {
+  @include pill($pillWidth, $pillFontSize);
 }
