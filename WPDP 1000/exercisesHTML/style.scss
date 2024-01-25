@@ -1,0 +1,27 @@
+$myNavyBlue: #003049;
+$blueGrayish: #778da9;
+$myBorderRadius: 5rem;
+$bodyText: 16px;
+$centerPage: 0 auto;
+$myBorder: 2px solid black;
+
+body {
+  margin: 0;
+  background-color: $myNavyBlue;
+  color: $blueGrayish;
+}
+
+.container {
+  border: 2px solid $blueGrayish;
+  margin: 3rem;
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    margin-right: 5rem;
+    li {
+      list-style: inside lower-roman;
+    }
+  }
+}
