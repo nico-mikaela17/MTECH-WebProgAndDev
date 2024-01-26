@@ -1,0 +1,50 @@
+@use "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: variables.$font;
+}
+
+body {
+  background-color: variables.$backBg;
+}
+
+.container {
+  background-color: variables.$frontBg;
+  display: flex;
+  .left {
+    background-color: white;
+    height: 90vh;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: variables.$cardRadius;
+    margin: variables.$margin;
+    .leftRow {
+      display: flex;
+      align-items: center;
+      padding-top: variables.$padding;
+      margin-left: variables.$margin;
+
+    }
+    img {
+      align-self: center;
+    }
+    i{
+      color: gray;
+    }
+    h6 {
+      padding: variables.$margin;
+      font-size: variables.$body;
+      color: gray;
+    }
+    .active{
+      background-color: variables.$highlight;
+      margin: variables.$padding 0;
+      padding: 0 variables.$margin;
+      width: 91%;
+    }
+  }
+}
