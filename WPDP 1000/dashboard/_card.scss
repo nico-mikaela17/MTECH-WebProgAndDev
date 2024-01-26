@@ -1,0 +1,26 @@
+%long-card{
+  height: 90%;
+  width:250px;
+  display:flex;
+  flex-direction: column;
+  align-items: start;
+  :nth-child(1){
+    align-items: center;
+  }
+}
+
+
+//might need to be a mixin
+%square-card{
+  width: 300px;
+  height: auto;
+  .title{
+    display: flex;
+  }
+  .buttons{
+    display: flex;
+  }
+  .row{
+    display: flex;
+  }
+}
