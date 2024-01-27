@@ -1,4 +1,5 @@
 @use "variables";
+@use "card";
 
 * {
   margin: 0;
@@ -13,38 +14,29 @@ body {
 .container {
   background-color: variables.$frontBg;
   display: flex;
+  margin: variables.$margin;
+  border-radius: variables.$cardRadius;
   .left {
-    background-color: white;
-    height: 90vh;
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    border-radius: variables.$cardRadius;
+    @extend card.long-card;
+  }
+  .right {
+    width: 100vw;
     margin: variables.$margin;
-    .leftRow {
+    .searchBarDiv {
+      @extend card.search-bar;
+    }
+    .cards {
       display: flex;
-      align-items: center;
-      padding-top: variables.$padding;
-      margin-left: variables.$margin;
+      justify-content: space-around;
 
-    }
-    img {
-      align-self: center;
-    }
-    i{
-      color: gray;
-    }
-    h6 {
-      padding: variables.$margin;
-      font-size: variables.$body;
-      color: gray;
-    }
-    .active{
-      background-color: variables.$highlight;
-      margin: variables.$padding 0;
-      padding: 0 variables.$margin;
-      width: 91%;
+      .cards1 {
+        img {
+          width: 50px;
+          height: 40px;
+          border-radius: 50%;
+        }
+        @extend card.square-card;
+      }
     }
   }
 }

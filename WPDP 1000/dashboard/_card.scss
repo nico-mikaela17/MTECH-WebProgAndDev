@@ -1,26 +1,91 @@
-%long-card{
-  height: 90%;
-  width:250px;
-  display:flex;
+@use "variables";
+
+%long-card {
+  background-color: white;
+  height: 90vh;
+  width: 150px;
+  display: flex;
   flex-direction: column;
   align-items: start;
-  :nth-child(1){
+  border-radius: variables.$cardRadius;
+  margin: variables.$margin;
+  .menuItems {
+    padding-top: variables.$padding;
+  }
+  .leftRow {
+    display: flex;
     align-items: center;
+    padding: 0.1rem 0;
+    margin-left: variables.$margin;
+  }
+  img {
+    align-self: center;
+    padding-top: variables.$padding;
+  }
+  i {
+    color: gray;
+  }
+  h6 {
+    padding: variables.$margin;
+    font-size: variables.$body;
+    color: gray;
+  }
+  .active {
+    background-color: variables.$highlight;
+    margin: 0;
+    padding: 0 variables.$margin;
+    width: 124px;
+    i {
+      color: variables.$accentOrange;
+    }
+    h6 {
+      color: variables.$accentOrange;
+    }
   }
 }
 
-
+%search-bar{
+  background-color: white;
+  height: 50px;
+  width: 87vw;
+  margin-bottom: variables.$margin;
+  border-radius: variables.$cardRadius;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  input {
+    border: none;
+    background-color: rgb(243, 243, 243);
+    padding: 0.4rem;
+    margin: variables.$margin;
+    border-radius: 20px;
+  }
+  .leftAreaSearch {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: gray;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: url(./images/person1.jpg) no-repeat;
+      background-size: cover;
+      padding: variables.$padding;
+    }
+  }
+}
 //might need to be a mixin
-%square-card{
+%square-card {
   width: 300px;
   height: auto;
-  .title{
+  .title {
     display: flex;
   }
-  .buttons{
+  .buttons {
     display: flex;
   }
-  .row{
+  .row {
     display: flex;
   }
 }
