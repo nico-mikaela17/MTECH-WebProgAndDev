@@ -47,18 +47,20 @@
 %search-bar{
   background-color: white;
   height: 50px;
-  width: 87vw;
+  width: 96%;
   margin-bottom: variables.$margin;
   border-radius: variables.$cardRadius;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: variables.$padding 0.5rem;
   input {
     border: none;
     background-color: rgb(243, 243, 243);
-    padding: 0.4rem;
+    padding: 0.5rem;
     margin: variables.$margin;
     border-radius: 20px;
+    width: 25%;
   }
   .leftAreaSearch {
     display: flex;
@@ -69,8 +71,6 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: url(./images/person1.jpg) no-repeat;
-      background-size: cover;
       padding: variables.$padding;
     }
   }

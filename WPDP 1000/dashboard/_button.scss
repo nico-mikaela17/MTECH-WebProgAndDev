@@ -1,0 +1,16 @@
+@use "variables";
+
+@mixin active-button {
+  padding: 0.5rem;
+  border: 2px solid;
+  border-radius: variables.$buttonRadius;
+  background: none;
+  font-weight: 600;
+}
+
+@mixin filled-button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: variables.$buttonRadius;
+  font-weight: 600;
+}
