@@ -61,11 +61,11 @@ body {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          max-width: 100%;
+          width: 400px;
           margin: variables.$margin 0;
           box-shadow: variables.$shadowCard;
           border-radius: variables.$cardRadius;
-          padding: 0.45rem 2rem;
+          padding: 0.45rem 4.3rem;
 
           background-color: white;
           img {
@@ -74,40 +74,6 @@ body {
         }
         .card6 {
           @extend %square-card6;
-          .personRow {
-            display: flex;
-            align-items: center;
-            margin: variables.$padding 0;
-            .person1 {
-              border: 2px solid #c26f2d;
-            }
-            .person2 {
-              border: 2px solid #1a6998;
-            }
-            .person3 {
-              border: 2px solid #004954;
-            }
-            .person4 {
-              border: 2px solid #212d2b;
-            }
-
-            img {
-              height: 80px;
-              width: 80px;
-              border-radius: 50%;
-              padding: 0.2rem;
-            }
-            .text {
-              padding-left: variables.$padding;
-
-              h4 {
-                font-size: 18px;
-              }
-              p {
-                color: gray;
-              }
-            }
-          }
         }
       }
     }

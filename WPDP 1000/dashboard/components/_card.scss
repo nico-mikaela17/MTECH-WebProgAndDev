@@ -46,7 +46,6 @@
   }
 }
 
-//might need to be a mixin
 %square-card1 {
   background-color: white;
   box-shadow: variables.$shadowCard;
@@ -85,7 +84,7 @@
       padding: 0.3rem;
     }
     img {
-      padding: 0.3rem ;
+      padding: 0.3rem;
       background-color: variables.$highlight;
       width: 40px;
       height: 40px;
@@ -179,7 +178,7 @@
       padding: 0.3rem;
     }
     img {
-      padding: 0.3rem ;
+      padding: 0.3rem;
       background-color: variables.$highlight;
       width: 40px;
       height: 40px;
@@ -407,5 +406,39 @@
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 100%;
+  width: 500px;
+  .personRow {
+    display: flex;
+    align-items: center;
+    margin: variables.$padding 0;
+    .person1 {
+      border: 2px solid #c26f2d;
+    }
+    .person2 {
+      border: 2px solid #1a6998;
+    }
+    .person3 {
+      border: 2px solid #004954;
+    }
+    .person4 {
+      border: 2px solid #212d2b;
+    }
+
+    img {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      padding: 0.2rem;
+    }
+    .text {
+      padding-left: variables.$padding;
+
+      h4 {
+        font-size: 18px;
+      }
+      p {
+        color: gray;
+      }
+    }
+  }
 }
