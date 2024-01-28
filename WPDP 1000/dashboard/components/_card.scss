@@ -53,7 +53,7 @@
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 500px;
+  max-width: 100%;
   #heading {
     display: flex;
     justify-content: space-between;
@@ -85,9 +85,9 @@
       padding: 0.3rem;
     }
     img {
-      padding: 0.3rem 0.2rem;
-      background-color: variables.$frontBg;
-      width: 50px;
+      padding: 0.3rem ;
+      background-color: variables.$highlight;
+      width: 40px;
       height: 40px;
       border-radius: variables.$cardRadius;
     }
@@ -147,7 +147,7 @@
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 500px;
+  max-width: 100%;
   #heading {
     display: flex;
     justify-content: space-between;
@@ -179,9 +179,9 @@
       padding: 0.3rem;
     }
     img {
-      padding: 0.3rem 0.2rem;
-      background-color: variables.$frontBg;
-      width: 50px;
+      padding: 0.3rem ;
+      background-color: variables.$highlight;
+      width: 40px;
       height: 40px;
       border-radius: variables.$cardRadius;
     }
@@ -242,7 +242,7 @@
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 500px;
+  max-width: 100%;
   .heading {
     display: flex;
     align-items: center;
@@ -308,11 +308,104 @@
   }
 }
 
-%square-card4{
+%square-card4 {
   background-color: white;
   box-shadow: variables.$shadowCard;
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 500px;
+  max-width: 100%;
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: variables.$padding variables.$padding variables.$padding 0;
+
+    .fa-play::before {
+      color: gray;
+      border: 1px solid gray;
+      padding: 0.5rem 0.7rem;
+      border-radius: variables.$buttonRadius;
+    }
+  }
+  .firstRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    background-color: variables.$highlight;
+    .task-watch {
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 18px;
+        color: variables.$accentOrange;
+      }
+      h5 {
+        font-size: variables.$body;
+        padding: 0 variables.$padding;
+      }
+    }
+    .time-icons {
+      display: flex;
+      align-items: center;
+      .fa-pause::before {
+        color: white;
+        border: 1px solid gray;
+        padding: 0.5rem 0.7rem;
+        border-radius: variables.$buttonRadius;
+        background-color: variables.$accentOrange;
+        border: none;
+        margin: 0 variables.$padding;
+      }
+      .fa-ellipsis-vertical {
+        color: gray;
+        font-size: 18px;
+      }
+    }
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    .task-watch {
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 18px;
+        color: gray;
+      }
+      h5 {
+        font-size: variables.$body;
+        padding: 0 variables.$padding;
+      }
+    }
+    .time-icons {
+      display: flex;
+      align-items: center;
+      .fa-pause::before {
+        color: gray;
+        border: 1px solid gray;
+        padding: 0.5rem 0.7rem;
+        border-radius: variables.$buttonRadius;
+        margin: 0 variables.$padding;
+      }
+      .fa-ellipsis-vertical {
+        color: gray;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+%square-card6 {
+  background-color: white;
+  box-shadow: variables.$shadowCard;
+  margin: variables.$margin 0;
+  padding: variables.$padding;
+  border-radius: variables.$cardRadius;
+  max-width: 100%;
 }

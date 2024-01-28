@@ -49,7 +49,7 @@
   margin: 13px 0;
   padding: 18px;
   border-radius: 15px;
-  max-width: 500px;
+  max-width: 100%;
 }
 .container .right .cards .cards1 .card1 #heading {
   display: flex;
@@ -83,9 +83,9 @@
   padding: 0.3rem;
 }
 .container .right .cards .cards1 .card1 #heading img {
-  padding: 0.3rem 0.2rem;
-  background-color: #f7f6f4;
-  width: 50px;
+  padding: 0.3rem;
+  background-color: #fff2ec;
+  width: 40px;
   height: 40px;
   border-radius: 15px;
 }
@@ -168,7 +168,7 @@
   margin: 13px 0;
   padding: 18px;
   border-radius: 15px;
-  max-width: 500px;
+  max-width: 100%;
 }
 .container .right .cards .cards1 .card2 #heading {
   display: flex;
@@ -202,9 +202,9 @@
   padding: 0.3rem;
 }
 .container .right .cards .cards1 .card2 #heading img {
-  padding: 0.3rem 0.2rem;
-  background-color: #f7f6f4;
-  width: 50px;
+  padding: 0.3rem;
+  background-color: #fff2ec;
+  width: 40px;
   height: 40px;
   border-radius: 15px;
 }
@@ -288,7 +288,7 @@
   margin: 13px 0;
   padding: 18px;
   border-radius: 15px;
-  max-width: 500px;
+  max-width: 100%;
 }
 .container .right .cards .cards2 .card3 .heading {
   display: flex;
@@ -359,13 +359,103 @@
   margin: 13px 0;
   padding: 18px;
   border-radius: 15px;
-  max-width: 500px;
+  max-width: 100%;
+}
+.container .right .cards .cards2 .card4 .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px 18px 0;
+}
+.container .right .cards .cards2 .card4 .heading .fa-play::before {
+  color: gray;
+  border: 1px solid gray;
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+}
+.container .right .cards .cards2 .card4 .firstRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  background-color: #fff2ec;
+}
+.container .right .cards .cards2 .card4 .firstRow .task-watch {
+  display: flex;
+  align-items: center;
+}
+.container .right .cards .cards2 .card4 .firstRow .task-watch i {
+  font-size: 18px;
+  color: #fd7b38;
+}
+.container .right .cards .cards2 .card4 .firstRow .task-watch h5 {
+  font-size: 14px;
+  padding: 0 18px;
+}
+.container .right .cards .cards2 .card4 .firstRow .time-icons {
+  display: flex;
+  align-items: center;
+}
+.container .right .cards .cards2 .card4 .firstRow .time-icons .fa-pause::before {
+  color: white;
+  border: 1px solid gray;
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+  background-color: #fd7b38;
+  border: none;
+  margin: 0 18px;
+}
+.container .right .cards .cards2 .card4 .firstRow .time-icons .fa-ellipsis-vertical {
+  color: gray;
+  font-size: 18px;
+}
+.container .right .cards .cards2 .card4 .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.container .right .cards .cards2 .card4 .row .task-watch {
+  display: flex;
+  align-items: center;
+}
+.container .right .cards .cards2 .card4 .row .task-watch i {
+  font-size: 18px;
+  color: gray;
+}
+.container .right .cards .cards2 .card4 .row .task-watch h5 {
+  font-size: 14px;
+  padding: 0 18px;
+}
+.container .right .cards .cards2 .card4 .row .time-icons {
+  display: flex;
+  align-items: center;
+}
+.container .right .cards .cards2 .card4 .row .time-icons .fa-pause::before {
+  color: gray;
+  border: 1px solid gray;
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+  margin: 0 18px;
+}
+.container .right .cards .cards2 .card4 .row .time-icons .fa-ellipsis-vertical {
+  color: gray;
+  font-size: 18px;
+}
+
+.container .right .cards .cards3 .card6 {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  margin: 13px 0;
+  padding: 18px;
+  border-radius: 15px;
+  max-width: 100%;
 }
 
 .container .right .searchBarDiv {
   background-color: white;
   height: 50px;
-  width: 96%;
+  width: 99%;
   margin-bottom: 13px;
   border-radius: 15px;
   display: flex;
@@ -416,53 +506,63 @@ body {
 }
 .container .right .cards {
   display: flex;
+  justify-content: space-between;
 }
 .container .right .cards .cards1 {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 500px;
   margin-right: 13px;
 }
 .container .right .cards .cards2 {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 500px;
   margin-right: 13px;
 }
-.container .right .cards .cards2 .card4 .heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 18px 18px 0;
-}
-.container .right .cards .cards2 .card4 .heading .fa-play::before,
-.container .right .cards .cards2 .card4 .heading .fa-pause::before {
-  color: gray;
-  border: 1px solid gray;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-.container .right .cards .cards2 .card4 .firstRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 0;
-  background-color: #fff2ec;
-}
-.container .right .cards .cards2 .card4 .firstRow div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.container .right .cards .cards2 .card4 .firstRow div i {
-  padding: 0 18px;
-}
-.container .right .cards .cards3 .cards2 {
+.container .right .cards .cards3 .card5 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 500px;
-  margin-right: 13px;
+  max-width: 100%;
+  margin: 13px 0;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  border-radius: 15px;
+  padding: 0.45rem 2rem;
+  background-color: white;
+}
+.container .right .cards .cards3 .card5 img {
+  width: 350px;
+}
+.container .right .cards .cards3 .card6 .personRow {
+  display: flex;
+  align-items: center;
+  margin: 18px 0;
+}
+.container .right .cards .cards3 .card6 .personRow .person1 {
+  border: 2px solid #c26f2d;
+}
+.container .right .cards .cards3 .card6 .personRow .person2 {
+  border: 2px solid #1a6998;
+}
+.container .right .cards .cards3 .card6 .personRow .person3 {
+  border: 2px solid #004954;
+}
+.container .right .cards .cards3 .card6 .personRow .person4 {
+  border: 2px solid #212d2b;
+}
+.container .right .cards .cards3 .card6 .personRow img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  padding: 0.2rem;
+}
+.container .right .cards .cards3 .card6 .personRow .text {
+  padding-left: 18px;
+}
+.container .right .cards .cards3 .card6 .personRow .text h4 {
+  font-size: 18px;
+}
+.container .right .cards .cards3 .card6 .personRow .text p {
+  color: gray;
 }
