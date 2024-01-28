@@ -31,108 +31,11 @@ body {
       flex-direction: column;
       flex-wrap: wrap;
       justify-content: space-around;
-
       .card1 {
-        background-color: white;
-        margin: variables.$margin 0;
-        padding: variables.$padding;
-        border-radius: variables.$cardRadius;
-        max-width: 400px;
-        #heading {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          .heading {
-            display: flex;
-            align-items: center;
-            .headingText {
-              padding-left: variables.$padding;
-              p {
-                font-size: 14px;
-                color: gray;
-                font-weight: 600;
-                margin-top: -0.25rem;
-              }
-            }
-            i {
-              height: 40px;
-              width: 40px;
-            }
-          }
-          img {
-            padding: 0.3rem 0.2rem;
-            background-color: variables.$frontBg;
-            width: 50px;
-            height: 40px;
-            border-radius: variables.$cardRadius;
-          }
-        }
-        .buttons {
-          display: flex;
-          justify-content: space-between;
-          margin: 2rem 0;
-          .filled {
-            @include button.filled-button;
-            color: gray;
-          }
-          .regularBtn {
-            @include button.active-button;
-            border-color: variables.$accentOrange;
-            color: variables.$accentOrange;
-          }
-        }
-        h4 {
-          color: gray;
-          font-size: variables.$sectionTitle;
-          span {
-            color: black;
-          }
-        }
-        .buttons2{
-          margin: 2rem 0;
-
-          .filled {
-            @include button.filled-button;
-            padding: 0.5rem 1rem;
-            margin-right: 0.5rem;
-          }
-          .ios{
-            background-color: variables.$btnGreen;
-            color: variables.$checkGreen;
-          }
-          .ux{
-            background-color: variables.$btnBlue;
-            color: variables.$blue;
-          }
-
-        }
-
-        // .card1-1 {
-        //   width: 200px;
-        //   height: 250px;
-        //   i
-        //   p {
-        //     color: red;
-        //   }
-        //   .heading {
-        //     display: flex;
-        //     flex-direction: row;
-        //   }
-        // }
-        // .card1-2 {
-        //   background-color: white;
-        //   width: 200px;
-        //   height: auto;
-        //   img {
-        //     width: 50px;
-        //     height: 40px;
-        //     border-radius: 50%;
-        //   }
-        //   .heading {
-        //     display: flex;
-        //     flex-direction: row;
-        //   }
-        // }
+        @extend %square-card1;
+      }
+      .card2{
+        @extend %square-card2;
       }
     }
   }

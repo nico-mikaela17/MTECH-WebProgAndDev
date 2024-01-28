@@ -1,4 +1,5 @@
 @use "variables";
+@use "button";
 
 %long-card {
   background-color: white;
@@ -44,7 +45,7 @@
   }
 }
 
-%search-bar{
+%search-bar {
   background-color: white;
   height: 50px;
   width: 96%;
@@ -76,16 +77,189 @@
   }
 }
 //might need to be a mixin
-%square-card {
-  width: 300px;
-  height: auto;
-  .title {
+%square-card1 {
+  background-color: white;
+  margin: variables.$margin 0;
+  padding: variables.$padding;
+  border-radius: variables.$cardRadius;
+  max-width: 400px;
+  #heading {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .heading {
+      display: flex;
+      align-items: center;
+      .headingText {
+        padding-left: variables.$padding;
+        p {
+          font-size: 14px;
+          color: gray;
+          font-weight: 600;
+          margin-top: -0.25rem;
+        }
+      }
+    }
+    i {
+      height: 40px;
+      width: 40px;
+      font-size: 20px;
+      text-align: center;
+    }
+    .fa-star::before {
+      color: variables.$star;
+      border: 1px lightgray solid;
+      border-radius: 50%;
+      margin: 0 auto;
+      padding: 0.3rem;
+    }
+    img {
+      padding: 0.3rem 0.2rem;
+      background-color: variables.$frontBg;
+      width: 50px;
+      height: 40px;
+      border-radius: variables.$cardRadius;
+    }
   }
   .buttons {
     display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    align-items: center;
+    .filled {
+      @include button.filled-button;
+      color: gray;
+    }
+    .regularBtn {
+      @include button.active-button;
+      border-color: variables.$accentOrange;
+      color: variables.$accentOrange;
+    }
   }
-  .row {
+  h4 {
+    color: gray;
+    font-size: variables.$sectionTitle;
+    span {
+      color: black;
+    }
+  }
+  progress {
+    width: 100%;
+  }
+  .buttons2 {
+    margin: 1rem 0;
+
+    .filled {
+      @include button.filled-button;
+      padding: 0.5rem 1rem;
+      margin-right: 0.5rem;
+    }
+    .ios {
+      background-color: variables.$btnGreen;
+      color: variables.$checkGreen;
+    }
+    .ux {
+      background-color: variables.$btnBlue;
+      color: variables.$blue;
+    }
+  }
+  .dueDate {
+    @include button.filled-button;
+    background-color: variables.$highlight;
+    color: variables.$primaryOrange;
+  }
+}
+
+%square-card2 {
+  background-color: white;
+  margin: variables.$margin 0;
+  padding: variables.$padding;
+  border-radius: variables.$cardRadius;
+  max-width: 400px;
+  #heading {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .heading {
+      display: flex;
+      align-items: center;
+      .headingText {
+        padding-left: variables.$padding;
+        p {
+          font-size: 14px;
+          color: gray;
+          font-weight: 600;
+          margin-top: -0.25rem;
+        }
+      }
+    }
+    i {
+      height: 40px;
+      width: 40px;
+      font-size: 20px;
+      text-align: center;
+    }
+    .fa-star::before {
+      color: variables.$star;
+      border: 1px lightgray solid;
+      border-radius: 50%;
+      margin: 0 auto;
+      padding: 0.3rem;
+    }
+    img {
+      padding: 0.3rem 0.2rem;
+      background-color: variables.$frontBg;
+      width: 50px;
+      height: 40px;
+      border-radius: variables.$cardRadius;
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    align-items: center;
+    .filled {
+      @include button.filled-button;
+      color: variables.$checkGreen;
+      background-color: variables.$btnGreen;
+    }
+    .regularBtn {
+      @include button.active-button;
+      border-color: variables.$checkGreen;
+      color: variables.$checkGreen;
+    }
+  }
+  h4 {
+    color: gray;
+    font-size: variables.$sectionTitle;
+    span {
+      color: black;
+    }
+  }
+  progress {
+    width: 100%;
+  }
+  .buttons2 {
+    margin: 1rem 0;
+
+    .filled {
+      @include button.filled-button;
+      padding: 0.5rem 1rem;
+      margin-right: 0.5rem;
+    }
+    .ios {
+      background-color: variables.$btnGreen;
+      color: variables.$checkGreen;
+    }
+    .ux {
+      background-color: variables.$btnYellow;
+      color: variables.$star;
+    }
+  }
+  .dueDate {
+    @include button.filled-button;
+    background-color: variables.$highlight;
+    color: variables.$primaryOrange;
   }
 }

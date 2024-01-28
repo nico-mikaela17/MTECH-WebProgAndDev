@@ -74,32 +74,6 @@
   padding: 18px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Almarai", sans-serif;
-}
-
-body {
-  background-color: #dcd7cd;
-}
-
-.container {
-  background-color: #f7f6f4;
-  display: flex;
-  margin: 13px;
-  border-radius: 15px;
-}
-.container .right {
-  width: 100vw;
-  margin: 13px;
-}
-.container .right .cards {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
 .container .right .cards .card1 {
   background-color: white;
   margin: 13px 0;
@@ -125,9 +99,18 @@ body {
   font-weight: 600;
   margin-top: -0.25rem;
 }
-.container .right .cards .card1 #heading .heading i {
+.container .right .cards .card1 #heading i {
   height: 40px;
   width: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+.container .right .cards .card1 #heading .fa-star::before {
+  color: #ffa600;
+  border: 1px lightgray solid;
+  border-radius: 50%;
+  margin: 0 auto;
+  padding: 0.3rem;
 }
 .container .right .cards .card1 #heading img {
   padding: 0.3rem 0.2rem;
@@ -139,21 +122,29 @@ body {
 .container .right .cards .card1 .buttons {
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0;
+  margin: 1rem 0;
+  align-items: center;
 }
 .container .right .cards .card1 .buttons .filled {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   font-weight: 600;
+  margin: 13px 0;
+  font-size: 14px;
+  text-align: center;
   color: gray;
 }
 .container .right .cards .card1 .buttons .regularBtn {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border: 2px solid;
   border-radius: 4px;
   background: none;
   font-weight: 600;
+  font-size: 14px;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
   border-color: #fd7b38;
   color: #fd7b38;
 }
@@ -164,14 +155,20 @@ body {
 .container .right .cards .card1 h4 span {
   color: black;
 }
+.container .right .cards .card1 progress {
+  width: 100%;
+}
 .container .right .cards .card1 .buttons2 {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 .container .right .cards .card1 .buttons2 .filled {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   font-weight: 600;
+  margin: 13px 0;
+  font-size: 14px;
+  text-align: center;
   padding: 0.5rem 1rem;
   margin-right: 0.5rem;
 }
@@ -182,4 +179,161 @@ body {
 .container .right .cards .card1 .buttons2 .ux {
   background-color: #E6F2FF;
   color: #545DAD;
+}
+.container .right .cards .card1 .dueDate {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: 13px 0;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fff2ec;
+  color: #e79800;
+}
+
+.container .right .cards .card2 {
+  background-color: white;
+  margin: 13px 0;
+  padding: 18px;
+  border-radius: 15px;
+  max-width: 400px;
+}
+.container .right .cards .card2 #heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .right .cards .card2 #heading .heading {
+  display: flex;
+  align-items: center;
+}
+.container .right .cards .card2 #heading .heading .headingText {
+  padding-left: 18px;
+}
+.container .right .cards .card2 #heading .heading .headingText p {
+  font-size: 14px;
+  color: gray;
+  font-weight: 600;
+  margin-top: -0.25rem;
+}
+.container .right .cards .card2 #heading i {
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+.container .right .cards .card2 #heading .fa-star::before {
+  color: #ffa600;
+  border: 1px lightgray solid;
+  border-radius: 50%;
+  margin: 0 auto;
+  padding: 0.3rem;
+}
+.container .right .cards .card2 #heading img {
+  padding: 0.3rem 0.2rem;
+  background-color: #f7f6f4;
+  width: 50px;
+  height: 40px;
+  border-radius: 15px;
+}
+.container .right .cards .card2 .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  align-items: center;
+}
+.container .right .cards .card2 .buttons .filled {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: 13px 0;
+  font-size: 14px;
+  text-align: center;
+  color: #63b25b;
+  background-color: #e5f3e3;
+}
+.container .right .cards .card2 .buttons .regularBtn {
+  padding: 0.5rem 1rem;
+  border: 2px solid;
+  border-radius: 4px;
+  background: none;
+  font-weight: 600;
+  font-size: 14px;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  border-color: #63b25b;
+  color: #63b25b;
+}
+.container .right .cards .card2 h4 {
+  color: gray;
+  font-size: 18px;
+}
+.container .right .cards .card2 h4 span {
+  color: black;
+}
+.container .right .cards .card2 progress {
+  width: 100%;
+}
+.container .right .cards .card2 .buttons2 {
+  margin: 1rem 0;
+}
+.container .right .cards .card2 .buttons2 .filled {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: 13px 0;
+  font-size: 14px;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+}
+.container .right .cards .card2 .buttons2 .ios {
+  background-color: #e5f3e3;
+  color: #63b25b;
+}
+.container .right .cards .card2 .buttons2 .ux {
+  background-color: #FFF7E6;
+  color: #ffa600;
+}
+.container .right .cards .card2 .dueDate {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: 13px 0;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fff2ec;
+  color: #e79800;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Almarai", sans-serif;
+}
+
+body {
+  background-color: #dcd7cd;
+}
+
+.container {
+  background-color: #f7f6f4;
+  display: flex;
+  margin: 13px;
+  border-radius: 15px;
+}
+.container .right {
+  width: 100vw;
+  margin: 13px;
+}
+.container .right .cards {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
