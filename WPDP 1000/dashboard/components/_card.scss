@@ -1,8 +1,9 @@
-@use "variables";
+@use "../variables";
 @use "button";
 
 %long-card {
   background-color: white;
+  box-shadow: variables.$shadowCard;
   height: 1010px;
   width: 250px;
   display: flex;
@@ -48,10 +49,11 @@
 //might need to be a mixin
 %square-card1 {
   background-color: white;
+  box-shadow: variables.$shadowCard;
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 400px;
+  max-width: 500px;
   #heading {
     display: flex;
     justify-content: space-between;
@@ -141,10 +143,11 @@
 
 %square-card2 {
   background-color: white;
+  box-shadow: variables.$shadowCard;
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 400px;
+  max-width: 500px;
   #heading {
     display: flex;
     justify-content: space-between;
@@ -235,8 +238,81 @@
 
 %square-card3 {
   background-color: white;
+  box-shadow: variables.$shadowCard;
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 400px;
+  max-width: 500px;
+  .heading {
+    display: flex;
+    align-items: center;
+    h2 {
+      padding-right: variables.$padding;
+    }
+    p {
+      color: gray;
+    }
+  }
+  .row {
+    display: flex;
+    padding: variables.$padding 0;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    width: 100%;
+    justify-content: space-between;
+    .number-name {
+      display: flex;
+
+      .number {
+        padding-right: variables.$padding;
+        font-size: variables.$body;
+        color: gray;
+        align-self: center;
+      }
+      .taskName {
+        display: flex;
+        justify-self: flex-start;
+        text-align: start;
+        font-size: variables.$body;
+        color: gray;
+        align-self: center;
+        font-size: 16px;
+      }
+    }
+    .comment-branch {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      p {
+        color: gray;
+      }
+      .fa-comment,
+      .fa-code-branch {
+        padding: 0 0.5rem;
+        color: gray;
+      }
+      .branch {
+        display: flex;
+        padding-left: variables.$padding;
+      }
+    }
+    .fa-circle-check {
+      display: flex;
+      justify-self: flex-end;
+      align-self: center;
+      color: gray;
+      font-size: 20px;
+    }
+    .fill {
+      color: variables.$checkGreen;
+    }
+  }
+}
+
+%square-card4{
+  background-color: white;
+  box-shadow: variables.$shadowCard;
+  margin: variables.$margin 0;
+  padding: variables.$padding;
+  border-radius: variables.$cardRadius;
+  max-width: 500px;
 }

@@ -1,5 +1,6 @@
 .container .left {
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   height: 1010px;
   width: 250px;
   display: flex;
@@ -44,10 +45,11 @@
 
 .container .right .cards .cards1 .card1 {
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   margin: 13px 0;
   padding: 18px;
   border-radius: 15px;
-  max-width: 400px;
+  max-width: 500px;
 }
 .container .right .cards .cards1 .card1 #heading {
   display: flex;
@@ -162,10 +164,11 @@
 
 .container .right .cards .cards1 .card2 {
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   margin: 13px 0;
   padding: 18px;
   border-radius: 15px;
-  max-width: 400px;
+  max-width: 500px;
 }
 .container .right .cards .cards1 .card2 #heading {
   display: flex;
@@ -281,10 +284,82 @@
 
 .container .right .cards .cards2 .card3 {
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   margin: 13px 0;
   padding: 18px;
   border-radius: 15px;
-  max-width: 400px;
+  max-width: 500px;
+}
+.container .right .cards .cards2 .card3 .heading {
+  display: flex;
+  align-items: center;
+}
+.container .right .cards .cards2 .card3 .heading h2 {
+  padding-right: 18px;
+}
+.container .right .cards .cards2 .card3 .heading p {
+  color: gray;
+}
+.container .right .cards .cards2 .card3 .row {
+  display: flex;
+  padding: 18px 0;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  width: 100%;
+  justify-content: space-between;
+}
+.container .right .cards .cards2 .card3 .row .number-name {
+  display: flex;
+}
+.container .right .cards .cards2 .card3 .row .number-name .number {
+  padding-right: 18px;
+  font-size: 14px;
+  color: gray;
+  align-self: center;
+}
+.container .right .cards .cards2 .card3 .row .number-name .taskName {
+  display: flex;
+  justify-self: flex-start;
+  text-align: start;
+  font-size: 14px;
+  color: gray;
+  align-self: center;
+  font-size: 16px;
+}
+.container .right .cards .cards2 .card3 .row .comment-branch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .right .cards .cards2 .card3 .row .comment-branch p {
+  color: gray;
+}
+.container .right .cards .cards2 .card3 .row .comment-branch .fa-comment,
+.container .right .cards .cards2 .card3 .row .comment-branch .fa-code-branch {
+  padding: 0 0.5rem;
+  color: gray;
+}
+.container .right .cards .cards2 .card3 .row .comment-branch .branch {
+  display: flex;
+  padding-left: 18px;
+}
+.container .right .cards .cards2 .card3 .row .fa-circle-check {
+  display: flex;
+  justify-self: flex-end;
+  align-self: center;
+  color: gray;
+  font-size: 20px;
+}
+.container .right .cards .cards2 .card3 .row .fill {
+  color: #63b25b;
+}
+
+.container .right .cards .cards2 .card4 {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  margin: 13px 0;
+  padding: 18px;
+  border-radius: 15px;
+  max-width: 500px;
 }
 
 .container .right .searchBarDiv {
@@ -345,27 +420,49 @@ body {
 .container .right .cards .cards1 {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  max-width: 400px;
+  justify-content: space-between;
+  width: 500px;
   margin-right: 13px;
 }
 .container .right .cards .cards2 {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  max-width: 400px;
+  justify-content: space-between;
+  width: 500px;
   margin-right: 13px;
 }
-.container .right .cards .cards2 .card3 .heading {
+.container .right .cards .cards2 .card4 .heading {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px 18px 0;
 }
-.container .right .cards .cards2 .card3 .heading h2 {
-  padding-right: 18px;
-}
-.container .right .cards .cards2 .card3 .heading p {
+.container .right .cards .cards2 .card4 .heading .fa-play::before,
+.container .right .cards .cards2 .card4 .heading .fa-pause::before {
   color: gray;
+  border: 1px solid gray;
+  padding: 0.5rem;
+  border-radius: 4px;
 }
-.container .right .cards .cards2 .card3 .row {
+.container .right .cards .cards2 .card4 .firstRow {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  background-color: #fff2ec;
+}
+.container .right .cards .cards2 .card4 .firstRow div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .right .cards .cards2 .card4 .firstRow div i {
+  padding: 0 18px;
+}
+.container .right .cards .cards3 .cards2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+  margin-right: 13px;
 }

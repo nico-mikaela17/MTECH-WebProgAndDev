@@ -1,7 +1,7 @@
-@use "variables";
-@use "card";
-@use "button";
-@use "searchBar";
+@use "./variables";
+@use "./components/card";
+@use "./components/button";
+@use "./components/searchBar";
 
 * {
   margin: 0;
@@ -32,8 +32,8 @@ body {
       .cards1 {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        max-width: 400px;
+        justify-content: space-between;
+        width: 500px;
         margin-right: variables.$margin;
         .card1 {
           @extend %square-card1;
@@ -45,25 +45,53 @@ body {
       .cards2 {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        max-width: 400px;
+        justify-content: space-between;
+        width: 500px;
         margin-right: variables.$margin;
         .card3 {
           @extend %square-card3;
+        }
+        .card4 {
+          @extend %square-card4;
+
           .heading {
             display: flex;
             align-items: center;
-            h2 {
-              padding-right: variables.$padding;
-            }
-            p {
+            justify-content: space-between;
+            padding: variables.$padding variables.$padding variables.$padding 0;
+
+            .fa-play::before,
+            .fa-pause::before {
               color: gray;
+              border: 1px solid gray;
+              padding: 0.5rem;
+              border-radius: variables.$buttonRadius;
             }
           }
-          .row {
+          .firstRow {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: variables.$padding 0;
+            background-color: variables.$highlight;
+            div {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              i {
+                padding: 0 variables.$padding;
+              }
+            }
           }
         }
+      }
+      .cards3{
+        .cards2 {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 500px;
+          margin-right: variables.$margin;}
       }
     }
   }
