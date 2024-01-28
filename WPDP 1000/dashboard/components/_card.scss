@@ -3,8 +3,8 @@
 
 %long-card {
   background-color: white;
-  height: 90vh;
-  width: 150px;
+  height: 1010px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -34,8 +34,8 @@
   .active {
     background-color: variables.$highlight;
     margin: 0;
-    padding: 0 variables.$margin;
-    width: 124px;
+    padding-left: variables.$margin;
+    width: 100%;
     i {
       color: variables.$accentOrange;
     }
@@ -45,37 +45,6 @@
   }
 }
 
-%search-bar {
-  background-color: white;
-  height: 50px;
-  width: 96%;
-  margin-bottom: variables.$margin;
-  border-radius: variables.$cardRadius;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: variables.$padding 0.5rem;
-  input {
-    border: none;
-    background-color: rgb(243, 243, 243);
-    padding: 0.5rem;
-    margin: variables.$margin;
-    border-radius: 20px;
-    width: 25%;
-  }
-  .leftAreaSearch {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: gray;
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      padding: variables.$padding;
-    }
-  }
-}
 //might need to be a mixin
 %square-card1 {
   background-color: white;
@@ -262,4 +231,12 @@
     background-color: variables.$highlight;
     color: variables.$primaryOrange;
   }
+}
+
+%square-card3 {
+  background-color: white;
+  margin: variables.$margin 0;
+  padding: variables.$padding;
+  border-radius: variables.$cardRadius;
+  max-width: 400px;
 }

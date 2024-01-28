@@ -1,6 +1,7 @@
 @use "variables";
 @use "card";
 @use "button";
+@use "searchBar";
 
 * {
   margin: 0;
@@ -28,14 +29,41 @@ body {
     }
     .cards {
       display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      .card1 {
-        @extend %square-card1;
+      .cards1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 400px;
+        margin-right: variables.$margin;
+        .card1 {
+          @extend %square-card1;
+        }
+        .card2 {
+          @extend %square-card2;
+        }
       }
-      .card2{
-        @extend %square-card2;
+      .cards2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 400px;
+        margin-right: variables.$margin;
+        .card3 {
+          @extend %square-card3;
+          .heading {
+            display: flex;
+            align-items: center;
+            h2 {
+              padding-right: variables.$padding;
+            }
+            p {
+              color: gray;
+            }
+          }
+          .row {
+            display: flex;
+          }
+        }
       }
     }
   }

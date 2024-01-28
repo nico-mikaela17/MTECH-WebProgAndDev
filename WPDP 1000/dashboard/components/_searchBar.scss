@@ -1,0 +1,34 @@
+@use "variables";
+@use "button";
+
+%search-bar {
+  background-color: white;
+  height: 50px;
+  width: 96%;
+  margin-bottom: variables.$margin;
+  border-radius: variables.$cardRadius;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: variables.$padding 0.5rem;
+  input {
+    border: none;
+    background-color: rgb(243, 243, 243);
+    padding: 0.5rem;
+    margin: variables.$margin;
+    border-radius: 20px;
+    width: 25%;
+  }
+  .leftAreaSearch {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: gray;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      padding: variables.$padding;
+    }
+  }
+}

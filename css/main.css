@@ -42,6 +42,38 @@
   color: #fd7b38;
 }
 
+.container .right .searchBarDiv {
+  background-color: white;
+  height: 50px;
+  width: 96%;
+  margin-bottom: 13px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0.5rem;
+}
+.container .right .searchBarDiv input {
+  border: none;
+  background-color: rgb(243, 243, 243);
+  padding: 0.5rem;
+  margin: 13px;
+  border-radius: 20px;
+  width: 25%;
+}
+.container .right .searchBarDiv .leftAreaSearch {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: gray;
+}
+.container .right .searchBarDiv .leftAreaSearch img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 18px;
+}
+
 .container .right .cards .cards1 .card1 {
   background-color: white;
   margin: 13px 0;
@@ -287,38 +319,6 @@
   max-width: 400px;
 }
 
-.container .right .searchBarDiv {
-  background-color: white;
-  height: 50px;
-  width: 96%;
-  margin-bottom: 13px;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 0.5rem;
-}
-.container .right .searchBarDiv input {
-  border: none;
-  background-color: rgb(243, 243, 243);
-  padding: 0.5rem;
-  margin: 13px;
-  border-radius: 20px;
-  width: 25%;
-}
-.container .right .searchBarDiv .leftAreaSearch {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  color: gray;
-}
-.container .right .searchBarDiv .leftAreaSearch img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  padding: 18px;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -347,25 +347,10 @@ body {
   flex-direction: column;
   justify-content: space-around;
   max-width: 400px;
-  margin-right: 13px;
 }
 .container .right .cards .cards2 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  max-width: 400px;
-  margin-right: 13px;
-}
-.container .right .cards .cards2 .card3 .heading {
-  display: flex;
-  align-items: center;
-}
-.container .right .cards .cards2 .card3 .heading h2 {
-  padding-right: 18px;
-}
-.container .right .cards .cards2 .card3 .heading p {
-  color: gray;
-}
-.container .right .cards .cards2 .card3 .row {
-  display: flex;
+  max-height: 1100px;
 }
