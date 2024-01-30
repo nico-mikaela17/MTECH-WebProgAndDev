@@ -4,8 +4,8 @@
 %search-bar {
   background-color: white;
   height: 50px;
-  width: 99%;
-  margin-bottom: variables.$margin;
+  width: 98%;
+  margin: 0 variables.$margin variables.$margin 0;
   border-radius: variables.$cardRadius;
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@
   input {
     border: none;
     background-color: rgb(243, 243, 243);
-    padding: 0.5rem;
+    padding: 1rem;
     margin: variables.$margin;
     border-radius: 20px;
     width: 25%;

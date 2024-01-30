@@ -5,7 +5,7 @@
   background-color: white;
   box-shadow: variables.$shadowCard;
   height: 1010px;
-  width: 250px;
+  width: 13%;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -35,9 +35,10 @@
   .active {
     background-color: variables.$highlight;
     margin: 0;
-    padding-left: variables.$margin;
     width: 100%;
     i {
+      padding-left: variables.$margin;
+
       color: variables.$accentOrange;
     }
     h6 {
@@ -52,7 +53,6 @@
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 100%;
   #heading {
     display: flex;
     justify-content: space-between;
@@ -146,7 +146,6 @@
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 100%;
   #heading {
     display: flex;
     justify-content: space-between;
@@ -241,7 +240,6 @@
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 100%;
   .heading {
     display: flex;
     align-items: center;
@@ -313,7 +311,6 @@
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  max-width: 100%;
   .heading {
     display: flex;
     align-items: center;
@@ -325,6 +322,7 @@
       border: 1px solid gray;
       padding: 0.5rem 0.7rem;
       border-radius: variables.$buttonRadius;
+      margin: 0 0.2rem;
     }
   }
   .firstRow {
@@ -351,11 +349,10 @@
       align-items: center;
       .fa-pause::before {
         color: white;
-        border: 1px solid gray;
-        padding: 0.5rem 0.7rem;
-        border-radius: variables.$buttonRadius;
         background-color: variables.$accentOrange;
         border: none;
+        padding: 0.6rem 0.8rem;
+        border-radius: variables.$buttonRadius;
         margin: 0 variables.$padding;
       }
       .fa-ellipsis-vertical {
@@ -406,7 +403,7 @@
   margin: variables.$margin 0;
   padding: variables.$padding;
   border-radius: variables.$cardRadius;
-  width: 500px;
+  width: 93%;
   .personRow {
     display: flex;
     align-items: center;
@@ -425,8 +422,8 @@
     }
 
     img {
-      height: 80px;
-      width: 80px;
+      width: 75px;
+      width: 75px;
       border-radius: 50%;
       padding: 0.2rem;
     }
