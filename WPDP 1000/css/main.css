@@ -33,7 +33,7 @@
 .container .left .active {
   background-color: #fff2ec;
   margin: 0;
-  width: 100%;
+  width: 101%;
 }
 .container .left .active i {
   padding-left: 13px;
