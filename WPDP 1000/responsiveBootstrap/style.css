@@ -1,0 +1,42 @@
+* {
+  font-family: "Arimo";
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: center / contain no-repeat
+      url("./fotis-fotopoulos-LJ9KY8pIH3E-unsplash.jpg"),
+    #000;
+  background-size: 200vh;
+}
+
+.curlyBraces {
+  color: #8b37ff;
+}
+
+button {
+  background-color: #8b37ff;
+}
+
+.overlay {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  opacity: 0.7;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.navbar {
+  background-color: red;
+}
+
+h1 {
+  font-size: 40px;
+}
+
