@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/*.{html,js}", "./index.html"],
+  content: ["./src/*.{html,js}", "./netflixReplica/index.html"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'backgroundImageNetflix': "url('./netflixReplica/images/background.png')",
+      },
+    },
   },
   plugins: [],
 };
