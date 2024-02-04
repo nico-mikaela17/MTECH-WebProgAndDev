@@ -16,36 +16,40 @@
       background-size: cover;
     "
   >
-    <div class="flex">
+    <div class="flex items-center">
       <div
-        class="smallPanel text-white flex flex-col align-middle justify-center before:size-4 before:p-2"
+        class="smallPanel text-white flex flex-col items-center justify-center backdrop-blur-lg bg-black/30 my-12 mx-6 rounded-full py-3 shadow-inner shadow-neutral-400 h-full self-center border border-neutral-500"
       >
-        <i class="fa-regular fa-circle-play"></i>
-        <i class="fa-solid fa-border-all"></i>
-        <i class="fa-solid fa-tv"></i>
-        <img src="./images/icons8-airdrop-30.png" />
-        <i class="fa-solid fa-house"></i>
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i
+          class="fa-regular fa-circle-play before:rounded-full before:bg-red-600 before:p-4 before:text-xl m-3"
+        ></i>
+        <i class="fa-solid fa-border-all before:p-3 before:text-2xl m-3"></i>
+        <i class="fa-solid fa-tv before:p-3 before:text-xl m-3"></i>
+        <img src="./images/icons8-airdrop-30.png" class="p-3 m-1" />
+        <i class="fa-solid fa-house before:p-3 before:text-xl m-3"></i>
+        <i
+          class="fa-solid fa-magnifying-glass before:p-3 before:text-xl m-3"
+        ></i>
       </div>
       <div
-        class="mainDashboard backdrop-blur-sm bg-gray-700/50 m-12 w-screen rounded-lg border-2 border-gray-400 flex"
+        class="mainDashboard backdrop-blur-lg bg-black/30 my-5 mr-6 w-screen rounded-3xl flex shadow-inner shadow-neutral-400 border border-neutral-500"
       >
         <div class="left">
           <img
-            src="./images/netflixLogo.png"
+            src="./images/netflix_official_logo_icon_168085.svg"
             alt="Netflix logo"
-            class="p-3 size-40"
+            class="w-48 h-20 m-6"
           />
-          <div class="icons ml-5 ">
+          <div class="icons ml-5">
             <div class="flex flex-row place-items-center pb-5">
               <i class="text-red-600 fa-solid fa-circle-play font-semibold"></i>
-              <p class="text-white px-2 font-semibold">Browse</p>
+              <p class="text-neutral-200 px-2 font-semibold">Browse</p>
             </div>
-            <div class="flex flex-row place-items-center text-white pb-5">
+            <div class="flex flex-row place-items-center text-neutral-200 pb-5">
               <i class="fa-regular fa-heart"></i>
               <p class="px-2">Wishlist</p>
             </div>
-            <div class="flex flex-row place-items-center text-white pb-5">
+            <div class="flex flex-row place-items-center text-neutral-200 pb-5">
               <i class="fa-regular fa-calendar"></i>
               <p class="px-2">Coming Soon</p>
             </div>
@@ -53,7 +57,7 @@
           <div class="trailers my-5 mx-3">
             <h3 class="m-2 font-semibold text-white pb-5">New Trailers 🔥</h3>
             <div
-              class="w-60 h-36 rounded-lg relative m-2"
+              class="w-60 h-36 rounded-2xl relative m-2"
               style="
                 background: url(./images/shadowAndBone.jpg) no-repeat center;
                 background-size: 250%;
@@ -61,7 +65,7 @@
               "
             >
               <div
-                class="flex items-baseline justify-between bg-gray-500/50 backdrop-blur-sm absolute bottom-0 w-60 rounded-b-lg"
+                class="flex items-baseline justify-between bg-gray-500/50 backdrop-blur-sm absolute bottom-0 w-60 rounded-b-2xl"
               >
                 <p class="text-white p-2 rounded-b-lg">Shadow and Bone</p>
                 <i
@@ -70,15 +74,15 @@
               </div>
             </div>
             <div
-              class="w-60 h-36 rounded-lg relative m-2"
+              class="w-60 h-36 rounded-2xl relative m-2"
               style="
                 background: url(./images/The-Night-Agent-4.jpg) no-repeat center;
                 background-size: 110%;
-                background-position: 50% ;
+                background-position: 50%;
               "
             >
               <div
-                class="flex items-baseline justify-between bg-gray-500/50 backdrop-blur-sm absolute bottom-0 w-60 rounded-b-lg"
+                class="flex items-baseline justify-between bg-gray-500/50 backdrop-blur-sm absolute bottom-0 w-60 rounded-b-2xl"
               >
                 <p class="text-white p-2 rounded-b-lg">Shadow and Bone</p>
                 <i
@@ -87,7 +91,7 @@
               </div>
             </div>
             <div
-              class="w-60 h-36 rounded-lg relative m-2"
+              class="w-60 h-36 rounded-2xl relative m-2"
               style="
                 background: url(./images/the-witcher.png) no-repeat center;
                 background-size: 100%;
@@ -95,7 +99,7 @@
               "
             >
               <div
-                class="flex items-baseline justify-between bg-gray-500/50 backdrop-blur-sm absolute bottom-0 w-60 rounded-b-lg"
+                class="flex items-baseline justify-between bg-gray-500/50 backdrop-blur-sm absolute bottom-0 w-60 rounded-b-2xl"
               >
                 <p class="text-white p-2 rounded-b-lg">Shadow and Bone</p>
                 <i
@@ -105,48 +109,313 @@
             </div>
           </div>
         </div>
-        <div class="right border-l-2 border-slate-300">
-          <div class="header">
-            <input type="search" />
+        <div class="right border-l border-neutral-500 w-full">
+          <div class="header flex items-center justify-between">
+            <div class="flex">
+              <div class="arrows p-5">
+                <i class="fa-solid fa-chevron-left text-neutral-400"></i>
+                <i class="fa-solid fa-chevron-right text-neutral-300"></i>
+              </div>
+              <input
+                type="search"
+                placeholder="Search..."
+                class="bg-neutral-600/50 rounded-full w-80 h-10 placeholder:text-neutral-300 my-3 placeholder:pl-6"
+              />
+            </div>
+            <div class="flex items-center m-5">
+              <i
+                class="fa-regular fa-bell text-neutral-300 before:rounded-full before:bg-neutral-600/50 before:p-3 p-1 before:text-xl"
+              ></i>
+              <div
+                class="user bg-neutral-600/50 rounded-full flex items-center py-1 px-6 my-3"
+              >
+                <img
+                  src="./images/user.jpg"
+                  class="size-10 rounded-full border border-red-600"
+                />
+                <div class="text text-neutral-300 pl-3">
+                  <h6 class="font-semibold">Samantha G.</h6>
+                  <p>@Samantha</p>
+                </div>
+              </div>
+            </div>
           </div>
+          <div
+            class="hero w-[97%] h-72 rounded-2xl relative mx-5"
+            style="
+              background: url(./images/pb-poster.jpg) no-repeat center;
+              background-size: 100%;
+              background-position: 50% 27%;
+            "
+          >
+            <!-- FIXME:flex -->
+            <div class="flex justify-between items-end absolute bottom-0">
+              <div class="w-60 p-5 flex items-center">
+                <button
+                  class="text-neutral-300 rounded-2xl bg-red-600 py-3 px-5 text-xl"
+                >
+                  Watch
+                </button>
+                <button>
+                  <i
+                    class="fa-solid fa-plus text-neutral-300 before:rounded-2xl before:bg-neutral-600/90 before:py-3 before:px-4 before:text-xl"
+                  ></i>
+                </button>
+              </div>
+              <div class="flex">
+                <div
+                  class="w-40 h-28 p-5 rounded-2xl m-2"
+                  style="
+                    background: url(./images/peaky-blinders-1.jpg) no-repeat
+                      center;
+                    background-size: 200%;
+                    background-position: 50% 27% 50%;
+                  "
+                ></div>
+                <div
+                  class="w-40 h-28 p-5 rounded-2xl m-2"
+                  style="
+                    background: url(./images/peaky-blinders-2.jpg) no-repeat
+                      center;
+                    background-size: 200%;
+                    background-position: 50% 27% 50%;
+                  "
+                ></div>
+                <div
+                  class="w-40 h-28 p-5 rounded-2xl m-2"
+                  style="
+                    background: url(./images/peaky-blinders-3.png) no-repeat
+                      center;
+                    background-size: 200%;
+                    background-position: 50% 27% 50%;
+                  "
+                ></div>
+              </div>
+              <div></div>
+            </div>
+          </div>
+          <h2 class="text-white text-3xl font-semibold mx-5 mt-10">
+            Popcorn Mania
+          </h2>
+          <div class="to-watch flex flex-wrap justify-between mx-5">
+            <div
+              class="w-80 h-52 rounded-2xl relative mt-2"
+              style="
+                background: url(./images/brooklyn99.png) no-repeat center;
+                background-size: 100%;
+                background-position: 50% 75%;
+              "
+            >
+              <div
+                class="absolute bottom-0 w-80 rounded-b-2xl bg-gradient-to-t from-black"
+              >
+                <p class="text-white px-2 rounded-b-lg text-2xl">
+                  Brooklyn Nine-Nine
+                </p>
+                <div class="flex justify-between items-baseline mb-2">
+                  <div class="text-neutral-400 px-2 pb-1 flex">
+                    <p class="pr-3">2020</p>
+                    <p class="pr-3">U/A 16+</p>
+                    <p class="pr-3">7 seasons</p>
+                  </div>
+                  <i
+                    class="fa-solid fa-ellipsis-vertical text-white px-5 py-2 text-lg"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-80 h-52 rounded-2xl relative mt-2"
+              style="
+                background: url(./images/readyPlayerOne.jpg) no-repeat center;
+                background-size: 200%;
+                background-position: 50% 55%;
+              "
+            >
+              <div
+                class="absolute bottom-0 w-80 rounded-b-2xl bg-gradient-to-t from-black"
+              >
+                <p class="text-white px-2 rounded-b-lg text-2xl">
+                  Ready Player One
+                </p>
+                <div class="flex justify-between items-baseline mb-2">
+                  <div class="text-neutral-400 px-2 pb-1 flex">
+                    <p class="pr-3">2018</p>
+                    <p class="pr-3">U/A 13+</p>
+                    <p class="pr-3">2h 20m</p>
+                  </div>
+                  <i
+                    class="fa-solid fa-ellipsis-vertical text-white px-5 py-2 text-lg"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-80 h-52 rounded-2xl relative mt-2"
+              style="
+                background: url(./images/money-heist.jpeg) no-repeat center;
+                background-size: 100%;
+                background-position: 50% 15%;
+              "
+            >
+              <div
+                class="absolute bottom-0 w-80 rounded-b-2xl bg-gradient-to-t from-black"
+              >
+                <p class="text-white px-2 rounded-b-lg text-2xl">Money Heist</p>
+                <div class="flex justify-between items-baseline mb-2">
+                  <div class="text-neutral-400 px-2 pb-1 flex">
+                    <p class="pr-3">2021</p>
+                    <p class="pr-3">A</p>
+                    <p class="pr-3">2h 20m</p>
+                  </div>
+                  <i
+                    class="fa-solid fa-ellipsis-vertical text-white px-5 py-2 text-lg"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-80 h-52 rounded-2xl relative mt-2"
+              style="
+                background: url(./images/ash-vs-evil.jpg) no-repeat center;
+                background-size: 100%;
+                background-position: 50% 45%;
+              "
+            >
+              <div
+                class="absolute bottom-0 w-80 rounded-b-2xl bg-gradient-to-t from-black"
+              >
+                <p class="text-white px-2 rounded-b-lg text-2xl">
+                  Ash vs. Evil Dead
+                </p>
+                <div class="flex justify-between items-baseline mb-2">
+                  <div class="text-neutral-400 px-2 pb-1 flex">
+                    <p class="pr-3">2018</p>
+                    <p class="pr-3">A</p>
+                    <p class="pr-3">3 seasons</p>
+                  </div>
+                  <i
+                    class="fa-solid fa-ellipsis-vertical text-white px-5 py-2 text-lg"
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="continue-watching my-5">
+            <h2 class="text-white text-3xl font-semibold mx-5 mt-10">
+              Continue Watching
+            </h2>
+            <div class="flex flex-wrap">
+            <div
+              class="w-80 h-36 rounded-2xl relative mt-2 mx-5"
+              style="
+                background: url(./images/red-notice.png) no-repeat center;
+                background-size: 100%;
+                background-position: 50% 45%;
+              "
+            >
+            <i
+                  class="fa-solid fa-play text-white size-8 p-2 rounded-full bg-white/30 backdrop-blur-sm text-center absolute bottom-14 left-36"
+                ></i>
+              <div
+                class="absolute bottom-0 w-80 rounded-b-2xl bg-gradient-to-t from-black"
+              >
+                <p class="text-white mx-3 rounded-b-lg text-lg">
+                  Red Notice
+                </p>
+
+            <div class=" bg-gray-200 rounded-full h-1 dark:bg-white my-2 mx-3 ">
+              <div
+                class="bg-red-600 h-1 rounded-full "
+                style="width: 35%"
+              ></div>
+            </div>
+          </div>
+          
+        </div>
+        <div
+              class="w-80 h-36 rounded-2xl relative mt-2 mx-5"
+              style="
+                background: url(./images/extraction.jpg) no-repeat center;
+                background-size: 100%;
+                background-position: 50% 45%;
+              "
+            >
+            <i
+            class="fa-solid fa-play text-white size-8 p-2 rounded-full bg-white/30 backdrop-blur-sm text-center absolute bottom-14 left-36"
+          ></i>
+              <div
+                class="absolute bottom-0 w-80 rounded-b-2xl bg-gradient-to-t from-black"
+              >
+                <p class="text-white mx-3 rounded-b-lg text-lg">
+                  Red Notice
+                </p>
+
+            <div class=" bg-gray-200 rounded-full h-1 dark:bg-white my-2 mx-3 ">
+              <div
+                class="bg-red-600 h-1 rounded-full "
+                style="width: 35%"
+              ></div>
+            </div>
+          </div>
+          
+        </div>
+        <div
+              class="w-80 h-36 rounded-2xl relative mt-2 mx-5"
+              style="
+                background: url(./images/the-adam-project.png) no-repeat center;
+                background-size: 100%;
+                background-position: 50% 45%;
+              "
+            >
+            <i
+            class="fa-solid fa-play text-white size-8 p-2 rounded-full bg-white/30 backdrop-blur-sm text-center absolute bottom-14 left-36"
+          ></i>
+              <div
+                class="absolute bottom-0 w-80 rounded-b-2xl bg-gradient-to-t from-black"
+              >
+                <p class="text-white mx-3 rounded-b-lg text-lg">
+                  Red Notice
+                </p>
+
+            <div class=" bg-gray-200 rounded-full h-1 dark:bg-white my-2 mx-3 ">
+              <div
+                class="bg-red-600 h-1 rounded-full "
+                style="width: 35%"
+              ></div>
+            </div>
+          </div>
+          
+        </div>
+        <div
+              class="w-80 h-36 rounded-2xl relative mt-2 ml-5"
+              style="
+                background: url(./images/the-old-guard.jpg) no-repeat center;
+                background-size: 100%;
+                background-position: 50% 45%;
+              "
+            >
+            <i
+            class="fa-solid fa-play text-white size-8 p-2 rounded-full bg-white/30 backdrop-blur-sm text-center absolute bottom-14 left-36"
+          ></i>
+              <div
+                class="absolute bottom-0 w-80 rounded-b-2xl bg-gradient-to-t from-black"
+              >
+                <p class="text-white mx-3 rounded-b-lg text-lg">
+                  Red Notice
+                </p>
+
+            <div class=" bg-gray-200 rounded-full h-1 dark:bg-white my-2 mx-3 ">
+              <div
+                class="bg-red-600 h-1 rounded-full "
+                style="width: 35%"
+              ></div>
+            </div>
+          </div>
+          
         </div>
       </div>
+      </div>
     </div>
-    <!-- <header class="flex justify-between">
-      
-      <div class="text-white flex align-middle py-10 px-4">
-        <button
-          class="mx-1 px-8 py-1 border-solid border-2 border-white rounded-sm"
-        >
-          English
-        </button>
-        <button class="mx-1 px-3 py-1 bg-red-600 p-2 rounded-sm">
-          Sign In
-        </button>
-      </div>
-    </header>
-    <div
-      class="text-white text-center grid grid-flow-row auto-cols-max place-content-center "
-    >
-      <h1 class="text-5xl font-bold my-5">
-        Unlimited movies, TV shows, and more.
-      </h1>
-      <h4 class="text-2xl font-semibold my-1">
-        Watch anywhere. Cancel anytime.
-      </h4>
-      <h4 class="text-2xl font-semibold my-8">
-        Ready to watch? Enter your email to create or restart your membership.
-      </h4>
-      <div>
-        <input
-          type="email"
-          placeholder="Email address"
-          class="p-2 rounded-sm"
-        />
-        <button class="text-white bg-red-600 p-2 rounded-sm">
-          <a href="netflixDashboard.html">Get started</a>
-        </button>
-      </div>
-    </div> -->
   </body>
 </html>
