@@ -34,7 +34,7 @@
       <div
         class="mainDashboard backdrop-blur-lg bg-black/30 my-5 mr-6 w-screen rounded-3xl flex shadow-inner shadow-neutral-400 border border-neutral-500"
       >
-        <div class="left">
+        <div class="left flex flex-col justify-between">
           <img
             src="./images/netflix_official_logo_icon_168085.svg"
             alt="Netflix logo"
@@ -57,7 +57,7 @@
           <div class="trailers my-5 mx-3">
             <h3 class="m-2 font-semibold text-white pb-5">New Trailers 🔥</h3>
             <div
-              class="w-60 h-36 rounded-2xl relative m-2"
+              class="w-60 h-36 rounded-2xl relative m-2 hover:shadow-lg hover:shadow-red-600"
               style="
                 background: url(./images/shadowAndBone.jpg) no-repeat center;
                 background-size: 250%;
@@ -122,12 +122,12 @@
                 class="bg-neutral-600/50 rounded-full w-80 h-10 placeholder:text-neutral-300 my-3 placeholder:pl-6"
               />
             </div>
-            <div class="flex items-center m-5">
+            <div class="flex items-center mr-3">
               <i
                 class="fa-regular fa-bell text-neutral-300 before:rounded-full before:bg-neutral-600/50 before:p-3 p-1 before:text-xl"
               ></i>
               <div
-                class="user bg-neutral-600/50 rounded-full flex items-center py-1 px-6 my-3"
+                class="user bg-neutral-600/50 rounded-full flex items-center py-1 px-6 my-3 mr-5"
               >
                 <img
                   src="./images/user.jpg"
@@ -141,53 +141,53 @@
             </div>
           </div>
           <div
-            class="hero w-[97%] h-72 rounded-2xl relative mx-5"
+            class="hero w-[97%] h-62 rounded-2xl relative mx-5"
             style="
               background: url(./images/pb-poster.jpg) no-repeat center;
               background-size: 100%;
-              background-position: 50% 27%;
+              background-position: 50% 15%;
             "
           >
             <!-- FIXME:flex -->
-            <div class="flex justify-between items-end absolute bottom-0">
-              <div class="w-60 p-5 flex items-center">
+            <div class=" grid grid-cols-4 grid-rows-2 gap-12 items-center">
+              <div class="row-start-2 w-60 p-5 flex content-end ">
                 <button
-                  class="text-neutral-300 rounded-2xl bg-red-600 py-3 px-5 text-xl"
+                  class="text-white rounded-2xl bg-red-600 py-3 px-5 text-xl"
                 >
                   Watch
                 </button>
                 <button>
                   <i
-                    class="fa-solid fa-plus text-neutral-300 before:rounded-2xl before:bg-neutral-600/90 before:py-3 before:px-4 before:text-xl"
+                    class="fa-solid fa-plus text-white before:rounded-2xl before:bg-neutral-600/90 before:py-4 before:px-4 before:text-xl ml-2"
                   ></i>
                 </button>
               </div>
-              <div class="flex">
+              <div class="flex row-start-2 col-start-4 mr-5">
                 <div
-                  class="w-40 h-28 p-5 rounded-2xl m-2"
+                  class="w-28 h-16  p-5 rounded-lg m-1 shadow-inner shadow-red-600"
                   style="
-                    background: url(./images/peaky-blinders-1.jpg) no-repeat
+                    background: url(./images/pb-poster.jpg) no-repeat
                       center;
-                    background-size: 200%;
-                    background-position: 50% 27% 50%;
+                    background-size: 120%;
+                    background-position: 90% 27% ;
                   "
                 ></div>
                 <div
-                  class="w-40 h-28 p-5 rounded-2xl m-2"
+                  class="w-28 h-16 p-5 rounded-lg m-1"
                   style="
                     background: url(./images/peaky-blinders-2.jpg) no-repeat
                       center;
-                    background-size: 200%;
-                    background-position: 50% 27% 50%;
+                    background-size: 150%;
+                    background-position: 50% 5%;
                   "
                 ></div>
                 <div
-                  class="w-40 h-28 p-5 rounded-2xl m-2"
+                  class="w-28 h-16  p-5 rounded-lg m-1"
                   style="
                     background: url(./images/peaky-blinders-3.png) no-repeat
                       center;
-                    background-size: 200%;
-                    background-position: 50% 27% 50%;
+                    background-size: 150%;
+                    background-position: 50% 27%;
                   "
                 ></div>
               </div>
@@ -305,7 +305,7 @@
             <h2 class="text-white text-3xl font-semibold mx-5 mt-10">
               Continue Watching
             </h2>
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap justify-between mr-5">
             <div
               class="w-80 h-36 rounded-2xl relative mt-2 mx-5"
               style="
