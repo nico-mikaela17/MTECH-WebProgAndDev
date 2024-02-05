@@ -8,29 +8,29 @@
   <body
     class="bg-black"
     style="
-      background: url(./images/background.png) no-repeat;
+      background: rgba(0, 0, 0, .5) url(./images/background.png);
+      background-repeat: no-repeat;
       background-size: cover;
+      background-blend-mode: darken;
     "
   >
     <header class="flex justify-between">
       <img
-        src="./images/netflixLogo.png"
+        src="./images/netflixLogo1.png"
         alt="Netflix logo"
         class="p-3 size-40"
       />
-      <div class="text-white flex align-middle py-10 px-4">
+      <div class="text-white flex items-center py-10 px-4">
         <button
-          class="mx-1 px-8 py-1 border-solid border-2 border-white rounded-sm"
+          class="m-1 px-8 py-3 border-solid border-2 border-white rounded-sm"
         >
           English
         </button>
-        <button class="mx-1 px-3 py-1 bg-red-600 p-2 rounded-sm">
-          Sign In
-        </button>
+        <button class="m-1 px-3 py-3 bg-red-600 p-2 rounded-sm">Sign In</button>
       </div>
     </header>
     <div
-      class="text-white text-center grid grid-flow-row auto-cols-max place-content-center "
+      class="text-white text-center grid grid-flow-row auto-cols-max place-content-center"
     >
       <h1 class="text-5xl font-bold my-5">
         Unlimited movies, TV shows, and more.
