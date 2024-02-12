@@ -15,20 +15,31 @@ function multiplyMatrices1(matrixA, matrixB) {
   }
   return resultMatrix;
 }
-// let answer = multiplyMatrices(
-//   [
-//     [1, 2],
-//     [3, 4],
-//   ],
-//   [
-//     [5, 6],
-//     [7, 8],
-//   ]
-// );
-// answerArray == [[19, 22], [43, 50]];
 
 console.log(
   multiplyMatrices1(
+    [
+      [1, 2],
+      [3, 4],
+    ],
+    [
+      [5, 6],
+      [7, 8],
+    ]
+  )
+);
+
+//option2
+const multiplyMatrices2 = (matrixA, matrixB) => {
+  return matrixA.map((row, i) =>
+    row.map((_, j) =>
+      row.reduce((sum, value, k) => sum + value * matrixB[k][j], 0)
+    )
+  );
+};
+
+console.log(
+  multiplyMatrices2(
     [
       [1, 2],
       [3, 4],
