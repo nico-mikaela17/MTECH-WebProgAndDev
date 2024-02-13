@@ -31,5 +31,3 @@ function handeGreetingButtonClick() {
 //when the button gets clicked, display a message
 let greetingBtn = document.querySelector("#greetingBtn");
 greetingBtn.addEventListener("click", handeGreetingButtonClick);
-
-
