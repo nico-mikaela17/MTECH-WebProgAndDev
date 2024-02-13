@@ -5,6 +5,11 @@
   background-color: #dbe4ee6d;
 }
 
+.row {
+  height: 100vh;
+  background-color: #dbe4ee6d;
+}
+
 .row > * {
   padding: 0;
 }
@@ -33,7 +38,8 @@ nav {
   justify-content: space-between;
 }
 
-#add-list-btn {
+#add-list-btn,
+#add-task-btn {
   border: 3px solid #f17300;
   border-radius: 5px;
   height: 40px;
