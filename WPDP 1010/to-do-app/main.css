@@ -95,6 +95,7 @@ nav {
   border: solid 2px #81a4cd;
   margin: 0.2rem 0;
   list-style: none;
+  border-radius: 5px;
 }
 
 .col-8 {

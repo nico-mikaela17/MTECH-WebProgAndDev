@@ -55,22 +55,33 @@ let lists = [
   },
 ];
 
-//displaying the lists we have
-let groupOfLists = document.querySelector("#lists");
+const deleteItem = (id) => {
+  // const found = lists.find((item) => item.id === id);
+  // console.log(found)
+  lists = lists.filter((item) => item.id !== id);
+  renderList();
+}
 
-lists.forEach((listItem) => {
-  //indivitual list item
-  let singleListItem = document.createElement("li");
 
-  singleListItem.innerHTML = `<div class= "list-group-item">
-  <li> ${listItem.name}</li> 
-  <i class="fa-solid fa-trash-can"></i>
-  </div>`;
+function renderList() {
+  //displaying the lists we have
+  let groupOfLists = document.querySelector("#lists");
+  groupOfLists.innerHTML = "";
+  lists.forEach((listItem) => {
+    //indivitual list item
+    let singleListItem = document.createElement("li");
 
-  groupOfLists.appendChild(singleListItem);
-});
+    singleListItem.innerHTML = `<div class= "list-group-item">
+    <li> ${listItem.name}</li> 
+    <i class="fa-solid fa-trash-can" id="deleteListBtn" onclick="deleteItem(${listItem.id})"></i>
+    </div>`;
 
-//ADD LIST ITEM
+    groupOfLists.appendChild(singleListItem);
+  });
+}
+
+renderList();
+// User must be able to create multiple lists of tasks.
 let listsInput = document.querySelector("#listsInput");
 let addListBtn = document.querySelector("#add-list-btn");
 
@@ -79,45 +90,38 @@ addListBtn.addEventListener("click", addList);
 
 //WHAT DOES THE BUTTON DO?
 function addList() {
-  let listNameToAdd = document.createElement("li");
+  lists.push({
+    id: Math.floor(Math.random() * 10000),
+    name: "2024",
+    todos: [
+      {
+        text: "Go to Germany + Spain",
+        completed: false,
+      },
+      {
+        text: "Finish MTECH",
+        completed: false,
+      },
+      {
+        text: "Olivia Rodrigo concert",
+        completed: false,
+      },
+    ],
+  });
+  renderList();
+}
 
-  listNameToAdd.innerHTML = `<div class= "list-group-item">
-  <li> ${listsInput.value}</li> 
-  <i class="fa-solid fa-trash-can"></i>
-  </div>`;
 
-  groupOfLists.appendChild(listNameToAdd);
+// User must be able to delete lists of tasks.
+function removeList(){
+// let deleteListBtn = document.querySelector('#deleteListBtn')
+
 }
 
 
 
 
-function renderContent() {
-  // this will hold the html that will be displayed in the sidebar
-  let listsHtml = '<ul class="list-group">';
 
-  // iterate through the lists to get their names
-  lists.forEach((list) => {
-    listsHtml += `<li class="list-group-item">${list.name}</li>`;
-  });
-
-  listsHtml += "</ul>";
-
-  // print out the lists
-  document.getElementById("lists").innerHTML = listsHtml;
-
-  // print out the name of the current list
-  document.getElementById("current-list-name").innerText = currentList.name;
-
-  // iterate over the todos in the current list
-  let todosHtml = '<ul class="list-group-flush">';
-  currentList.todos.forEach((list) => {
-    todosHtml += `<li class="list-group-item">${todo.text}</li>`;
-  });
-
-  // print out the todos
-  document.getElementById("current-list-todos").innerHTML = todosHtml;
-}
 
 // //ADD TODO
 // function addTodo() {
@@ -133,7 +137,6 @@ function renderContent() {
 //   console.log('todo added!')
 //  }
 
-// User must be able to create multiple lists of tasks.
 // User must be able to edit, delete, and mark tasks.
 // User must be able to clear tasks when they are complete.
 // User must be able to view all tasks in a list.
