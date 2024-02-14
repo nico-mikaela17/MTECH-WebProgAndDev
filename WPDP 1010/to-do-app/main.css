@@ -2,12 +2,11 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto Condensed";
-  background-color: #dbe4ee6d;
+  background-color: #dbe4ee;
 }
 
 .row {
   height: 100vh;
-  background-color: #dbe4ee6d;
 }
 
 .row > * {
@@ -49,11 +48,15 @@ nav {
   user-select: auto;
   font-size: 16px;
   padding: 0 6px;
-  padding-left: 12px;
   margin: 2rem 0.5rem;
 }
 
-#listsInput {
+#add-list-btn {
+  width: 100px;
+}
+
+#listsInput,
+#taskInput {
   border: 3px solid #f17300;
   border-radius: 5px;
   height: 40px;
@@ -76,26 +79,22 @@ nav {
   margin: 0.25rem 0.5rem;
 }
 
-.list-group1 .list-group-item {
-  width: 100%;
-  border: solid 2px #81a4cd;
-  background-color: #dbe4ee;
-  font-size: 16px;
-}
-
 .list-group1 .activeItem {
   background-color: #f17400cc;
   color: white;
 }
 
-.list-group2 .list-group-item {
+.list-group1 .list-group-item {
   width: 100%;
   display: flex;
   align-items: center;
-  list-style-type: square;
-  border: none;
+  justify-content: space-between;
   background-color: transparent;
   font-size: 16px;
+  font-weight: 400;
+  border: solid 2px #81a4cd;
+  margin: 0.2rem 0;
+  list-style: none;
 }
 
 .col-8 {
@@ -107,4 +106,8 @@ nav {
 .list-group2 .list-group-item label {
   border-bottom: double 2px #054a91;
   border-radius: 0;
+}
+
+.add-todo-area {
+  display: flex;
 }

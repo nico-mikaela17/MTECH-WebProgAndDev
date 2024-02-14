@@ -17,6 +17,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/71978fcef7.js"
+      crossorigin="anonymous"
+    ></script>
     <script defer src="./main.js"></script>
   </head>
   <body>
@@ -32,18 +36,20 @@
               <button class="btn" id="add-list-btn">ADD LIST</button>
             </div>
             <!-- list of todo lists go here -->
-            <ul class="list-group list-group1" id="list-group1">
+            <ul id="lists" class="list-group list-group1"></ul>
+            <!-- <ul class="list-group list-group1" id="list-group1">
               <li class="list-group-item activeItem">Cras justo odio</li>
               <li class="list-group-item">Dapibus ac facilisis in</li>
               <li class="list-group-item">Morbi leo risus</li>
               <li class="list-group-item">Porta ac consectetur ac</li>
               <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
+            </ul> -->
           </div>
 
           <div class="col-8">
-            <h2 class="list-name">Cras justo odio</h2>
-            <ul class="list-group list-group2">
+            <div id="current-list-todos"></div>
+            <h2 class="list-name" id="current-list-name"></h2>
+            <!-- <ul class="list-group list-group2">
               <li class="list-group-item">
                 <input
                   class="form-check-input me-1"
@@ -70,8 +76,13 @@
                   >Second checkbox</label
                 >
               </li>
-            </ul>
-            <button class="btn" id="add-task-btn">Add Task</button>
+            </ul> -->
+            <div class="add-todo-area">
+              <input type="text" id="taskInput" />
+              <button class="btn" id="add-task-btn" onclick="addTodo()">
+                Add Task
+              </button>
+            </div>
             <!-- current todo list name goes here -->
             <!-- current todo list goes here -->
           </div>
