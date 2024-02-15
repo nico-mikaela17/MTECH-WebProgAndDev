@@ -1,9 +1,19 @@
+table {
+  margin: 2rem;
+}
+
 td {
-  width: 10px;
-  height: 10px;
+  width: 75px;
+  height: 75px;
   border: 1px solid black;
 }
 
-table {
-  margin: 2rem;
+td.font {
+  font-size: 0;
+}
+
+td.font:hover {
+  font-size: 16px;
+  padding-left: 0.5rem;
+  width: max-content;
 }

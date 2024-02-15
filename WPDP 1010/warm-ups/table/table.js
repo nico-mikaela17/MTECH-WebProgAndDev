@@ -12,6 +12,10 @@ function createTable() {
     let row = document.createElement("tr");
     for (let j = 0; j < value2; j++) {
       let column = document.createElement("td");
+      let cellText = `x: ${i}, y: ${j}`;
+
+      column.classList.add("font");
+      column.textContent = cellText;
 
       row.appendChild(column);
     }
