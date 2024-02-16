@@ -149,7 +149,7 @@ function renderTasks() {
     function makeComplete() {
       singleTodoItemLabel.classList.toggle("taskComplete");
       todo.completed = true;
-      console.log(lists[2].todos.completed)
+      console.log(lists[2].todos.completed);
     }
 
     let deleteIcon = document.createElement("button");
@@ -168,11 +168,9 @@ function renderTasks() {
 }
 renderTasks();
 
-
 let taskInput = document.querySelector("#taskInput");
 let addTaskBtn = document.querySelector("#add-task-btn");
 
-//MAKE BUTTON WORK
 addTaskBtn.addEventListener("click", addTask);
 
 function addTask() {
@@ -187,7 +185,7 @@ function addTask() {
   // }
 }
 
-//TODO: User must be able to delete lists of tasks.
+// TODO: User must be able to delete tasks from list.
 function removeTask(id) {
   // const found = lists.find((item) => item.id === id);
   // console.log(found)
@@ -213,6 +211,5 @@ function removeTask(id) {
 // User must be able to clear tasks when they are complete.
 // User must be able to search for specific tasks in the list.
 // User must be able to save tasks for later viewing.
-// User must be able to delete tasks from list.
 // User must be able to customize task list view.
 // App must be intuitive and easy to use.
