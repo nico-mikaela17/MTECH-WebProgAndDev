@@ -37,18 +37,12 @@
             </div>
             <!-- list of todo lists go here -->
             <ul id="lists" class="list-group list-group1"></ul>
-            <!-- <ul class="list-group list-group1" id="list-group1">
-              <li class="list-group-item activeItem">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-            </ul> -->
           </div>
 
           <div class="col-8">
-            <div id="current-list-todos"></div>
             <h2 class="list-name" id="current-list-name"></h2>
+            <ul id="tasksList" class="list-group"></ul>
+
             <!-- <ul class="list-group list-group2">
               <li class="list-group-item">
                 <input
@@ -77,10 +71,11 @@
                 >
               </li>
             </ul> -->
+
             <div class="add-todo-area">
               <input type="text" id="taskInput" />
               <button class="btn" id="add-task-btn" onclick="addTodo()">
-                Add Task
+                ADD TASK
               </button>
             </div>
             <!-- current todo list name goes here -->
