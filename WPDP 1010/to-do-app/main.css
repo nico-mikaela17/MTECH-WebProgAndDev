@@ -47,6 +47,7 @@ nav {
   font-size: 16px;
   padding: 0 6px;
   margin: 0.75rem 0.5rem;
+  width: 25%;
 }
 
 #add-task-btn {
@@ -60,10 +61,7 @@ nav {
   font-size: 16px;
   padding: 0 6px;
   margin: 2rem 0.5rem;
-}
-
-#add-list-btn {
-  width: 100px;
+  width: 10%;
 }
 
 #listsInput,
@@ -74,7 +72,7 @@ nav {
   line-height: normal;
   color: #282828;
   display: block;
-  width: 70%;
+  width: 75%;
   user-select: auto;
   font-size: 16px;
   padding: 0 6px;
@@ -114,6 +112,11 @@ nav {
   padding: 1rem 2rem;
 }
 
+.list-name{
+  font-size: 36px;
+  font-weight: 600;
+}
+
 #tasksList {
   list-style: none;
 }
@@ -124,6 +127,10 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+}
+
+#taskList div label{
+  padding-left: 2rem;
 }
 
 .add-todo-area {
@@ -142,7 +149,9 @@ nav {
   color: white;
 }
 
-.taskComplete{
+
+
+.taskComplete {
   color: red;
-  text-decoration:line-through ;
+  text-decoration: line-through;
 }

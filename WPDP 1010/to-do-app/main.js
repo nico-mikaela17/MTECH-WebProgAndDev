@@ -64,18 +64,33 @@ let lists = [
   },
 ];
 
+let currentListId = lists?.[0]?.id ?? "";
+
+// let todos = JSON.parse(localStorage.getItem("lists")) ?? [];
+// console.log("todos", todos);
+// function saveListToLocalStorage() {
+//   const listAsString = JSON.stringify(todos);
+//   localStorage.setItem("lists", listAsString);
+// }
+
+//TODO: User must be able to view all list.
 function renderList() {
-  //displaying the lists we have
   let groupOfLists = document.querySelector("#lists");
   groupOfLists.innerHTML = "";
+
   lists.forEach((listItem) => {
     //indivitual list item
     let singleListItem = document.createElement("li");
     singleListItem.classList.add("list-group-item");
     singleListItem.textContent = `${listItem.name}`;
+    singleListItem.setAttribute("data-todoListId", listItem.id);
     singleListItem.addEventListener("click", makeActive);
     function makeActive() {
+      document.querySelector(".activeItem")?.classList.remove("activeItem");
+
       singleListItem.classList.toggle("activeItem");
+      currentListId = listItem.id;
+      renderTasks();
     }
 
     let deleteIcon = document.createElement("button");
@@ -88,45 +103,47 @@ function renderList() {
 }
 renderList();
 
-//TODO: User must be able to create multiple lists of tasks.
+//TODO: User must be able to create multiple lists.
 let listsInput = document.querySelector("#listsInput");
 let addListBtn = document.querySelector("#add-list-btn");
 
-//MAKE BUTTON WORK
+//Make button work
 addListBtn.addEventListener("click", addList);
-
-//WHAT DOES THE BUTTON DO?
+//What does the button do when clicked?
 function addList() {
+  const id = Math.floor(Math.random() * 10000);
   lists.push({
-    id: Math.floor(Math.random() * 10000),
+    id,
     name: listsInput.value,
     todos: [],
   });
+  currentListId = id;
+  // saveListToLocalStorage();
   renderList();
-  // if(name= ""){
-  //   !renderList()
-  // }
+  renderTasks();
 }
 
 //TODO: User must be able to delete lists of tasks.
 function removeList(id) {
-  // const found = lists.find((item) => item.id === id);
-  // console.log(found)
   lists = lists.filter((item) => item.id !== id);
+
+  // saveListToLocalStorage();
   renderList();
 }
 
-//FIXME: User must be able to view all tasks in a list.
-function renderTasks() {
-  //displaying the current list\
+let currentList = lists.find((listItem) => listItem.id === currentListId);
 
+//TODO: User must be able to view all tasks in the current list.
+function renderTasks() {
   let groupOfTasks = document.querySelector("#tasksList");
 
   let currentListTitle = document.querySelector("#current-list-name");
-  currentListTitle.textContent = lists.name;
+  currentListTitle.textContent = currentList.name;
 
   groupOfTasks.innerHTML = "";
-  lists.forEach((todo) => {
+  groupOfTasks.appendChild(currentListTitle);
+
+  (currentList?.todos ?? []).forEach((todo) => {
     //indivitual list item
     let singleTodoItem = document.createElement("li");
     let singleTodoItemDiv = document.createElement("div");
@@ -137,12 +154,9 @@ function renderTasks() {
     singleTodoItemInput.value = "";
 
     let singleTodoItemLabel = document.createElement("label");
-    singleTodoItemLabel.innerHTML = `
-  
-    class="form-check-label list-group-item"
-    for="firstCheckbox"`;
+    singleTodoItemLabel.innerHTML = `class="form-check-label list-group-item ms-2" `;
 
-    singleTodoItemLabel.textContent = `${lists.name}`;
+    singleTodoItemLabel.textContent = todo.text;
     singleTodoItemInput.addEventListener("click", makeComplete);
 
     //TODO: User must be able to mark tasks as completed.
@@ -156,8 +170,6 @@ function renderTasks() {
     deleteIcon.classList.add("deleteIcon");
     deleteIcon.innerHTML = `<i class="fa-solid fa-trash-can" onclick="removeTask(${todo.id})"></i>`;
 
-    groupOfTasks.appendChild(currentListTitle);
-
     singleTodoItemDiv.appendChild(singleTodoItemInput);
     singleTodoItemDiv.appendChild(singleTodoItemLabel);
     singleTodoItem.appendChild(singleTodoItemDiv);
@@ -169,43 +181,33 @@ function renderTasks() {
 renderTasks();
 
 let taskInput = document.querySelector("#taskInput");
+
 let addTaskBtn = document.querySelector("#add-task-btn");
-
 addTaskBtn.addEventListener("click", addTask);
-
 function addTask() {
-  lists.push({
-    id: Math.floor(Math.random() * 10000),
-    text: listsInput.value,
+  const id = Math.floor(Math.random() * 10000);
+  let currentList = lists.find((listItem) => listItem.id === currentListId);
+  currentList?.todos.push({
+    id,
+    text: taskInput.value,
     completed: false,
   });
+
+  currentListId = id;
+  // saveListToLocalStorage();
+  renderList();
   renderTasks();
-  // if(name= ""){
-  //   !renderList()
-  // }
 }
+
+// if(name= ""){
+//   !renderList()
+// }
 
 // TODO: User must be able to delete tasks from list.
 function removeTask(id) {
-  // const found = lists.find((item) => item.id === id);
-  // console.log(found)
-  todos = todos.filter((todo) => todo.id !== id);
+  currentList.todos = currentList.todos.filter((todo) => todo.id !== id);
   renderTasks();
 }
-
-// //ADD TODO
-// function addTodo() {
-//   // get the todo text from the todo input box
-//   const text = document.getElementById('taskInput').value;
-//   if(text) {
-//     currentList.todos.push({
-//       text: text,
-//       completed: false
-//     })
-//     render();
-//   }
-//   console.log('todo added!')
-//  }
 
 // User must be able to edit, delete, and mark tasks.
 // User must be able to clear tasks when they are complete.
