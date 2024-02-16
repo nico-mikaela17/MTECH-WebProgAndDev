@@ -87,7 +87,6 @@ function renderList() {
     singleListItem.addEventListener("click", makeActive);
     function makeActive() {
       document.querySelector(".activeItem")?.classList.remove("activeItem");
-
       singleListItem.classList.toggle("activeItem");
       currentListId = listItem.id;
       renderTasks();
@@ -100,6 +99,12 @@ function renderList() {
     singleListItem.appendChild(deleteIcon);
     groupOfLists.appendChild(singleListItem);
   });
+  let highlightedListItem = document.querySelector(
+    `[data-todolistid="${currentListId}"]`
+  );
+
+  document.querySelector(".activeItem")?.classList.remove("activeItem");
+  highlightedListItem.classList.add("activeItem");
 }
 renderList();
 
@@ -126,19 +131,22 @@ function addList() {
 //TODO: User must be able to delete lists of tasks.
 function removeList(id) {
   lists = lists.filter((item) => item.id !== id);
+  currentListId = lists?.[0]?.id ?? "";
 
   // saveListToLocalStorage();
   renderList();
+  renderTasks();
 }
-
-let currentList = lists.find((listItem) => listItem.id === currentListId);
 
 //TODO: User must be able to view all tasks in the current list.
 function renderTasks() {
+  //FIXME: need something like currentList to be able to display the current list
+  let currentList = lists.find((listItem) => listItem.id === currentListId);
+
   let groupOfTasks = document.querySelector("#tasksList");
 
   let currentListTitle = document.querySelector("#current-list-name");
-  currentListTitle.textContent = currentList.name;
+  currentListTitle.textContent = currentList?.name ?? "";
 
   groupOfTasks.innerHTML = "";
   groupOfTasks.appendChild(currentListTitle);
@@ -199,12 +207,10 @@ function addTask() {
   renderTasks();
 }
 
-// if(name= ""){
-//   !renderList()
-// }
-
 // TODO: User must be able to delete tasks from list.
 function removeTask(id) {
+  let currentList = lists.find((listItem) => listItem.id === currentListId);
+
   currentList.todos = currentList.todos.filter((todo) => todo.id !== id);
   renderTasks();
 }

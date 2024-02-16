@@ -47,7 +47,7 @@ nav {
   font-size: 16px;
   padding: 0 6px;
   margin: 0.75rem 0.5rem;
-  width: 25%;
+  width: 100%;
 }
 
 #add-task-btn {
@@ -61,7 +61,7 @@ nav {
   font-size: 16px;
   padding: 0 6px;
   margin: 2rem 0.5rem;
-  width: 10%;
+  width: 30%;
 }
 
 #listsInput,
@@ -72,7 +72,7 @@ nav {
   line-height: normal;
   color: #282828;
   display: block;
-  width: 75%;
+  width: 70%;
   user-select: auto;
   font-size: 16px;
   padding: 0 6px;
@@ -82,7 +82,7 @@ nav {
 
 #taskInput {
   margin: 2rem 0.5rem;
-  width: 90%;
+  width: 70%;
 }
 
 #listsInput:focus {
