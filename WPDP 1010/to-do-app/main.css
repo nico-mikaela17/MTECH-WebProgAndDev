@@ -59,7 +59,7 @@ nav {
   user-select: auto;
   font-size: 16px;
   padding: 0 6px;
-  margin: 0 0.5rem;
+  margin: 2rem 0.5rem;
 }
 
 #add-list-btn {
@@ -83,7 +83,8 @@ nav {
 }
 
 #taskInput {
-  margin: 0;
+  margin: 2rem 0.5rem;
+  width: 90%;
 }
 
 #listsInput:focus {
@@ -122,6 +123,7 @@ nav {
   border-radius: 0;
   display: flex;
   justify-content: space-between;
+  padding: 1rem;
 }
 
 .add-todo-area {
@@ -131,10 +133,16 @@ nav {
 .deleteIcon {
   border: none;
   background-color: inherit;
+  font-size: 20px;
 }
 
 .activeItem,
 .activeItem .fa-trash-can {
   background-color: #f17400;
   color: white;
+}
+
+.taskComplete{
+  color: red;
+  text-decoration:line-through ;
 }

@@ -88,7 +88,7 @@ function renderList() {
 }
 renderList();
 
-// User must be able to create multiple lists of tasks.
+//TODO: User must be able to create multiple lists of tasks.
 let listsInput = document.querySelector("#listsInput");
 let addListBtn = document.querySelector("#add-list-btn");
 
@@ -108,7 +108,7 @@ function addList() {
   // }
 }
 
-// User must be able to delete lists of tasks.
+//TODO: User must be able to delete lists of tasks.
 function removeList(id) {
   // const found = lists.find((item) => item.id === id);
   // console.log(found)
@@ -116,7 +116,7 @@ function removeList(id) {
   renderList();
 }
 
-// User must be able to view all tasks in a list.
+//FIXME: User must be able to view all tasks in a list.
 function renderTasks() {
   //displaying the current list\
 
@@ -143,14 +143,18 @@ function renderTasks() {
     for="firstCheckbox"`;
 
     singleTodoItemLabel.textContent = `${lists.name}`;
-    singleTodoItem.addEventListener("click", makeActive);
-    function makeActive() {
-      singleTodoItem.classList.toggle("activeItem");
+    singleTodoItemInput.addEventListener("click", makeComplete);
+
+    //TODO: User must be able to mark tasks as completed.
+    function makeComplete() {
+      singleTodoItemLabel.classList.toggle("taskComplete");
+      todo.completed = true;
+      console.log(lists[2].todos.completed)
     }
 
     let deleteIcon = document.createElement("button");
     deleteIcon.classList.add("deleteIcon");
-    deleteIcon.innerHTML = `<i class="fa-solid fa-trash-can" onclick="removeList(${todo.id})"></i>`;
+    deleteIcon.innerHTML = `<i class="fa-solid fa-trash-can" onclick="removeTask(${todo.id})"></i>`;
 
     groupOfTasks.appendChild(currentListTitle);
 
@@ -163,6 +167,33 @@ function renderTasks() {
   });
 }
 renderTasks();
+
+
+let taskInput = document.querySelector("#taskInput");
+let addTaskBtn = document.querySelector("#add-task-btn");
+
+//MAKE BUTTON WORK
+addTaskBtn.addEventListener("click", addTask);
+
+function addTask() {
+  lists.push({
+    id: Math.floor(Math.random() * 10000),
+    text: listsInput.value,
+    completed: false,
+  });
+  renderTasks();
+  // if(name= ""){
+  //   !renderList()
+  // }
+}
+
+//TODO: User must be able to delete lists of tasks.
+function removeTask(id) {
+  // const found = lists.find((item) => item.id === id);
+  // console.log(found)
+  todos = todos.filter((todo) => todo.id !== id);
+  renderTasks();
+}
 
 // //ADD TODO
 // function addTodo() {
@@ -182,7 +213,6 @@ renderTasks();
 // User must be able to clear tasks when they are complete.
 // User must be able to search for specific tasks in the list.
 // User must be able to save tasks for later viewing.
-// User must be able to mark tasks as completed.
 // User must be able to delete tasks from list.
 // User must be able to customize task list view.
 // App must be intuitive and easy to use.
