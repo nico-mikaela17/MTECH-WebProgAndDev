@@ -93,8 +93,8 @@ function renderList() {
     }
 
     let deleteIcon = document.createElement("button");
-    deleteIcon.classList.add("deleteIcon");
-    deleteIcon.innerHTML = `<i class="fa-solid fa-trash-can" onclick="removeList(${listItem.id})"></i>`;
+    deleteIcon.classList.add("deleteIcon", "zoomDelete");
+    deleteIcon.innerHTML = `<i class="fa-solid fa-trash-can" onclick="removeList(${listItem.id})" data-delete="zoom"></i>`;
 
     singleListItem.appendChild(deleteIcon);
     groupOfLists.appendChild(singleListItem);
@@ -103,8 +103,10 @@ function renderList() {
     `[data-todolistid="${currentListId}"]`
   );
 
-  document.querySelector(".activeItem")?.classList.remove("activeItem");
+  //FIXME: once I click on the list (to highlight it) it will displat the new task, even if I´m already in it??
   highlightedListItem.classList.add("activeItem");
+
+  document.querySelector(".activeItem")?.classList.remove("activeItem");
 }
 renderList();
 
@@ -192,6 +194,7 @@ let taskInput = document.querySelector("#taskInput");
 
 let addTaskBtn = document.querySelector("#add-task-btn");
 addTaskBtn.addEventListener("click", addTask);
+
 function addTask() {
   const id = Math.floor(Math.random() * 10000);
   let currentList = lists.find((listItem) => listItem.id === currentListId);
@@ -202,6 +205,8 @@ function addTask() {
   });
 
   currentListId = id;
+
+  console.log(currentList.todos);
   // saveListToLocalStorage();
   renderList();
   renderTasks();

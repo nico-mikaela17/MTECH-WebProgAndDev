@@ -112,7 +112,7 @@ nav {
   padding: 1rem 2rem;
 }
 
-.list-name{
+.list-name {
   font-size: 36px;
   font-weight: 600;
 }
@@ -129,7 +129,7 @@ nav {
   padding: 1rem;
 }
 
-#taskList div label{
+#taskList div label {
   padding-left: 2rem;
 }
 
@@ -149,9 +149,17 @@ nav {
   color: white;
 }
 
-
-
 .taskComplete {
   color: red;
   text-decoration: line-through;
 }
+
+/*.zoomDelete{
+   animation: spinALittle 1.4s ease-out 1 forwards;
+  perspective: 1000px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+ animation: dropShadow 0.1s ease-out forwards 1; 
+} */
