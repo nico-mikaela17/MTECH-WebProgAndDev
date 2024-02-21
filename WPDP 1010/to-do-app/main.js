@@ -86,6 +86,7 @@ function renderList() {
     singleListItem.setAttribute("data-todoListId", listItem.id);
     singleListItem.addEventListener("click", makeActive);
     function makeActive() {
+      //will have only one active item at a time
       document.querySelector(".activeItem")?.classList.remove("activeItem");
       singleListItem.classList.toggle("activeItem");
       currentListId = listItem.id;
@@ -104,9 +105,9 @@ function renderList() {
   );
 
   //FIXME: once I click on the list (to highlight it) it will displat the new task, even if I´m already in it??
-  highlightedListItem.classList.add("activeItem");
 
   document.querySelector(".activeItem")?.classList.remove("activeItem");
+  highlightedListItem.classList.add("activeItem");
 }
 renderList();
 
