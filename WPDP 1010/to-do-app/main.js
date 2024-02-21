@@ -104,8 +104,6 @@ function renderList() {
     `[data-todolistid="${currentListId}"]`
   );
 
-  //FIXME: once I click on the list (to highlight it) it will displat the new task, even if I´m already in it??
-
   document.querySelector(".activeItem")?.classList.remove("activeItem");
   highlightedListItem.classList.add("activeItem");
 }
@@ -143,16 +141,22 @@ function removeList(id) {
 
 //TODO: User must be able to view all tasks in the current list.
 function renderTasks() {
-  //FIXME: need something like currentList to be able to display the current list
   let currentList = lists.find((listItem) => listItem.id === currentListId);
 
   let groupOfTasks = document.querySelector("#tasksList");
 
+  let header = document.createElement("div");
+  header.classList.add("taskHeader");
   let currentListTitle = document.querySelector("#current-list-name");
   currentListTitle.textContent = currentList?.name ?? "";
 
+  let clearCompletedTasksBtn = document.createElement("button");
+  clearCompletedTasksBtn.textContent = "CLEAR DONE";
+
   groupOfTasks.innerHTML = "";
-  groupOfTasks.appendChild(currentListTitle);
+  header.appendChild(currentListTitle);
+  header.appendChild(clearCompletedTasksBtn);
+  groupOfTasks.appendChild(header);
 
   (currentList?.todos ?? []).forEach((todo) => {
     //indivitual list item
@@ -160,21 +164,24 @@ function renderTasks() {
     let singleTodoItemDiv = document.createElement("div");
 
     let singleTodoItemInput = document.createElement("input");
-    singleTodoItemInput.classList.add("form-check-input", "me-1");
+    singleTodoItemInput.classList.add("form-check-input", "me-3");
     singleTodoItemInput.type = "checkbox";
     singleTodoItemInput.value = "";
 
     let singleTodoItemLabel = document.createElement("label");
-    singleTodoItemLabel.innerHTML = `class="form-check-label list-group-item ms-2" `;
+    singleTodoItemLabel.innerHTML = `class="form-check-label list-group-item" `;
 
     singleTodoItemLabel.textContent = todo.text;
     singleTodoItemInput.addEventListener("click", makeComplete);
 
-    //TODO: User must be able to mark tasks as completed.
+    //FIXME: User must be able to mark tasks as completed.
     function makeComplete() {
       singleTodoItemLabel.classList.toggle("taskComplete");
-      todo.completed = true;
-      console.log(lists[2].todos.completed);
+      if (singleTodoItemInput.classList === "taskComplete") {
+        console.log(lists);
+
+        // todo.completed = true;
+      }
     }
 
     let deleteIcon = document.createElement("button");
@@ -205,7 +212,7 @@ function addTask() {
     completed: false,
   });
 
-  currentListId = id;
+  // currentListId = id;
 
   console.log(currentList.todos);
   // saveListToLocalStorage();
