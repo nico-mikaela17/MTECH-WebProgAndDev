@@ -115,7 +115,9 @@ nav {
 }
 
 #lists > li:hover,
-button:hover,
+#add-task-btn:hover,
+#add-list-btn:hover,
+.taskHeader button:hover,
 input:hover {
   box-shadow: #054b916f 0px 2px 8px;
 }
@@ -147,7 +149,12 @@ input:hover {
   display: flex;
 }
 
-.deleteIcon {
+.actionDiv .fa-solid {
+  margin: 0 0.5rem;
+}
+
+.deleteIcon,
+.editIcon {
   border: none;
   background-color: inherit;
   font-size: 20px;

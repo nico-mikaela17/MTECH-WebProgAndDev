@@ -186,14 +186,21 @@ function renderTasks() {
     //TODOUser must be able to mark tasks as completed.
     function makeComplete() {
       singleTodoItemLabel.classList.toggle("taskComplete");
-        todo.completed = !todo.completed;
+      todo.completed = !todo.completed;
 
-      console.log(currentList.todos)
+      console.log(currentList.todos);
       // if (singleTodoItemInput.classList.contains === "taskComplete") {
       //   ;
 
       //}
     }
+
+    let actionDiv = document.createElement("div");
+    actionDiv.classList.add("actionDiv");
+    //edit button
+    let editTasktBtn = document.createElement("button"); //delete button
+    editTasktBtn.classList.add("editIcon");
+    editTasktBtn.innerHTML = '<i class="fa-solid fa-pen "></i>';
 
     let deleteIcon = document.createElement("button");
     deleteIcon.classList.add("deleteIcon");
@@ -201,8 +208,11 @@ function renderTasks() {
 
     singleTodoItemDiv.appendChild(singleTodoItemInput);
     singleTodoItemDiv.appendChild(singleTodoItemLabel);
+    actionDiv.appendChild(editTasktBtn);
+    actionDiv.appendChild(deleteIcon);
+
     singleTodoItem.appendChild(singleTodoItemDiv);
-    singleTodoItem.appendChild(deleteIcon);
+    singleTodoItem.appendChild(actionDiv);
 
     groupOfTasks.appendChild(singleTodoItem);
   });
@@ -214,6 +224,7 @@ let taskInput = document.querySelector("#taskInput");
 let addTaskBtn = document.querySelector("#add-task-btn");
 addTaskBtn.addEventListener("click", addTask);
 
+//TODO: User must be able to add tasks
 function addTask() {
   const id = Math.floor(Math.random() * 10000);
   let currentList = lists.find((listItem) => listItem.id === currentListId);
@@ -232,6 +243,7 @@ function addTask() {
 }
 
 // TODO: User must be able to delete tasks from list.
+//Users can delete tasks and lists without needing to complete them first
 function removeTask(id) {
   let currentList = lists.find((listItem) => listItem.id === currentListId);
 
@@ -239,8 +251,6 @@ function removeTask(id) {
   renderTasks();
 }
 
-// User must be able to edit, delete, and mark tasks.
-// User must be able to search for specific tasks in the list.
-// User must be able to save tasks for later viewing.
-// User must be able to customize task list view.
-// App must be intuitive and easy to use.
+// FIXME:Users can edit tasks
+//Use local storage to store all user data (list names, tasks in each list, etc)
+//Deleting tasks and/or clearing all completed tasks/lists is animated (+2 points)
