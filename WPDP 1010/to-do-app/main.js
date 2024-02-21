@@ -150,8 +150,17 @@ function renderTasks() {
   let currentListTitle = document.querySelector("#current-list-name");
   currentListTitle.textContent = currentList?.name ?? "";
 
+  // TODO:User must be able to clear tasks when they are complete.
   let clearCompletedTasksBtn = document.createElement("button");
   clearCompletedTasksBtn.textContent = "CLEAR DONE";
+  clearCompletedTasksBtn.addEventListener("click", clearCompletedTasks);
+  function clearCompletedTasks() {
+    currentList.todos = currentList.todos.filter(
+      (todo) => todo.completed != true
+    );
+    console.log(currentList.todos);
+    renderTasks();
+  }
 
   groupOfTasks.innerHTML = "";
   header.appendChild(currentListTitle);
@@ -174,14 +183,16 @@ function renderTasks() {
     singleTodoItemLabel.textContent = todo.text;
     singleTodoItemInput.addEventListener("click", makeComplete);
 
-    //FIXME: User must be able to mark tasks as completed.
+    //TODOUser must be able to mark tasks as completed.
     function makeComplete() {
       singleTodoItemLabel.classList.toggle("taskComplete");
-      if (singleTodoItemInput.classList === "taskComplete") {
-        console.log(lists);
+        todo.completed = !todo.completed;
 
-        // todo.completed = true;
-      }
+      console.log(currentList.todos)
+      // if (singleTodoItemInput.classList.contains === "taskComplete") {
+      //   ;
+
+      //}
     }
 
     let deleteIcon = document.createElement("button");
@@ -229,7 +240,6 @@ function removeTask(id) {
 }
 
 // User must be able to edit, delete, and mark tasks.
-// User must be able to clear tasks when they are complete.
 // User must be able to search for specific tasks in the list.
 // User must be able to save tasks for later viewing.
 // User must be able to customize task list view.
