@@ -202,6 +202,32 @@ function renderTasks() {
     editTasktBtn.classList.add("editIcon");
     editTasktBtn.innerHTML = '<i class="fa-solid fa-pen "></i>';
 
+    let editCommentDisplay = document.createElement("div");
+
+    let todoTextarea = document.createElement("textarea");
+    todoTextarea.style.backgroundColor = "#edf6f9";
+    todoTextarea.style.border = "none";
+    todoTextarea.style.borderRadius = "5px";
+
+    todoTextarea.classList.add("hidden");
+
+    let saveBtn = document.createElement("button");
+    saveBtn.textContent = "Save";
+    saveBtn.classList.add("hidden");
+
+    editTasktBtn.onclick = function () {
+      todoTextarea.classList.toggle("hidden");
+      todoTextarea.placeholder = dog.comment;
+      editCommentDisplay.classList.toggle("hidden");
+      // saveBtn.classList.toggle("hidden");
+    };
+
+    saveBtn.addEventListener("click", () => {
+      editComment(todo.id, todoTextarea.value);
+    });
+
+    editCommentDisplay.appendChild(editTasktBtn);
+
     let deleteIcon = document.createElement("button");
     deleteIcon.classList.add("deleteIcon");
     deleteIcon.innerHTML = `<i class="fa-solid fa-trash-can" onclick="removeTask(${todo.id})"></i>`;
@@ -215,6 +241,10 @@ function renderTasks() {
     singleTodoItem.appendChild(actionDiv);
 
     groupOfTasks.appendChild(singleTodoItem);
+
+    groupOfTasks.append(editCommentDisplay);
+    groupOfTasks.append(todoTextarea);
+    groupOfTasks.append(saveBtn);
   });
 }
 renderTasks();
