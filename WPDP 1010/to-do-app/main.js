@@ -1,4 +1,4 @@
-let lists = [
+let lists = JSON.parse(localStorage.getItem('lists') || null) ?? [
   {
     id: Math.floor(Math.random() * 10000),
     name: "School",
@@ -64,7 +64,12 @@ let lists = [
   },
 ];
 
-let currentListId = lists?.[0]?.id ?? "";
+let currentListId = JSON.parse(localStorage.getItem('currentListId') || null) ?? lists?.[0]?.id ?? "";
+
+function saveToLocalStorage() {
+  localStorage.set('lists', JSON.stringify(lists));
+  localStorage.set('currentListId', JSON.stringify(currentListId))
+}
 
 //TODO: User must be able to view all list.
 function renderList() {
@@ -117,6 +122,8 @@ function addList() {
     todos: [],
   });
   currentListId = id;
+
+  saveToLocalStorage()
   renderList();
   renderTasks();
 }
@@ -126,6 +133,7 @@ function removeList(id) {
   lists = lists.filter((item) => item.id !== id);
   currentListId = lists?.[0]?.id ?? "";
 
+  saveToLocalStorage()
   renderList();
   renderTasks();
 }
@@ -177,6 +185,8 @@ function renderTasks() {
     function makeComplete() {
       singleTodoItemLabel.classList.toggle("taskComplete");
       todo.completed = !todo.completed;
+
+      saveToLocalStorage()
     }
 
     let actionDiv = document.createElement("div");
@@ -212,6 +222,8 @@ function renderTasks() {
       singleTodoItemLabel.textContent = todoTextarea.value;
       todoTextarea.classList.add("hidden");
       saveBtn.classList.add("hidden");
+      todo.text = todoTextarea.value;
+      saveToLocalStorage()
     });
 
     editCommentDisplay.appendChild(editTasktBtn);
