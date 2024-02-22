@@ -158,7 +158,6 @@ function renderTasks() {
     currentList.todos = currentList.todos.filter(
       (todo) => todo.completed != true
     );
-    console.log(currentList.todos);
     renderTasks();
   }
 
@@ -188,7 +187,6 @@ function renderTasks() {
       singleTodoItemLabel.classList.toggle("taskComplete");
       todo.completed = !todo.completed;
 
-      console.log(currentList.todos);
       // if (singleTodoItemInput.classList.contains === "taskComplete") {
       //   ;
 
@@ -213,20 +211,26 @@ function renderTasks() {
 
     let saveBtn = document.createElement("button");
     saveBtn.textContent = "Save";
-    saveBtn.classList.add("hidden");
+    saveBtn.classList.add("hidden", "saveBtn");
 
     editTasktBtn.onclick = function () {
       todoTextarea.classList.toggle("hidden");
-      todoTextarea.placeholder = dog.comment;
+      saveBtn.classList.toggle("hidden");
+
+      todoTextarea.textContent = todo.text;
       editCommentDisplay.classList.toggle("hidden");
       // saveBtn.classList.toggle("hidden");
     };
 
     saveBtn.addEventListener("click", () => {
-      editComment(todo.id, todoTextarea.value);
+      singleTodoItemLabel.textContent = todoTextarea.value;
+      todoTextarea.classList.add("hidden");
+      saveBtn.classList.add("hidden");
+      // editComment(todo.id, todoTextarea.value);
     });
 
     editCommentDisplay.appendChild(editTasktBtn);
+    // editCommentDisplay.appendChild(saveBtn)
 
     let deleteIcon = document.createElement("button");
     deleteIcon.classList.add("deleteIcon");
@@ -266,7 +270,6 @@ function addTask() {
 
   // currentListId = id;
 
-  console.log(currentList.todos);
   // saveListToLocalStorage();
   renderList();
   renderTasks();

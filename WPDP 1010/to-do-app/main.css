@@ -66,6 +66,24 @@ nav {
   background-color: transparent;
 }
 
+.saveBtn {
+  border: 3px solid #f17300;
+  border-radius: 5px;
+  height: 40px;
+  line-height: normal;
+  color: #282828;
+  display: block;
+  user-select: auto;
+  font-size: 16px;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  width: 30%;
+  background-color: transparent;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
 #listsInput,
 #taskInput {
   border: 3px solid #f17300;
@@ -118,7 +136,8 @@ nav {
 #add-task-btn:hover,
 #add-list-btn:hover,
 .taskHeader button:hover,
-input:hover {
+input:hover,
+.saveBtn:hover {
   box-shadow: #054b916f 0px 2px 8px;
 }
 
@@ -181,6 +200,6 @@ input:hover {
  animation: dropShadow 0.1s ease-out forwards 1; 
 } */
 
-.hidden{
+.hidden {
   display: none;
 }
