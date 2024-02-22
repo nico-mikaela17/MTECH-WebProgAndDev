@@ -66,13 +66,6 @@ let lists = [
 
 let currentListId = lists?.[0]?.id ?? "";
 
-// let todos = JSON.parse(localStorage.getItem("lists")) ?? [];
-// console.log("todos", todos);
-// function saveListToLocalStorage() {
-//   const listAsString = JSON.stringify(todos);
-//   localStorage.setItem("lists", listAsString);
-// }
-
 //TODO: User must be able to view all list.
 function renderList() {
   let groupOfLists = document.querySelector("#lists");
@@ -124,7 +117,6 @@ function addList() {
     todos: [],
   });
   currentListId = id;
-  // saveListToLocalStorage();
   renderList();
   renderTasks();
 }
@@ -134,7 +126,6 @@ function removeList(id) {
   lists = lists.filter((item) => item.id !== id);
   currentListId = lists?.[0]?.id ?? "";
 
-  // saveListToLocalStorage();
   renderList();
   renderTasks();
 }
@@ -186,11 +177,6 @@ function renderTasks() {
     function makeComplete() {
       singleTodoItemLabel.classList.toggle("taskComplete");
       todo.completed = !todo.completed;
-
-      // if (singleTodoItemInput.classList.contains === "taskComplete") {
-      //   ;
-
-      //}
     }
 
     let actionDiv = document.createElement("div");
@@ -219,18 +205,16 @@ function renderTasks() {
 
       todoTextarea.textContent = todo.text;
       editCommentDisplay.classList.toggle("hidden");
-      // saveBtn.classList.toggle("hidden");
     };
 
+    // TODO:Users can edit tasks
     saveBtn.addEventListener("click", () => {
       singleTodoItemLabel.textContent = todoTextarea.value;
       todoTextarea.classList.add("hidden");
       saveBtn.classList.add("hidden");
-      // editComment(todo.id, todoTextarea.value);
     });
 
     editCommentDisplay.appendChild(editTasktBtn);
-    // editCommentDisplay.appendChild(saveBtn)
 
     let deleteIcon = document.createElement("button");
     deleteIcon.classList.add("deleteIcon");
@@ -268,9 +252,6 @@ function addTask() {
     completed: false,
   });
 
-  // currentListId = id;
-
-  // saveListToLocalStorage();
   renderList();
   renderTasks();
 }
@@ -284,6 +265,5 @@ function removeTask(id) {
   renderTasks();
 }
 
-// FIXME:Users can edit tasks
 //Use local storage to store all user data (list names, tasks in each list, etc)
 //Deleting tasks and/or clearing all completed tasks/lists is animated (+2 points)
