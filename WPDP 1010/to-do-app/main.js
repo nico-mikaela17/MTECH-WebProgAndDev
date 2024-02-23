@@ -69,6 +69,7 @@ let currentListId =
   lists?.[0]?.id ??
   "";
 
+//TODO:Use local storage to store all user data (list names, tasks in each list, etc)
 function saveToLocalStorage() {
   localStorage.setItem("lists", JSON.stringify(lists));
   localStorage.setItem("currentListId", JSON.stringify(currentListId));
@@ -183,9 +184,9 @@ function renderTasks() {
 
     singleTodoItemLabel.textContent = todo.text;
 
-    if(todo.completed) {
-      singleTodoItemLabel.classList.add('taskComplete')
-      singleTodoItemInput.setAttribute("checked", "true")
+    if (todo.completed) {
+      singleTodoItemLabel.classList.add("taskComplete");
+      singleTodoItemInput.setAttribute("checked", "true");
     }
 
     singleTodoItemInput.addEventListener("click", makeComplete);
@@ -194,9 +195,8 @@ function renderTasks() {
     function makeComplete() {
       singleTodoItemLabel.classList.toggle("taskComplete");
       todo.completed = !todo.completed;
-      saveToLocalStorage()
+      saveToLocalStorage();
     }
-   
 
     let actionDiv = document.createElement("div");
     actionDiv.classList.add("actionDiv");
@@ -291,5 +291,4 @@ function removeTask(id) {
   renderTasks();
 }
 
-//Use local storage to store all user data (list names, tasks in each list, etc)
 //Deleting tasks and/or clearing all completed tasks/lists is animated (+2 points)
