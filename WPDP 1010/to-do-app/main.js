@@ -1,4 +1,4 @@
-let lists = JSON.parse(localStorage.getItem('lists') || null) ?? [
+let lists = JSON.parse(localStorage.getItem("lists") || null) ?? [
   {
     id: Math.floor(Math.random() * 10000),
     name: "School",
@@ -64,11 +64,14 @@ let lists = JSON.parse(localStorage.getItem('lists') || null) ?? [
   },
 ];
 
-let currentListId = JSON.parse(localStorage.getItem('currentListId') || null) ?? lists?.[0]?.id ?? "";
+let currentListId =
+  JSON.parse(localStorage.getItem("currentListId") || null) ??
+  lists?.[0]?.id ??
+  "";
 
 function saveToLocalStorage() {
-  localStorage.set('lists', JSON.stringify(lists));
-  localStorage.set('currentListId', JSON.stringify(currentListId))
+  localStorage.setItem("lists", JSON.stringify(lists));
+  localStorage.setItem("currentListId", JSON.stringify(currentListId));
 }
 
 //TODO: User must be able to view all list.
@@ -123,7 +126,7 @@ function addList() {
   });
   currentListId = id;
 
-  saveToLocalStorage()
+  saveToLocalStorage();
   renderList();
   renderTasks();
 }
@@ -133,7 +136,7 @@ function removeList(id) {
   lists = lists.filter((item) => item.id !== id);
   currentListId = lists?.[0]?.id ?? "";
 
-  saveToLocalStorage()
+  saveToLocalStorage();
   renderList();
   renderTasks();
 }
@@ -157,6 +160,7 @@ function renderTasks() {
     currentList.todos = currentList.todos.filter(
       (todo) => todo.completed != true
     );
+    saveToLocalStorage();
     renderTasks();
   }
 
@@ -173,21 +177,26 @@ function renderTasks() {
     let singleTodoItemInput = document.createElement("input");
     singleTodoItemInput.classList.add("form-check-input", "me-3");
     singleTodoItemInput.type = "checkbox";
-    singleTodoItemInput.value = "";
 
     let singleTodoItemLabel = document.createElement("label");
     singleTodoItemLabel.innerHTML = `class="form-check-label list-group-item" `;
 
     singleTodoItemLabel.textContent = todo.text;
+
+    if(todo.completed) {
+      singleTodoItemLabel.classList.add('taskComplete')
+      singleTodoItemInput.setAttribute("checked", "true")
+    }
+
     singleTodoItemInput.addEventListener("click", makeComplete);
 
-    //TODOUser must be able to mark tasks as completed.
+    //TODO:User must be able to mark tasks as completed.
     function makeComplete() {
       singleTodoItemLabel.classList.toggle("taskComplete");
       todo.completed = !todo.completed;
-
       saveToLocalStorage()
     }
+   
 
     let actionDiv = document.createElement("div");
     actionDiv.classList.add("actionDiv");
@@ -223,7 +232,7 @@ function renderTasks() {
       todoTextarea.classList.add("hidden");
       saveBtn.classList.add("hidden");
       todo.text = todoTextarea.value;
-      saveToLocalStorage()
+      saveToLocalStorage();
     });
 
     editCommentDisplay.appendChild(editTasktBtn);
@@ -247,6 +256,8 @@ function renderTasks() {
     groupOfTasks.append(saveBtn);
   });
 }
+saveToLocalStorage();
+
 renderTasks();
 
 let taskInput = document.querySelector("#taskInput");
@@ -263,6 +274,7 @@ function addTask() {
     text: taskInput.value,
     completed: false,
   });
+  saveToLocalStorage();
 
   renderList();
   renderTasks();
@@ -274,6 +286,8 @@ function removeTask(id) {
   let currentList = lists.find((listItem) => listItem.id === currentListId);
 
   currentList.todos = currentList.todos.filter((todo) => todo.id !== id);
+  saveToLocalStorage();
+
   renderTasks();
 }
 
