@@ -127,6 +127,8 @@ function addList() {
   });
   currentListId = id;
 
+  listsInput.value = null;
+
   saveToLocalStorage();
   renderList();
   renderTasks();
@@ -274,6 +276,7 @@ function addTask() {
     text: taskInput.value,
     completed: false,
   });
+  taskInput.value = null;
   saveToLocalStorage();
 
   renderList();
