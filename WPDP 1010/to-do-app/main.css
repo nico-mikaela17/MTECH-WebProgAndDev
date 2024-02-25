@@ -177,7 +177,7 @@ input:hover,
   border: none;
   background-color: inherit;
   font-size: 20px;
-  transition: color 200ms}
+}
 
 .activeItem,
 .activeItem .fa-trash-can {
