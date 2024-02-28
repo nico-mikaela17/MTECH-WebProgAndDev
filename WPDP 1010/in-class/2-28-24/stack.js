@@ -12,7 +12,7 @@ const isBalanced = (str) => {
     "(": ")",
     "[": "]",
   };
-  
+
   const words = [];
 
   for (let i = 0; i < str.length; i++) {
