@@ -1,4 +1,4 @@
-function getAvailableGolfCourses() {
+async function getAvailableGolfCourses() {
   return fetch(
     "https://exquisite-pastelito-9d4dd1.netlify.app/golfapi/courses.json",
     { mode: "no-cors" }
@@ -7,7 +7,7 @@ function getAvailableGolfCourses() {
   });
 }
 
-function getGolfCourseDetails(golfCourseId) {
+async function getGolfCourseDetails(golfCourseId) {
   return fetch(
     `https://exquisite-pastelito-9d4dd1.netlify.app/golfapi/course${golfCourseId}.json`,
     { mode: "no-cors" }
