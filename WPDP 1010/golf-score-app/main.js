@@ -16,19 +16,28 @@ async function getGolfCourseDetails(golfCourseId) {
   });
 }
 
+//generate the dropdown options
+let courseSelect = document.querySelector("#course-select");
+let courseOptionsHtml = "";
+fetch("https://exquisite-pastelito-9d4dd1.netlify.app/golfapi/courses.json")
+  .then((response) => response.json())
+  .then((courses) => {
+    console.log(courses);
 
-let courseOptionsHtml = '';
-courses.forEach((course) => {
- courseOptionsHtml += `<option value="${course.id}">${course.name}</option>`;
-});
+    courses.forEach((course) => {
+      courseOptionsHtml += `<option value="${course.id}">${course.name}</option>`;
+    });
 
-document.getElementById('course-select').innerHTML = courseOptionsHtml;
+    courseSelect.innerHTML = courseOptionsHtml;
+  })
+  .catch((error) => console.error("Error fetching data:", error));
 
-let teeBoxSelectHtml = ''
-teeBoxes.forEach(function (teeBox, index) {
-   teeBoxSelectHtml += `<option value="${index}">${teeBox.teeType.toUpperCase()}, ${
-     teeBox.totalYards
-   } yards</option>`
-});
+// let teeBoxSelectHtml = ''
+// teeBoxes.forEach(function (teeBox, index) {
+//    teeBoxSelectHtml += `<option value="${index}">${teeBox.teeType.toUpperCase()}, ${
+//      teeBox.totalYards
+//    } yards</option>`
+// });
 
-document.getElementById('tee-box-select').innerHTML = teeBoxSelectHtml;
+// let teeBoxSelect = document.querySelector('#tee-box-select')
+// teeBoxSelect.innerHTML = teeBoxSelectHtml;
