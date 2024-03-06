@@ -1,18 +1,23 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Abel';
+  font-family: "Abel";
 }
 
 #course-select {
   padding: 0.5rem;
   text-align: left;
   font-size: 16px;
-  margin: 1rem;
+  margin: 0 1rem;
 }
 
-
-
+.course-select-area {
+  padding: 1rem;
+}
+.details-filtering {
+  display: flex;
+  padding: 1rem;
+}
 
 li:hover {
   cursor: pointer;
@@ -26,4 +31,8 @@ li:hover {
 #scorecard-container {
   background-color: rgb(153, 153, 153);
   height: 100px;
+}
+
+tr {
+  height: 40px;
 }

@@ -33,20 +33,42 @@ async function getGolfCourseDetails(golfCourseId) {
     }
 
     let teeBoxes = await response.json();
+    let holeBoxSelect = document.querySelector("#hole-box-select");
+    let holeBoxSelectHtml = "";
+
     let teeBoxSelect = document.querySelector("#tee-box-select");
     let teeBoxSelectHtml = "";
 
-    teeBoxes.holes.forEach((hole) => {
-      hole.teeBoxes.forEach((teeBox, idx) => {
-        teeBoxSelectHtml += `<option value="${idx}">H ${
-          hole.hole
-        } - ${teeBox.teeType.toUpperCase()}, ${teeBox.yards} yards</option>`;
+
+    teeBoxes.holes.forEach((hole, idx) => {
+      holeBoxSelectHtml += `<option value="${idx}">${hole.hole}`;
+
+      hole.teeBoxes.forEach((teeBox, index) => {
+
+
+
+        teeBoxSelect += `<option value="${index}">
+        ${teeBox.teeType.toUpperCase()}, ${teeBox.yards} yards</option>`;
+
+
       });
+
+
+      let table = document.querySelector(".table");
+      holeNumberColumn = document.createElement("td");
+      hole.textContent = hole.teeTypeId;
+      yardNumberColumn = document.createElement("td");
+      yardNumberColumn.textContent = hole.yard;
+
+      table.appendChild(holeNumberColumn);
+      console.log(hole);
     });
 
     console.log(teeBoxes);
 
+    holeBoxSelect.innerHTML = holeBoxSelectHtml;
     teeBoxSelect.innerHTML = teeBoxSelectHtml;
+
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -66,3 +88,5 @@ document
 
 // Call the function to get the list of available golf courses
 getAvailableGolfCourses();
+
+// function populateTable() {}
