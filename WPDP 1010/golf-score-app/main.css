@@ -4,35 +4,31 @@
   font-family: "Abel";
 }
 
-#course-select {
+.container {
+  background: url(./images/course-top-view.jpg) no-repeat center;
+  height: 100vh;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+}
+
+select {
   padding: 0.5rem;
   text-align: left;
   font-size: 16px;
-  margin: 0 1rem;
-}
-
-.course-select-area {
-  padding: 1rem;
-}
-.details-filtering {
-  display: flex;
-  padding: 1rem;
+  margin: 1rem;
 }
 
 li:hover {
   cursor: pointer;
 }
 
-#options-container {
-  background-color: rgb(195, 195, 195);
-  height: 100px;
-}
-
-#scorecard-container {
-  background-color: rgb(153, 153, 153);
-  height: 100px;
-}
-
 tr {
   height: 40px;
+}
+
+.hidden{
+  display: none;
 }
