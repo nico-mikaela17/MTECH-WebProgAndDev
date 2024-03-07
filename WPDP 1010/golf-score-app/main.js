@@ -21,6 +21,9 @@ async function getAvailableGolfCourses() {
   }
 }
 
+let holeBoxSelect = document.querySelector("#hole-box-select");
+let teeBoxSelect = document.querySelector("#tee-box-select");
+
 //FIXME:
 async function getGolfCourseDetails(golfCourseId) {
   try {
@@ -32,43 +35,35 @@ async function getGolfCourseDetails(golfCourseId) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    let teeBoxes = await response.json();
-    let holeBoxSelect = document.querySelector("#hole-box-select");
+    let courses = await response.json();
     let holeBoxSelectHtml = "";
-
-    let teeBoxSelect = document.querySelector("#tee-box-select");
     let teeBoxSelectHtml = "";
 
+    //dropdown has hole numbers
+    courses.holes.forEach((hole, idx) => {
+      holeBoxSelectHtml += `<option value="${idx}">${hole.hole}</option>`;
 
-    teeBoxes.holes.forEach((hole, idx) => {
-      holeBoxSelectHtml += `<option value="${idx}">${hole.hole}`;
-
-      hole.teeBoxes.forEach((teeBox, index) => {
-
-
-
-        teeBoxSelect += `<option value="${index}">
-        ${teeBox.teeType.toUpperCase()}, ${teeBox.yards} yards</option>`;
-
-
+      //second dropdown has courses (types)
+      courses.holes[0].teeBoxes.forEach((teeBox, index) => {
+        teeBoxSelectHtml += `<option value="${index}">
+        ${teeBox.teeType.toUpperCase()}</option>`;
       });
+      holeBoxSelect.innerHTML = holeBoxSelectHtml;
+      teeBoxSelect.innerHTML = teeBoxSelectHtml;
+      // let table = document.querySelector(".table");
+      // holeNumberColumn = document.createElement("td");
+      // hole.textContent = hole.teeTypeId;
+      // yardNumberColumn = document.createElement("td");
+      // yardNumberColumn.textContent = hole.yard;
 
-
-      let table = document.querySelector(".table");
-      holeNumberColumn = document.createElement("td");
-      hole.textContent = hole.teeTypeId;
-      yardNumberColumn = document.createElement("td");
-      yardNumberColumn.textContent = hole.yard;
-
-      table.appendChild(holeNumberColumn);
-      console.log(hole);
+      // table.appendChild(holeNumberColumn);
+      // console.log(hole);
     });
 
-    console.log(teeBoxes);
+    console.log("course selected: ", courses);
 
-    holeBoxSelect.innerHTML = holeBoxSelectHtml;
-    teeBoxSelect.innerHTML = teeBoxSelectHtml;
-
+    // holeBoxSelect.innerHTML = holeBoxSelectHtml;
+    // teeBoxSelect.innerHTML = teeBoxSelectHtml;
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -80,7 +75,7 @@ document
   .addEventListener("change", function () {
     // Get the selected course ID
     const selectedCourseId = this.value;
-    console.log(selectedCourseId);
+    // console.log(selectedCourseId);
 
     // Call the function to get details for the selected course
     getGolfCourseDetails(selectedCourseId);
@@ -89,4 +84,16 @@ document
 // Call the function to get the list of available golf courses
 getAvailableGolfCourses();
 
+// Event listener for the hole selection change
+holeBoxSelect.addEventListener("change", function () {
+  // Get the selected hole ID
+  const selectedCourseHoleId = this.value;
+  console.log(selectedCourseHoleId);
+
+  // Call the function to get details for the selected course
+  getGolfCourseDetails(selectedCourseHoleId);
+});
+
+// Call the function to get the list of available golf courses
+getAvailableGolfCourses();
 // function populateTable() {}
