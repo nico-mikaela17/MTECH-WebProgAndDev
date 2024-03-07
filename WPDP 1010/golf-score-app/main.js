@@ -42,7 +42,7 @@ async function getGolfCourseDetails(golfCourseId) {
 
     let seenTeeBoxes = new Set();
 
-    //second dropdown has courses (types)
+    //dropdown
     courses.holes[0].teeBoxes.forEach((teeBox, index) => {
       teeBoxSelectHtml += seenTeeBoxes.has(teeBox)
         ? ""
@@ -52,15 +52,45 @@ async function getGolfCourseDetails(golfCourseId) {
     });
 
     teeBoxSelect.innerHTML = teeBoxSelectHtml;
-    // let table = document.querySelector(".table");
-    // holeNumberColumn = document.createElement("td");
-    // hole.textContent = hole.teeTypeId;
-    // yardNumberColumn = document.createElement("td");
-    // yardNumberColumn.textContent = hole.yard;
+    teeBoxSelect.addEventListener("change", populateTable);
 
-    // table.appendChild(holeNumberColumn);
-    // console.log(hole);
+    function populateTable() {
+      let table = document.querySelector(".table");
+      table.innerHTML = "";
+      let holesRow = document.createElement("tr");
 
+      let holeTitle = document.createElement("th");
+      holeTitle.textContent = "Holes";
+
+      holesRow.appendChild(holeTitle);
+
+      //create the 1-9 numbers
+      for (i = 0; i < 10; i++) {
+        let holeNumbers = document.createElement("td");
+        holeNumbers.textContent = i;
+        holesRow.appendChild(holeNumbers);
+      }
+
+      let out = document.createElement("th");
+      out.textContent = "Out";
+      holesRow.appendChild(out);
+
+      // let selectedTee = teeBoxSelect.value;
+      table.appendChild(holesRow);
+
+      for (i = 10; i < 19; i++) {
+        let holeNumbers = document.createElement("td");
+        holeNumbers.textContent = i;
+        holesRow.appendChild(holeNumbers);
+      }
+      let inText = document.createElement("th");
+      inText.textContent = "In";
+      holesRow.appendChild(inText);
+
+      let total = document.createElement("th");
+      total.textContent = "TOTAL";
+      holesRow.appendChild(total);
+    }
     console.log("course selected: ", courses);
   } catch (error) {
     // holeBoxSelect.innerHTML = holeBoxSelectHtml;
@@ -76,7 +106,7 @@ document
     teeBoxSelect.classList.remove("hidden");
 
     // Get the selected course ID
-    const selectedCourseId = this.value;
+    let selectedCourseId = this.value;
     // console.log(selectedCourseId);
 
     // Call the function to get details for the selected course
