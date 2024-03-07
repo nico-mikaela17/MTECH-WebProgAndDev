@@ -21,7 +21,6 @@ select {
   margin: 1rem;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
-
 }
 
 option:hover {
@@ -36,18 +35,20 @@ tr {
   display: none;
 }
 
-#scorecard-container{
+#scorecard-container {
   height: 100vh;
 }
 
-.table-responsive{
-  background-color: rgba(255, 255, 255, 0.7);
+.table-responsive {
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 2rem 1rem;
+  border: 2px solid #a5be00;
 }
 
-td{
+td {
   padding: 1rem;
 }
 
-th{
+th {
   padding: 1.5rem;
 }
