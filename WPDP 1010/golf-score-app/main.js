@@ -1,37 +1,43 @@
-/************************* THE ORDER WE BE WORKING IN *****************************/
+/************************* ORDER OF OPERATIONS - FUNCTION NOTES *****************************/
 
 /*
   async function getAvailableGolfCourses() {
-    fetch(url)
-      .then(res => res.json())
-      .then(courses => handleSelect(courses))
+    // get list of courses, pass it to handleCourseSelect
   }
 
   function handleSelect(courses) {
-    // access first dropdown with document.querySelector
-    // populate course select
-    // add event listener
-    let dropdown1 = document.getElementById("course-select")
-    dropdown1.addEventListener("change", getGolfCourseDetails(dropdown1.value));
+    // populate select, add change handler, pass select value to getGolfCourseDetails
   }
 
-  async function getGolfCourseDetails(id) {
-    fetch(url w/ id)
-      .then(res => res.json())
-      .then(courses => handleSecondSelect(courses))
+  async function getGolfCourseDetails(golfCourseId) {
+    // get details, pass it to handleTeeSelect
   }
 
-  function handleSecondSelect(courses) {
-    // unhides second dropdown
-    // populate second dropdown
-    // adds event listener on change
-    // on change call populateTable(dropdown2.value)
+  function handleTeeSelect(courses) {
+    // populate tee select, add change handler, pass select value to populateTable
   }
 
-  function populateTable(details) {
-    // use details data to populate golf table
+  function populateTable(courses, teeBoxValue) {
+    // use data to populate table, created holes row, pass info to createRow
   }
+
+  ES6Modules-
+  function createRow(courses, rowName, teeIndex) {
+    // creates data rows based on name passed in, sums Out/In/Total, returns row !important
+  }
+
+  class Player {
+    constructor(name, id = getNextId(), scores) {
+      this.name = name;
+      this.id = id;
+      this.scores = scores;
+  }
+}
 */
+
+// Put the createRow function in its own file called row.js, put the export keyword in front of the word function
+//FIXME:look into this
+// import createRow from 'row.js'
 
 async function getAvailableGolfCourses() {
   try {
@@ -51,18 +57,6 @@ async function getAvailableGolfCourses() {
 }
 
 getAvailableGolfCourses();
-
-/************************* THE ORIGINAL CODE IN THE EVENT HANDLER FUNCTION CALL *****************************/
-// async function () {
-//   teeBoxSelect.classList.remove("hidden");
-
-//   // Get the selected course ID
-//   let selectedCourseId = this.value;
-//   // console.log(selectedCourseId);
-
-//   // Call the function to get details for the selected course
-//   await getGolfCourseDetails(selectedCourseId);
-/***********************************************************************************************************/
 
 function handleCourseSelect(courses) {
   let courseSelect = document.getElementById("course-select");
@@ -111,8 +105,9 @@ function handleTeeSelect(courses) {
 
     seenTeeBoxes.add(teeBox);
   });
-
   teeBoxSelect.innerHTML = teeBoxSelectHtml;
+
+  // Event listener for the teeBox selection change
   teeBoxSelect.addEventListener("change", () => {
     console.log("TeeBox index selected: ", teeBoxSelect.value);
     populateTable(courses, teeBoxSelect.value);
@@ -130,11 +125,7 @@ function populateTable(courses, teeBoxValue) {
   holeTitle.textContent = "Holes";
   holesRow.appendChild(holeTitle);
   //create the 1-9 numbers
-  for (i = 1; i < 10; i++) {
-    let holeNumbers = document.createElement("td");
-    holeNumbers.textContent = i;
-    holesRow.appendChild(holeNumbers);
-  }
+
   let out = document.createElement("th");
   out.textContent = "Out";
   holesRow.appendChild(out);
@@ -155,7 +146,7 @@ function populateTable(courses, teeBoxValue) {
   table.appendChild(holesRow);
   table.appendChild(createRow(courses, "yards", teeIndex));
   table.appendChild(createRow(courses, "par", teeIndex));
-  table.appendChild(createRow(courses, 'hcp', teeIndex));
+  table.appendChild(createRow(courses, "hcp", teeIndex));
 }
 
 function createRow(courses, rowName, teeIndex) {
@@ -196,3 +187,30 @@ function createRow(courses, rowName, teeIndex) {
 
   return dataRow;
 }
+
+/*********************************** FUTURE BRAINSTORMING *************************************/
+
+// player 1 default
+// add button to add more players
+// push empty players
+// each td contains only an input with classList.add(`player${playerNum}
+
+// input
+
+/*
+let scores = [ array of scores: the hole number is the index of scores array + 1 ]
+for (let i=0; i<scores.length; i++) {
+  td.textContent = `Hole number ${i + 1}: ${scores[i]}`;
+}
+
+
+// The Player constructor can only be called if you have the full array of scores
+let player1 = new Player('name', scores);
+players.push(player1);
+
+function getNextId() {
+  // iterate through the players array and find the highest id number
+  // return maxId + 1
+  // MUST RETURN A NUMBER because it's called in the Player constructor as the default value for id
+}
+*/
