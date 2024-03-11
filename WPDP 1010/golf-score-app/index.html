@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <title>Golf Score App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,28 +29,173 @@
   <body>
     <div class="container">
       <!-- header dropdowns -->
-      <div class="row">
-        <div class="col-lg-12" id="header">
-          <div class="form-group course-select-area">
-            <select class="form-control dropdown" id="course-select"></select>
-          </div>
-          <div class="form-group tee">
-            <!-- add hidden class here -->
-            <select class="form-control dropdown" id="tee-box-select"></select>
-          </div>
-        </div>
+      <div class="row" id="header">
+        <select class="form-control dropdown col" id="course-select"></select>
+
+        <!-- add hidden class here -->
+        <select class="form-control dropdown col" id="tee-box-select"></select>
       </div>
 
       <!-- table -->
-      <!-- add hidden class here -->
+      <div class="col" id="scorecard-container">
+        <!-- add player button -->
+        <button
+          type="button"
+          id="addPlayerBtn"
+          data-toggle="modal"
+          data-target="#playerAndScoresModal"
+        >
+          Add Player
+        </button>
 
-      <div class="row" id="scorecard-container">
-        <div class="col-lg-12" id="scorecard">
-          <div>
-            <table class="table table-bordered table-responsive"></table>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="playerAndScoresModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="playerAndScoresModalTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="playerAndScoresModalTitle">
+                  Add Player Info and Scores
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div>
+                  <label for="name">Name</label>
+                  <input id="name" type="text" />
+                </div>
+                  <div>
+                    <label for="hole1">Hole 1</label>
+                    <input type="number" id="hole1" />
+                  </div>
+                  <div>
+                    <label for="hole2">Hole 2</label>
+                    <input type="number" id="hole2" />
+                  </div>
+                  <div>
+                    <label for="hole3">Hole 3</label>
+                    <input type="number" id="hole3" />
+                  </div>
+                  <div>
+                    <label for="hole4">Hole 4</label>
+                    <input type="number" id="hole4" />
+                  </div>
+                  <div>
+                    <label for="hole5">Hole 5</label>
+                    <input type="number" id="hole5" />
+                  </div>
+                  <div>
+                    <label for="hole6">Hole 6</label>
+                    <input type="number" id="hole6" />
+                  </div>
+                  <div>
+                    <label for="hole7">Hole 7</label>
+                    <input type="number" id="hole7" />
+                  </div>
+                  <div>
+                    <label for="hole8">Hole 8</label>
+                    <input type="number" id="hole8" />
+                  </div>
+                  <div>
+                    <label for="hole9">Hole 9</label>
+                    <input type="number" id="hole9" />
+                  </div>
+                  <div>
+                    <label for="outScore">Out</label>
+                    <input type="number" id="outScore" />
+                  </div>
+                  <div>
+                    <label for="hole10">Hole 10</label>
+                    <input type="number" id="hole10" />
+                  </div>
+                  <div>
+                    <label for="hole11">Hole 11</label>
+                    <input type="number" id="hole11" />
+                  </div>
+                  <div>
+                    <label for="hole12">Hole 12</label>
+                    <input type="number" id="hole12" />
+                  </div>
+                  <div>
+                    <label for="hole13">Hole 13</label>
+                    <input type="number" id="hole13" />
+                  </div>
+                  <div>
+                    <label for="hole14">Hole 14</label>
+                    <input type="number" id="hole14" />
+                  </div>
+                  <div>
+                    <label for="hole15">Hole 15</label>
+                    <input type="number" id="hole15" />
+                  </div>
+                  <div>
+                    <label for="hole16">Hole 16</label>
+                    <input type="number" id="hole16" />
+                  </div>
+                  <div>
+                    <label for="hole17">Hole 17</label>
+                    <input type="number" id="hole17" />
+                  </div>
+                  <div>
+                    <label for="hole18">Hole 18</label>
+                    <input type="number" id="hole18" />
+                  </div>
+                  <div>
+                    <label for="inScore">In</label>
+                    <input type="number" id="inScore" />
+                  </div>
+                  <div>
+                    <label for="total">Total</label>
+                    <input type="number" id="total" />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn">Save changes</button>
+              </div>
+            </div>
           </div>
         </div>
+
+        <table class="table hidden table-bordered table-responsive"></table>
       </div>
     </div>
+    <!-- modal stuff -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

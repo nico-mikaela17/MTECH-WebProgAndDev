@@ -70,6 +70,8 @@ function handleCourseSelect(courses) {
 
   // Event listener for the course selection change
   courseSelect.addEventListener("change", () => {
+    let teeBoxSelect = document.querySelector("#tee-box-select");
+    teeBoxSelect.classList.remove("hidden");
     console.log("Course ID: ", courseSelect.value);
     getGolfCourseDetails(courseSelect.value);
   });
@@ -109,23 +111,31 @@ function handleTeeSelect(courses) {
 
   // Event listener for the teeBox selection change
   teeBoxSelect.addEventListener("change", () => {
+    let addPlayerBtn = document.querySelector("#addPlayerBtn");
+    let table = document.querySelector(".table");
+    addPlayerBtn.classList.remove("hidden");
+    table.classList.remove("hidden");
     console.log("TeeBox index selected: ", teeBoxSelect.value);
     populateTable(courses, teeBoxSelect.value);
   });
 }
 
 function populateTable(courses, teeBoxValue) {
+  let addPlayerBtn = document.querySelector("#addPlayerBtn");
   let table = document.querySelector(".table");
-  table.classList.remove("hidden");
   table.innerHTML = "";
 
   //holes
   let holesRow = document.createElement("tr");
   let holeTitle = document.createElement("th");
-  holeTitle.textContent = "Holes";
+  holeTitle.textContent = "HOLES";
   holesRow.appendChild(holeTitle);
   //create the 1-9 numbers
-
+  for (i = 1; i < 10; i++) {
+    let holeNumbers = document.createElement("td");
+    holeNumbers.textContent = i;
+    holesRow.appendChild(holeNumbers);
+  }
   let out = document.createElement("th");
   out.textContent = "Out";
   holesRow.appendChild(out);
@@ -143,10 +153,13 @@ function populateTable(courses, teeBoxValue) {
 
   const teeIndex = Number(teeBoxValue);
 
+  addPlayerBtn.addEventListener("click", addNewPlayer);
+
   table.appendChild(holesRow);
   table.appendChild(createRow(courses, "yards", teeIndex));
   table.appendChild(createRow(courses, "par", teeIndex));
   table.appendChild(createRow(courses, "hcp", teeIndex));
+  // table.appendChild(player1);
 }
 
 function createRow(courses, rowName, teeIndex) {
@@ -188,6 +201,56 @@ function createRow(courses, rowName, teeIndex) {
   return dataRow;
 }
 
+//adding players
+class Player {
+  constructor(name, id = randomID(), scores = []) {
+    this.name = name;
+    this.id = id;
+    this.scores = scores;
+  }
+}
+
+function randomID() {
+  let id = Math.floor(Math.random() * 100);
+  return id;
+}
+
+function addNewPlayer() {
+  let containter = document.querySelector(".container");
+  let modal = document.createElement("div");
+  modal.classList.add("modal");
+  modal.tabIndex = "-1";
+  modal.role = "dialog";
+  //   modal.innerHTML = `
+  //   <div class="modal-dialog" role="document">
+  //     <div class="modal-content">
+  //       <div class="modal-header">
+  //         <h5 class="modal-title">Modal title</h5>
+  //         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  //           <span aria-hidden="true">&times;</span>
+  //         </button>
+  //       </div>
+  //       <div class="modal-body">
+  //         <p>Modal body text goes here.</p>
+  //       </div>
+  //       <div class="modal-footer">
+  //         <button type="button" class="btn btn-primary">Save changes</button>
+  //         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  //       </div>
+  //     </div>
+  //   </div>
+  // `;
+
+  containter.appendChild(modal);
+  // let table = document.querySelector(".table");
+  // let newPlayerRow = document.createElement("tr");
+
+  // let newPlayerName = document.createElement("th");
+  // newPlayerName.textContent = Player.name;
+
+  // newPlayerRow.appendChild(newPlayerName);
+  // table.appendChild(newPlayerRow);
+}
 /*********************************** FUTURE BRAINSTORMING *************************************/
 
 // player 1 default
@@ -202,6 +265,7 @@ let scores = [ array of scores: the hole number is the index of scores array + 1
 for (let i=0; i<scores.length; i++) {
   td.textContent = `Hole number ${i + 1}: ${scores[i]}`;
 }
+
 
 
 // The Player constructor can only be called if you have the full array of scores
