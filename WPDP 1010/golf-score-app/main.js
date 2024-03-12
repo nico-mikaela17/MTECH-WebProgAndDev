@@ -72,7 +72,6 @@ function handleCourseSelect(courses) {
   courseSelect.addEventListener("change", () => {
     let teeBoxSelect = document.querySelector("#tee-box-select");
     teeBoxSelect.classList.remove("hidden");
-    console.log("Course ID: ", courseSelect.value);
     getGolfCourseDetails(courseSelect.value);
   });
 }
@@ -115,13 +114,11 @@ function handleTeeSelect(courses) {
     let table = document.querySelector(".table");
     addPlayerBtn.classList.remove("hidden");
     table.classList.remove("hidden");
-    console.log("TeeBox index selected: ", teeBoxSelect.value);
     populateTable(courses, teeBoxSelect.value);
   });
 }
 
 function populateTable(courses, teeBoxValue) {
-  let addPlayerBtn = document.querySelector("#addPlayerBtn");
   let table = document.querySelector(".table");
   table.innerHTML = "";
 
@@ -153,7 +150,38 @@ function populateTable(courses, teeBoxValue) {
 
   const teeIndex = Number(teeBoxValue);
 
-  addPlayerBtn.addEventListener("click", addNewPlayer);
+  //save button from modal
+  let savePlayerInfo = document.querySelector("#savePlayerInfo");
+  savePlayerInfo.addEventListener("click", addNewPlayer);
+
+  function addNewPlayer() {
+    let name = document.querySelector("#name");
+    let playerRow = document.createElement("tr");
+    let playerName = document.createElement("th");
+    playerRow.appendChild(playerName);
+    playerName.textContent = name.value.toUpperCase();
+    for (i = 1; i < 10; i++) {
+      let holeNumbers = document.createElement("td");
+      holeNumbers.textContent = 0;
+      playerRow.appendChild(holeNumbers);
+    }
+    let out = document.createElement("th");
+    out.textContent = 0;
+    playerRow.appendChild(out);
+    for (i = 10; i < 19; i++) {
+      let holeNumbers = document.createElement("td");
+      holeNumbers.textContent = 0;
+      playerRow.appendChild(holeNumbers);
+    }
+    let inText = document.createElement("th");
+    inText.textContent = 0;
+    playerRow.appendChild(inText);
+    let total = document.createElement("th");
+    total.textContent = 0;
+    playerRow.appendChild(total);
+
+    table.appendChild(playerRow);
+  }
 
   table.appendChild(holesRow);
   table.appendChild(createRow(courses, "yards", teeIndex));
@@ -203,7 +231,7 @@ function createRow(courses, rowName, teeIndex) {
 
 //adding players
 class Player {
-  constructor(name, id = randomID(), scores = []) {
+  constructor(name, id = randomID(), scores = new Array(18).fill(0)) {
     this.name = name;
     this.id = id;
     this.scores = scores;
@@ -215,42 +243,33 @@ function randomID() {
   return id;
 }
 
-function addNewPlayer() {
-  let containter = document.querySelector(".container");
-  let modal = document.createElement("div");
-  modal.classList.add("modal");
-  modal.tabIndex = "-1";
-  modal.role = "dialog";
-  //   modal.innerHTML = `
-  //   <div class="modal-dialog" role="document">
-  //     <div class="modal-content">
-  //       <div class="modal-header">
-  //         <h5 class="modal-title">Modal title</h5>
-  //         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-  //           <span aria-hidden="true">&times;</span>
-  //         </button>
-  //       </div>
-  //       <div class="modal-body">
-  //         <p>Modal body text goes here.</p>
-  //       </div>
-  //       <div class="modal-footer">
-  //         <button type="button" class="btn btn-primary">Save changes</button>
-  //         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-  //       </div>
-  //     </div>
-  //   </div>
-  // `;
+// function calculateScores() {
+//   const holeInputs = document.querySelectorAll(".hole");
+//   let outScore = 0;
+//   let inScore = 0;
+//   let total = 0;
 
-  containter.appendChild(modal);
-  // let table = document.querySelector(".table");
-  // let newPlayerRow = document.createElement("tr");
+//   // Iterate through the hole inputs
+//   holeInputs.forEach((input) => {
+//     const score = parseInt(input.value) || 0; // Convert input value to integer, default to 0 if not a number
+//     total += score;
 
-  // let newPlayerName = document.createElement("th");
-  // newPlayerName.textContent = Player.name;
+//     // Check if hole is in front 9 (holes 1-9) or back 9 (holes 10-18)
+//     if (input.id.startsWith("hole") && parseInt(input.id.substr(4)) <= 9) {
+//       outScore += score;
+//     } else {
+//       inScore += score;
+//     }
+//   });
+//   console.log(holeInputs.values);
 
-  // newPlayerRow.appendChild(newPlayerName);
-  // table.appendChild(newPlayerRow);
-}
+//   // Update the out, in, and total score fields
+//   document.getElementById("outScore").value = outScore;
+//   document.getElementById("inScore").value = inScore;
+//   document.getElementById("total").value = total;
+// }
+// calculateScores()
+
 /*********************************** FUTURE BRAINSTORMING *************************************/
 
 // player 1 default

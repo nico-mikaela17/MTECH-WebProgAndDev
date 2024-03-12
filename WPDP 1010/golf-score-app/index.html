@@ -33,7 +33,7 @@
         <select class="form-control dropdown col" id="course-select"></select>
 
         <!-- add hidden class here -->
-        <select class="form-control dropdown col" id="tee-box-select"></select>
+        <select class="form-control dropdown col hidden" id="tee-box-select"></select>
       </div>
 
       <!-- table -->
@@ -41,6 +41,7 @@
         <!-- add player button -->
         <button
           type="button"
+          class="hidden"
           id="addPlayerBtn"
           data-toggle="modal"
           data-target="#playerAndScoresModal"
@@ -73,99 +74,97 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form>
-                  <div>
-                  <div>
+                <div>
                   <label for="name">Name</label>
                   <input id="name" type="text" />
                 </div>
+
+                <!-- <form>
                   <div>
                     <label for="hole1">Hole 1</label>
-                    <input type="number" id="hole1" />
+                    <input class="hole" type="number" id="hole1" />
                   </div>
                   <div>
                     <label for="hole2">Hole 2</label>
-                    <input type="number" id="hole2" />
+                    <input class="hole" type="number" id="hole2" />
                   </div>
                   <div>
                     <label for="hole3">Hole 3</label>
-                    <input type="number" id="hole3" />
+                    <input class="hole" type="number" id="hole3" />
                   </div>
                   <div>
                     <label for="hole4">Hole 4</label>
-                    <input type="number" id="hole4" />
+                    <input class="hole" type="number" id="hole4" />
                   </div>
                   <div>
                     <label for="hole5">Hole 5</label>
-                    <input type="number" id="hole5" />
+                    <input class="hole" type="number" id="hole5" />
                   </div>
                   <div>
                     <label for="hole6">Hole 6</label>
-                    <input type="number" id="hole6" />
+                    <input class="hole" type="number" id="hole6" />
                   </div>
                   <div>
                     <label for="hole7">Hole 7</label>
-                    <input type="number" id="hole7" />
+                    <input class="hole" type="number" id="hole7" />
                   </div>
                   <div>
                     <label for="hole8">Hole 8</label>
-                    <input type="number" id="hole8" />
+                    <input class="hole" type="number" id="hole8" />
                   </div>
                   <div>
                     <label for="hole9">Hole 9</label>
-                    <input type="number" id="hole9" />
+                    <input class="hole" type="number" id="hole9" />
                   </div>
                   <div>
                     <label for="outScore">Out</label>
-                    <input type="number" id="outScore" />
+                    <input class="hole" type="number" id="outScore" />
                   </div>
                   <div>
                     <label for="hole10">Hole 10</label>
-                    <input type="number" id="hole10" />
+                    <input class="hole" type="number" id="hole10" />
                   </div>
                   <div>
                     <label for="hole11">Hole 11</label>
-                    <input type="number" id="hole11" />
+                    <input class="hole" type="number" id="hole11" />
                   </div>
                   <div>
                     <label for="hole12">Hole 12</label>
-                    <input type="number" id="hole12" />
+                    <input class="hole" type="number" id="hole12" />
                   </div>
                   <div>
                     <label for="hole13">Hole 13</label>
-                    <input type="number" id="hole13" />
+                    <input class="hole" type="number" id="hole13" />
                   </div>
                   <div>
                     <label for="hole14">Hole 14</label>
-                    <input type="number" id="hole14" />
+                    <input class="hole" type="number" id="hole14" />
                   </div>
                   <div>
                     <label for="hole15">Hole 15</label>
-                    <input type="number" id="hole15" />
+                    <input class="hole" type="number" id="hole15" />
                   </div>
                   <div>
                     <label for="hole16">Hole 16</label>
-                    <input type="number" id="hole16" />
+                    <input class="hole" type="number" id="hole16" />
                   </div>
                   <div>
                     <label for="hole17">Hole 17</label>
-                    <input type="number" id="hole17" />
+                    <input class="hole" type="number" id="hole17" />
                   </div>
                   <div>
                     <label for="hole18">Hole 18</label>
-                    <input type="number" id="hole18" />
+                    <input class="hole" type="number" id="hole18" />
                   </div>
                   <div>
                     <label for="inScore">In</label>
-                    <input type="number" id="inScore" />
+                    <input class="hole" type="number" id="inScore" />
                   </div>
                   <div>
                     <label for="total">Total</label>
-                    <input type="number" id="total" />
+                    <input class="hole" type="number" id="total" />
                   </div>
-                </div>
-                <div></div>
-                </form>
+                </form> -->
               </div>
               <div class="modal-footer">
                 <button
@@ -175,7 +174,14 @@
                 >
                   Close
                 </button>
-                <button id="savePlayerInfo" type="button" class="btn">Save changes</button>
+                <button 
+                id="savePlayerInfo" 
+                type="button" 
+                class="btn"
+                data-dismiss="modal"
+                >
+                  Save changes
+                </button>
               </div>
             </div>
           </div>
