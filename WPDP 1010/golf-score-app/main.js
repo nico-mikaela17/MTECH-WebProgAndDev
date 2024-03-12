@@ -155,29 +155,172 @@ function populateTable(courses, teeBoxValue) {
   savePlayerInfo.addEventListener("click", addNewPlayer);
 
   function addNewPlayer() {
+    //name
     let name = document.querySelector("#name");
     let playerRow = document.createElement("tr");
     let playerName = document.createElement("th");
     playerRow.appendChild(playerName);
     playerName.textContent = name.value.toUpperCase();
+
+    //first 9
     for (i = 1; i < 10; i++) {
       let holeNumbers = document.createElement("td");
       holeNumbers.textContent = 0;
+
+      let editCommentDisplay = document.createElement("div");
+      editCommentDisplay.classList.add("hidden", "editCommentDisplay");
+
+      let holeNumInput = document.createElement("input");
+      holeNumInput.classList.add("hidden", "holeNumInput");
+      holeNumInput.type = "Number";
+      holeNumInput.placeholder = "Score";
+      holeNumInput.textContent = name.text;
+
+      let saveBtn = document.createElement("button");
+      saveBtn.textContent = "Save";
+      saveBtn.classList.add("hidden", "saveBtn");
+
+      editCommentDisplay.appendChild(holeNumInput);
+      editCommentDisplay.appendChild(saveBtn);
+      holeNumbers.appendChild(editCommentDisplay);
+
+      holeNumbers.addEventListener("click", () => {
+        console.log("clicked");
+
+        editCommentDisplay.classList.remove("hidden");
+        holeNumInput.classList.remove("hidden");
+        saveBtn.classList.remove("hidden");
+      });
+      saveBtn.addEventListener("click", () => {
+        holeNumbers.textContent = holeNumInput.value;
+        holeNumInput.classList.add("hidden");
+        saveBtn.classList.add("hidden");
+        // scores.push = holeNumInput.value;
+        // saveToLocalStorage();
+      });
       playerRow.appendChild(holeNumbers);
     }
+
+    //out
     let out = document.createElement("th");
     out.textContent = 0;
+
+    let editCommentDisplay = document.createElement("div");
+    editCommentDisplay.classList.add("hidden", "editCommentDisplay");
+
+    let holeNumInput = document.createElement("input");
+    holeNumInput.classList.add("hidden", "holeNumInput");
+    holeNumInput.type = "Number";
+    holeNumInput.placeholder = "Score";
+    holeNumInput.textContent = name.text;
+
+    let saveBtn = document.createElement("button");
+    saveBtn.textContent = "Save";
+    saveBtn.classList.add("hidden", "saveBtn");
+
+    editCommentDisplay.appendChild(holeNumInput);
+    editCommentDisplay.appendChild(saveBtn);
+    out.appendChild(editCommentDisplay);
+
+    out.addEventListener("click", () => {
+      console.log("clicked");
+
+      editCommentDisplay.classList.remove("hidden");
+      holeNumInput.classList.remove("hidden");
+      saveBtn.classList.remove("hidden");
+    });
+    saveBtn.addEventListener("click", () => {
+      out.textContent = holeNumInput.value;
+      holeNumInput.classList.add("hidden");
+      saveBtn.classList.add("hidden");
+      // scores.push = holeNumInput.value;
+      // saveToLocalStorage();
+    });
     playerRow.appendChild(out);
+
+    //10-18
     for (i = 10; i < 19; i++) {
       let holeNumbers = document.createElement("td");
       holeNumbers.textContent = 0;
+
+      let editCommentDisplay = document.createElement("div");
+      editCommentDisplay.classList.add("hidden", "editCommentDisplay");
+
+      let holeNumInput = document.createElement("input");
+      holeNumInput.classList.add("hidden", "holeNumInput");
+      holeNumInput.type = "Number";
+      holeNumInput.placeholder = "Score";
+      holeNumInput.textContent = name.text;
+
+      let saveBtn = document.createElement("button");
+      saveBtn.textContent = "Save";
+      saveBtn.classList.add("hidden", "saveBtn");
+
+      editCommentDisplay.appendChild(holeNumInput);
+      editCommentDisplay.appendChild(saveBtn);
+      holeNumbers.appendChild(editCommentDisplay);
+
+      holeNumbers.addEventListener("click", () => {
+        console.log("clicked");
+
+        editCommentDisplay.classList.remove("hidden");
+        holeNumInput.classList.remove("hidden");
+        saveBtn.classList.remove("hidden");
+      });
+      saveBtn.addEventListener("click", () => {
+        holeNumbers.textContent = holeNumInput.value;
+        holeNumInput.classList.add("hidden");
+        saveBtn.classList.add("hidden");
+        // scores.push = holeNumInput.value;
+        // saveToLocalStorage();
+      });
       playerRow.appendChild(holeNumbers);
     }
-    let inText = document.createElement("th");
-    inText.textContent = 0;
-    playerRow.appendChild(inText);
+
+    //in
+    let inScore = document.createElement("th");
+    inScore.textContent = 0;
+
+    inScore.appendChild(editCommentDisplay);
+
+    inScore.addEventListener("click", () => {
+      console.log("clicked");
+
+      editCommentDisplay.classList.remove("hidden");
+      holeNumInput.classList.remove("hidden");
+      saveBtn.classList.remove("hidden");
+    });
+    saveBtn.addEventListener("click", () => {
+      inScore.textContent = holeNumInput.value;
+      holeNumInput.classList.add("hidden");
+      saveBtn.classList.add("hidden");
+      // scores.push = holeNumInput.value;
+      // saveToLocalStorage();
+    });
+    playerRow.appendChild(inScore);
+
+
+    //FIXME: editCommentDisplay div only shows on total, even when I click on OUT or IN
+    //total
     let total = document.createElement("th");
     total.textContent = 0;
+
+    total.appendChild(editCommentDisplay);
+
+    total.addEventListener("click", () => {
+      console.log("clicked");
+
+      editCommentDisplay.classList.remove("hidden");
+      holeNumInput.classList.remove("hidden");
+      saveBtn.classList.remove("hidden");
+    });
+    saveBtn.addEventListener("click", () => {
+      total.textContent = holeNumInput.value;
+      holeNumInput.classList.add("hidden");
+      saveBtn.classList.add("hidden");
+      // scores.push = holeNumInput.value;
+      // saveToLocalStorage();
+    });
     playerRow.appendChild(total);
 
     table.appendChild(playerRow);

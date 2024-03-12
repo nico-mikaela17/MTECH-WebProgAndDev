@@ -36,9 +36,7 @@ button {
 .btn-secondary {
   background-color: #a5be00;
 }
-.hidden {
-  display: none;
-}
+
 
 #scorecard-container {
   padding: 0;
@@ -61,6 +59,30 @@ th {
   text-align: left;
 }
 
-input{
+input {
   margin-left: 1rem;
+}
+.editCommentDisplay {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.5rem 0;
+  height: 40px;
+}
+
+.holeNumInput {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #a5be00;
+  border-radius: 5px;
+  margin: 0;
+  width: 65px;
+}
+
+.saveBtn{
+  margin: 0;
+  margin-left: 0.5rem;
+}
+
+.hidden {
+  display: none;
+  height: 0;
 }
