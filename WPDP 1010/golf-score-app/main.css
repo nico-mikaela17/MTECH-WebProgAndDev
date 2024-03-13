@@ -42,6 +42,8 @@ button {
   padding: 0;
 }
 
+/* TODO:Add some CSS to style the card to look like an actual golf card. */
+
 .table-responsive {
   background-color: rgba(255, 255, 255, 0.9);
   border: 2px solid #a5be00;

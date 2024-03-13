@@ -39,6 +39,7 @@
 //FIXME:look into this
 // import createRow from 'row.js'
 
+//TODO: Use the golf data API to bring in the data for the golf course(s).
 async function getAvailableGolfCourses() {
   try {
     let response = await fetch(
@@ -56,6 +57,7 @@ async function getAvailableGolfCourses() {
   }
 }
 
+//TODO: Allow the golfer to select any golf course that is available from the api. The scorecard will show the new golf course information (par, yardage, etc.)
 getAvailableGolfCourses();
 
 function handleCourseSelect(courses) {
@@ -76,6 +78,7 @@ function handleCourseSelect(courses) {
   });
 }
 
+//TODO: Use the golf data API to bring in the data for the golf course(s).
 async function getGolfCourseDetails(golfCourseId) {
   try {
     let response = await fetch(
@@ -93,6 +96,7 @@ async function getGolfCourseDetails(golfCourseId) {
   }
 }
 
+//TODO:Allow users to select which tee they will be using (Men's, Women's, Pro, Amateur, etc.). All players will play from the same tee.
 function handleTeeSelect(courses) {
   let teeBoxSelect = document.querySelector("#tee-box-select");
 
@@ -118,6 +122,7 @@ function handleTeeSelect(courses) {
   });
 }
 
+//TODO: Create the main scoring table with columns for each hole, out score, in score, and total score.
 function populateTable(courses, teeBoxValue) {
   let table = document.querySelector(".table");
   table.innerHTML = "";
@@ -154,6 +159,8 @@ function populateTable(courses, teeBoxValue) {
   let savePlayerInfo = document.querySelector("#savePlayerInfo");
   savePlayerInfo.addEventListener("click", addNewPlayer);
 
+  //TODO:Create a row to keep track of a player's score. This row should allow users to enter their name and a score for each hole. When a user types in a score for a hole, the out, in, and total columns should update
+  //TODO:Allow up to four players in your scorecard.
   function addNewPlayer() {
     //name
     let name = document.querySelector("#name");
@@ -353,6 +360,7 @@ function populateTable(courses, teeBoxValue) {
   // table.appendChild(player1);
 }
 
+//TODO:Create a row that loads yardage, handicap, and par for each hole from the course data and displays it in the table. The row should have a "total" column for the sum of all 18 holes.
 function createRow(courses, rowName, teeIndex) {
   let dataRow = document.createElement("tr");
   let dataTitle = document.createElement("th");
