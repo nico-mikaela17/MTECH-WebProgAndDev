@@ -37,7 +37,6 @@ button {
   background-color: #a5be00;
 }
 
-
 #scorecard-container {
   padding: 0;
 }
@@ -79,7 +78,7 @@ input {
   width: 65px;
 }
 
-.saveBtn{
+.saveBtn {
   margin: 0;
   margin-left: 0.5rem;
 }

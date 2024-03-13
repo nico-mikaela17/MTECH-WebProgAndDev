@@ -18,7 +18,9 @@
       href="https://fonts.googleapis.com/css2?family=Abel&display=swap"
       rel="stylesheet"
     />
-    <script defer src="main.js"></script>
+    <!-- TODO:include ES6 Modules -->
+    <script defer type="module" src="addPlayer.js"></script>
+    <script defer type="module" src="main.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
@@ -33,7 +35,10 @@
         <select class="form-control dropdown col" id="course-select"></select>
 
         <!-- add hidden class here -->
-        <select class="form-control dropdown col hidden" id="tee-box-select"></select>
+        <select
+          class="form-control dropdown col hidden"
+          id="tee-box-select"
+        ></select>
       </div>
 
       <!-- table -->
@@ -174,11 +179,11 @@
                 >
                   Close
                 </button>
-                <button 
-                id="savePlayerInfo" 
-                type="button" 
-                class="btn"
-                data-dismiss="modal"
+                <button
+                  id="savePlayerInfo"
+                  type="button"
+                  class="btn"
+                  data-dismiss="modal"
                 >
                   Save changes
                 </button>
