@@ -39,13 +39,35 @@ export function GiveMeMinutesNow() {
   return timeNow;
 }
 
+async function getTemperatureInF() {
+  let apiURL =
+    "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m&temperature_unit=fahrenheit&timezone=America%2FDenver";
+
+  return fetch(apiURL)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data.current.temperature_2m;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+let temperature = await getTemperatureInF();
+
+
+
 export default function MyApp() {
   return (
     <main>
     <div>
       <h1 >Welcome to my app</h1>
       <h2 className="text-4xl text-amber-400	">
-        <GiveMeMessage/> it's <GiveMeHoursNow/>:<GiveMeMinutesNow/> now.
+        <GiveMeMessage/> it's <GiveMeHoursNow/>:<GiveMeMinutesNow/> now <br></br>and the temperature is {temperature}°F.
       </h2>
     </div>
     </main>
