@@ -59,17 +59,25 @@ async function getTemperatureInF() {
 }
 let temperature = await getTemperatureInF();
 
-
-
 export default function MyApp() {
   return (
     <main>
-    <div>
-      <h1 >Welcome to my app</h1>
-      <h2 className="text-4xl text-amber-400	">
-        <GiveMeMessage/> it's <GiveMeHoursNow/>:<GiveMeMinutesNow/> now <br></br>and the temperature is {temperature}°F.
-      </h2>
-    </div>
+      <div>
+        <h1>Welcome to my app</h1>
+        <h2 className="text-4xl	">
+          <span className="text-amber-400">
+            <GiveMeMessage />
+          </span>{" "}
+          it's{" "}
+          <span className="text-sky-300">
+            <GiveMeHoursNow />:<GiveMeMinutesNow />
+          </span>{" "}
+          now
+          <br></br>
+          and the temperature is{" "}
+          <span className="text-pink-400">{temperature}°F</span>.
+        </h2>
+      </div>
     </main>
   );
 }
