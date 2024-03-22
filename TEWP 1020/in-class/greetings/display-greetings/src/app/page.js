@@ -62,8 +62,7 @@ let temperature = await getTemperatureInF();
 export default function MyApp() {
   return (
     <main>
-      <div>
-        <h1>Welcome to my app</h1>
+      <div className="m-5">
         <h2 className="text-4xl	">
           <span className="text-amber-400">
             <GiveMeMessage />
