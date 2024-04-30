@@ -5,6 +5,7 @@ let count = process.argv.length;
 const userInput = readline.createInterface({ input, output });
 
 userInput.question('Enter a number (or type "exit" to finish) ', (answer) => {
+  //FIXME:
   while (answer === Number) {
     if (answer === Number) {
       question;
