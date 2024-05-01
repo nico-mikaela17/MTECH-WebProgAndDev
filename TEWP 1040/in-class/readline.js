@@ -1,8 +1,5 @@
 const readline = require("node:readline");
-const EventEmitter = require("events");
 const { stdin: input, stdout: output } = require("node:process");
-let inputNum = process.argv[2];
-let count = process.argv.length;
 const userInput = readline.createInterface({ input, output });
 
 function userPrompt() {
