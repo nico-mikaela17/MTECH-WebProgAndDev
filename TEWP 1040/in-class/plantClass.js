@@ -1,4 +1,3 @@
-const { log } = require("console");
 const EventEmitter = require("events");
 
 class Plant extends EventEmitter {
