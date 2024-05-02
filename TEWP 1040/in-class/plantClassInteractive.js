@@ -49,12 +49,27 @@ class Plant extends EventEmitter {
 }
 
 let myPlant = new Plant();
-if (control === "plantSeed") {
-  plantSeed(myPlant);
-} else if (control === "waterPlant") {
-  waterPlant(myPlant);
-} else if (control === "bugAttack") {
-  bugAttack(myPlant);
-} else if (control === "harvestPlant") {
-  harvestPlant(myPlant);
+let validCommands = ["plantSeed", "waterPlant", "bugAttack", "harvestPlant"];
+
+console.log(
+  `Welcome to VirtualGarden\nUse the following commands: plantSeed, waterPlant, bugAttack, harvestPlant`
+);
+
+process.stdin.setEncoding("utf8");
+process.stdin.on("data", (data) => {
+  let command = data.trim();
+  if (validCommands.includes(command)) {
+    myPlant.emit(command);
+  } else if ("quit" === command) {
+    quit();
+  } else {
+    console.log(
+      `${command} is not a valid command.\nUse the following commands: plantSeed, waterPlant, bugAttack, harvestPlant `
+    );
+  }
+});
+
+function quit() {
+  console.log("Thanks for playing! Bye :)");
+  process.exit();
 }
