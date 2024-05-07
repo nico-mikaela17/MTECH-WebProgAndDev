@@ -18,3 +18,17 @@ fs.readdir("./lib", (err, data) => {
 });
 
 //array, loop over that, call fs.stats in each, callback - isFile(), if true - readFile
+
+//asynchronous version
+async function readFiles() {
+  const files = await fsp.readdir("./lib");
+  files.forEach(async (fileName) => {
+    const file = path.join(__dirname, "lib", fileName);
+
+    const stats = await fsp.stat(file);
+    if (stats.isFile()) {
+      const contents = await fsp.readFile(file, "utf8");
+      console.log(`${fileName}: ${contents}`);
+    }
+  });
+}
