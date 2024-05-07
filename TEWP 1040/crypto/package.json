@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "openpgp": "^5.11.1"
+  },
+  "name": "crypto",
+  "version": "1.0.0",
+  "main": "encrypt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Nicole Linnarz",
+  "license": "ISC",
+  "description": ""
+}
