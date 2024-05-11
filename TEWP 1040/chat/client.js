@@ -1,26 +1,31 @@
 const net = require("net");
 
 const client = net.createConnection(3000, () => {
-  console.log("connected");
-  // client.write(`Hello Server`);
+  //Console.log a ‘connected’ message when it has successfully connected to the server
+  console.log("Connected to server.");
+  console.log("Type your message below. Type 'exit' to disconnect.");
 });
 
 client.setEncoding("utf-8");
 process.stdin.setEncoding("utf-8");
 
 client.on("data", (data) => {
-  console.log(`Received from server: ${data}`);
+  //Console.log any messages received from the server
+  console.log(`\n${data}`);
 });
 client.on("error", (err) => {
   console.error("Error connecting to server:", err.message);
 });
 
 process.stdin.on("data", (data) => {
-  if (data.toLowerCase().trim() === "exit") {
+  data = data.trim();
+  if (data.toLowerCase() === "exit") {
+    console.log("Disconnecting from server...");
     client.end();
     process.exit();
-  } else {
-    //write data to the client AKA server
+  } else if (data) {
     client.write(data);
+  } else {
+    console.log("Please enter a valid message or 'exit' to quit.");
   }
 });
