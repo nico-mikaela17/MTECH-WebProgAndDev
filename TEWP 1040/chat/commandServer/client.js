@@ -2,7 +2,9 @@ const net = require("net");
 
 const client = net.createConnection(3000, () => {
   //Console.log a ‘connected’ message when it has successfully connected to the server
-  console.log(`Connected to server.\nType your message below.Type 'exit' to disconnect.`);
+  console.log(
+    `Connected to server.\nType your message below.Type 'exit' to disconnect.`
+  );
 });
 
 client.setEncoding("utf-8");

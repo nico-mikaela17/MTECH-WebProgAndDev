@@ -7,7 +7,7 @@ class Client {
   constructor(socket, id) {
     this.socket = socket; //client connection
     this.id = id;
-    this.username = `User ${id}`; // Default username
+    this.username = `User${id}`; // Default username
   }
 }
 
@@ -48,7 +48,7 @@ const server = net.createServer((client) => {
     fs.appendFile("chat.log", message, (err) => {
       if (err) throw err;
     });
-    
+
     // Close connection if client sends "exit"
     if (data.trim() === "exit") {
       // Notify other clients about the disconnection
@@ -65,8 +65,9 @@ const server = net.createServer((client) => {
     }
     //Your server should send an informative error message if the command fails for any reason (incorrect number of inputs, invalid username, trying to whisper themselves etc.)
     //If there is no error then a private message containing the whisper sender’s name as well as the whispered message should be sent to the indicated user
-    // else if (data.trim() === `/whisper Client${client.clientId}`) {
-    // }
+    else if (data.trim().startsWith(`/whisper`)) {
+      handleWhisperCommand(user, data);
+    }
     // else if (data.trim().startsWith(`/username`)) {
     //   client = input;
     //   const newUsername = data.trim().substring(9);
@@ -112,5 +113,28 @@ server.listen(3000, () => {
   console.log("Listening on port 3000");
 });
 
-
 //FIXME: Log the disconnection message to chat.log
+
+function handleWhisperCommand(client,user,sender, data) {
+  // if (!clients || !data.lenght) {
+  //   sender.write(
+  //     `Error: Invalid usage. Correct format: /whisper <username> <message>`
+  //   );
+  //   return;
+  // }
+  /// Check if target user exists
+  const targetUser = user.username;
+  if (!targetUser) {
+    client.write(`Error: User "${targetUser}" not found.`);
+    return;
+  }
+  if (targetUser === user.username) {
+    client.write(`Error: You cannot whisper to yourself.`);
+    return;
+  }
+  const senderName = user.username;
+  const fullWhisper = `Whisper from ${senderName}: ${data}`;
+
+  // Send the whisper to the target user
+  targetUser.write(fullWhisper);
+}
