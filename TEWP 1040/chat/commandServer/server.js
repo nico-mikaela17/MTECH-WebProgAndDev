@@ -115,26 +115,47 @@ server.listen(3000, () => {
 
 //FIXME: Log the disconnection message to chat.log
 
-function handleWhisperCommand(client,user,sender, data) {
-  // if (!clients || !data.lenght) {
-  //   sender.write(
-  //     `Error: Invalid usage. Correct format: /whisper <username> <message>`
-  //   );
-  //   return;
-  // }
-  /// Check if target user exists
-  const targetUser = user.username;
-  if (!targetUser) {
-    client.write(`Error: User "${targetUser}" not found.`);
-    return;
-  }
-  if (targetUser === user.username) {
-    client.write(`Error: You cannot whisper to yourself.`);
-    return;
-  }
-  const senderName = user.username;
-  const fullWhisper = `Whisper from ${senderName}: ${data}`;
+//Your server should send an informative error message if the command fails for any reason (incorrect number of inputs, invalid username, trying to whisper themselves etc.)
+//If there is no error then a private message containing the whisper sender’s name as well as the whispered message should be sent to the indicated user
 
-  // Send the whisper to the target user
-  targetUser.write(fullWhisper);
+function handleWhisperCommand(sender, data) {
+  const [command, targetUsername, ...messageParts] = data.trim().split(" ");
+
+  // Validate inputs
+  if (!targetUsername || messageParts.lenght === 0) {
+    sender.socket.write(
+      "Error: Invalid usage. Correct format: /whisper <username> <message>"
+    );
+    return;
+  }
+
+  // Check if target user exists (you need to implement this logic)
+  const targetUser = getUserByUsername(targetUsername); // Replace with your user lookup function
+  if (!targetUser) {
+    sender.socket.write(`Error: User "${targetUsername}" not found.`);
+    return;
+  }
+
+  // Check if sender is trying to whisper to themselves
+  if (targetUsername === sender.username) {
+    sender.socket.write("Error: You cannot whisper to yourself.");
+    return;
+  }
+
+  // Construct the whisper message
+  const senderName = sender.username;
+  const whisperedMessage = messageParts.join(" ");
+  const fullWhisper = `Whisper from ${senderName}: ${whisperedMessage}`;
+
+  // Send the whisper to the target user (you need to implement this logic)
+  targetUser.socket.write(fullWhisper); // Replace with actual user client reference
+}
+
+function getUserByUsername(username) {
+  for (const user of clients) {
+    if (user.username === username) {
+      return user;
+    }
+  }
+  return null;
 }
