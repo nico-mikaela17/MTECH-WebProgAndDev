@@ -22,7 +22,7 @@ const server = net.createServer((client) => {
   console.log(`${user.username} has joined the chat`);
 
   //Send a welcome message to the newly connected client
-  client.write("Welcome to the chat room!");
+  client.write(`Welcome to the chat room!\nType your message below.\nType '/w <username>' to whisper.\nType '/username <newUserName>' to update your username.\nType '/kick' to kick someone out.\nType '/clientlist' to know who's on the server.\nType 'exit' to disconnect.`);
 
   // Notify other clients about the new connection
   clients.forEach((otherUser) => {
@@ -195,4 +195,5 @@ function handleKickCommand(sender, targetUsername) {
 
   // Remove the target user from the clients
   clients.delete(targetUser);
+  targetUser.socket.destroy();
 }

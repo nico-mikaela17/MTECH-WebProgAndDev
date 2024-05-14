@@ -3,7 +3,7 @@ const net = require("net");
 const client = net.createConnection(3000, () => {
   //Console.log a ‘connected’ message when it has successfully connected to the server
   console.log(
-    `Connected to server.\nType your message below.Type 'exit' to disconnect.`
+    `Connected to server.`
   );
 });
 
@@ -16,6 +16,9 @@ client.on("data", (data) => {
 });
 client.on("error", (err) => {
   console.error("Error connecting to server:", err.message);
+});
+client.on("end", (err) => {
+  process.exit();
 });
 
 process.stdin.on("data", (data) => {

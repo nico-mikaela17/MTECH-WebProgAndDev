@@ -1,0 +1,11 @@
+10:18 - User1: User1
+10:18 - User1: /kick User1
+10:18 - User1: User2/kick User2
+10:18 - User1: User3
+10:18 - User1: /kick User3
+10:19 - User2: /clientlist
+10:22 - User1: User3
+10:22 - User1: /kick User3
+10:24 - User3: User1/kick User1
+10:25 - User3: User1
+10:25 - User3: /kick User1
