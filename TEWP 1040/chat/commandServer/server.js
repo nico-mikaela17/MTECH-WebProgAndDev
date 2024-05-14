@@ -1,7 +1,6 @@
 const net = require("net");
 const fs = require("fs");
 
-//-----------DONE----------------------
 //make list of clients when they connect to server
 class Client {
   constructor(socket, id) {
@@ -33,7 +32,6 @@ const server = net.createServer((client) => {
     }
   });
   client.setEncoding("utf-8");
-  //-----------DONE----------------------
 
   //listening to what the client has to say
   client.on("data", (data) => {
@@ -51,6 +49,7 @@ const server = net.createServer((client) => {
 
     // Close connection if client sends "exit"
     if (data.trim() === "exit") {
+      console.log("someone is exiting");
       // Notify other clients about the disconnection
       clients.forEach((otherUser) => {
         if (otherUser !== user) {
@@ -60,25 +59,29 @@ const server = net.createServer((client) => {
       clients.delete(user);
 
       client.end();
-
-      // Notify other clients about the disconnection
-    }
-    //Your server should send an informative error message if the command fails for any reason (incorrect number of inputs, invalid username, trying to whisper themselves etc.)
-    //If there is no error then a private message containing the whisper sender’s name as well as the whispered message should be sent to the indicated user
-    else if (data.trim().startsWith(`/whisper`)) {
+    } else if (data.trim().startsWith(`/whisper`)) {
       handleWhisperCommand(user, data);
-    }
-    // else if (data.trim().startsWith(`/username`)) {
-    //   client = input;
-    //   const newUsername = data.trim().substring(9);
-    //   console.log(
-    //     `Client ${client.clientId} changed username to ${newUsername}`
-    //   );
-    // } else if (data.trim() === "/kick") {
-    // } else if (data.trim() === "/clientlist") {
-    //   client.write(`Connected clients: ${clients}`);
-    // }
-    else {
+    } else if (data.trim().startsWith(`/username`)) {
+      const newUsername = data.trim().substring(9);
+      user.username = newUsername;
+      console.log(`${user.username} changed username to ${newUsername}`);
+    } else if (data.trim().startsWith("/kick")) {
+      const [command, targetUsername] = data.trim().split(" ");
+
+      // Validate inputs
+      if (!targetUsername) {
+        user.socket.write(
+          "Error: Invalid usage. Correct format: /kick <username>"
+        );
+      } else {
+        handleKickCommand(user, targetUsername);
+      }
+    } else if (data.trim() === "/clientlist") {
+      const clientList = Array.from(clients)
+        .map((client) => client.username)
+        .join(", ");
+      client.write(`Connected clients: ${clientList}`);
+    } else {
       //Rebroadcast the client’s message to all clients (excluding the client that sent the message), include the name of the client that sent the message
       clients.forEach((otherUser) => {
         if (otherUser !== user) {
@@ -113,8 +116,6 @@ server.listen(3000, () => {
   console.log("Listening on port 3000");
 });
 
-//FIXME: Log the disconnection message to chat.log
-
 //Your server should send an informative error message if the command fails for any reason (incorrect number of inputs, invalid username, trying to whisper themselves etc.)
 //If there is no error then a private message containing the whisper sender’s name as well as the whispered message should be sent to the indicated user
 
@@ -122,7 +123,7 @@ function handleWhisperCommand(sender, data) {
   const [command, targetUsername, ...messageParts] = data.trim().split(" ");
 
   // Validate inputs
-  if (!targetUsername || messageParts.lenght === 0) {
+  if (!targetUsername || messageParts.length === 0) {
     sender.socket.write(
       "Error: Invalid usage. Correct format: /whisper <username> <message>"
     );
@@ -130,7 +131,7 @@ function handleWhisperCommand(sender, data) {
   }
 
   // Check if target user exists (you need to implement this logic)
-  const targetUser = getUserByUsername(targetUsername); // Replace with your user lookup function
+  const targetUser = getUserByUsername(targetUsername);
   if (!targetUser) {
     sender.socket.write(`Error: User "${targetUsername}" not found.`);
     return;
@@ -148,7 +149,7 @@ function handleWhisperCommand(sender, data) {
   const fullWhisper = `Whisper from ${senderName}: ${whisperedMessage}`;
 
   // Send the whisper to the target user (you need to implement this logic)
-  targetUser.socket.write(fullWhisper); // Replace with actual user client reference
+  targetUser.socket.write(fullWhisper);
 }
 
 function getUserByUsername(username) {
@@ -158,4 +159,40 @@ function getUserByUsername(username) {
     }
   }
   return null;
+}
+
+//FIXME:works but the user kicked still has server working and can type again. We want to end their connection to the server
+function handleKickCommand(sender, targetUsername) {
+  // Check if target user exists
+  const targetUser = getUserByUsername(targetUsername);
+  if (!targetUser) {
+    sender.socket.write(`Error: User "${targetUsername}" not found.`);
+    return;
+  }
+
+  // Check if sender is trying to kick themselves
+  if (targetUser === sender) {
+    sender.socket.write("Error: You cannot kick yourself.");
+    return;
+  }
+
+  // Send a message to the target user
+  targetUser.socket.write(
+    `You have been kicked out of the chat by ${sender.username}`
+  );
+
+  // Notify other clients about the disconnection
+  clients.forEach((otherUser) => {
+    if (otherUser !== sender && otherUser !== targetUser) {
+      otherUser.socket.write(
+        `${targetUser.username} was kicked out of the chat`
+      );
+    }
+  });
+
+  // Log the kick message
+  console.log(`${targetUser.username} was kicked by ${sender.username}`);
+
+  // Remove the target user from the clients
+  clients.delete(targetUser);
 }

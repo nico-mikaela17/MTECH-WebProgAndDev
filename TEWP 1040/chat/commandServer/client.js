@@ -21,9 +21,20 @@ client.on("error", (err) => {
 process.stdin.on("data", (data) => {
   data = data.trim();
   if (data.toLowerCase() === "exit") {
+    client.write(data);
     console.log("Disconnecting from server...");
     client.end();
     process.exit();
+  } else if (data.toLowerCase().startsWith(`/kick`)) {
+    // Prompt the user to enter the username to kick
+    console.log("Enter the username to kick:");
+    process.stdin.once("data", (username) => {
+      username = username.trim();
+      // Send the complete kick command to the server
+      client.write(`/kick ${username}`);
+    });
+  } else if (data.toLowerCase().startsWith(`/clientlist`)) {
+    client.write(data);
   } else if (data) {
     client.write(data);
   } else {

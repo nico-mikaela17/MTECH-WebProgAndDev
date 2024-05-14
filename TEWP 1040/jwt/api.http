@@ -1,0 +1,9 @@
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{"username": "asdf",
+"password": "asdf"}
+
+###
+GET http://localhost:3000/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFzZGYiLCJpYXQiOjE3MTU2OTgzMjAsImV4cCI6MTcxNTY5ODMzMH0.Y5bF3JRFpjVdWsyJ1geWvTydHvk927cy3PIPG-dMZ1E
