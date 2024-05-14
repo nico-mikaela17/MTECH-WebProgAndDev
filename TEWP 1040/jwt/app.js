@@ -26,7 +26,7 @@ app.post("/login", (req, res) => {
   }
   const token = jwt.sign({ username: user.username }, secret, {
     algorithm: "HS256",
-    expiresIn: "10s",
+    expiresIn: "10d",
   });
   return res.json({ token: token });
 });
@@ -35,7 +35,7 @@ app.get(
   "/courses",
   expressjwt({ secret: secret, algorithms: ["HS256"] }),
   (req, res) => {
-    console.log(re.auth.username);
+    console.log(req.auth.username);
     res.json({ courses: JSON.stringify(courses) });
   }
 );
