@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="scripts.js"></script>
+    <title>API Server Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-sky-900">
+    <p id="serverMessage"></p>
+    <div class="flex">
+      <div class="w-1/2"></div>
+      <div class="h-screen w-1/2 flex flex-col justify-center">
+        <form class="flex flex-col">
+          <label
+            class="w-1/4 flex self-center my-1 rounded-md text-white"
+            for="username"
+            >Username</label
+          >
+          <input
+            class="w-1/4 flex self-center p-2 mt-2 mb-4 rounded-md"
+            type="text"
+            id="username"
+            placeholder="username"
+          />
+          <label
+            class="w-1/4 flex self-center my-1 rounded-md text-white"
+            for="password"
+            >Password</label
+          >
+
+          <input
+            class="w-1/4 flex self-center p-2 mt-2 mb-4 rounded-md"
+            type="password"
+            id="password"
+            placeholder="password"
+          />
+        </form>
+        <button
+          class="w-1/5 flex self-center p-2 mt-2 mb-4 rounded-md bg-sky-700 text-white text-center"
+          onclick="login()"
+        >
+          Log In
+        </button>
+        <button
+          class="w-1/5 flex self-center p-2 mt-2 mb-4 rounded-md bg-sky-700 text-white text-center"
+          onclick="getCourses()"
+        >
+          Get Courses
+        </button>
+        <button
+          class="w-1/5 flex self-center p-2 mt-2 mb-4 rounded-md bg-sky-700 text-white text-center"
+          onclick="logout()"
+        >
+          Log Out
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
