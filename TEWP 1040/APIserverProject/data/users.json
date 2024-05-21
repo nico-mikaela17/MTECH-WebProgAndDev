@@ -1,5 +1,4 @@
-{
-  "users": [
+[
     {
       "username": "admin",
       "password": "password"
@@ -10,8 +9,7 @@
     },
     {
       "username": "nicole",
-      "password": "asdf"
+      "password": "$2b$10$XyG8Be4F3gVo2ZlbnZP8GuQCyzPj54dF7txOKNoN0GSh0IXowC8Pq"
     }
 
   ]
-}

@@ -1,4 +1,3 @@
-// routes/auth.js
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
@@ -18,8 +17,22 @@ router.post('/getToken', (req, res) => {
       return res.status(500).json({ errorMessage: 'Internal Server Error' });
     }
 
-    const users = JSON.parse(data);
-    const user = users.find(u => u.username === username);
+    // Parse the JSON data
+    let users;
+    try {
+      users = JSON.parse(data);
+    } catch (parseErr) {
+      return res.status(500).json({ errorMessage: 'Failed to parse user data' });
+    }
+
+    // Ensure users is an array
+    if (!Array.isArray(users)) {
+      return res.status(500).json({ errorMessage: 'User data is not valid' });
+    }
+
+    // Find the user by username
+    const user = users.find((u) => u.username === username);
+    console.log(user);
 
     if (!user) {
       return res.status(401).json({ errorMessage: 'Invalid credentials' });
