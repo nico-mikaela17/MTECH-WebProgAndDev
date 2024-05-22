@@ -1278,5 +1278,15 @@
     "toughness": "2000",
     "rarity": "Rare",
     "cost": "50"
+  },
+  {
+    "id": 123456,
+    "name": "New Card",
+    "type": "Type1",
+    "set": "newSet",
+    "rarity": "Common",
+    "power": "water blast",
+    "toughness": 5000,
+    "cost": 20
   }
 ]
