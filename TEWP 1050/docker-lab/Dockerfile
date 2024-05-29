@@ -2,7 +2,7 @@ FROM node:carbon
 
 #metadata
 LABEL maintainer='Nicole Linnarz <nicole.linnarz7558@stu.mtec.edu>'
-LABEL cohort=18
+LABEL cohort='cohort-18'
 LABEL animal='tiger'
 LABEL description = 'being able to create a Dockerfile, build an image on, and run the container from the image.'
 
