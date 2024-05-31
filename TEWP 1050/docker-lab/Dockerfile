@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-EXPOSE 5050 8080
+EXPOSE 3000 5050 8080
 
 RUN npm install
 

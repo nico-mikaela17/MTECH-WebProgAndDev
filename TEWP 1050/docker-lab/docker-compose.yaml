@@ -1,0 +1,16 @@
+---
+version: "3.8"
+services:
+  mywebsite:
+    image: docker-lab
+    ports:
+      - 3000:8080
+    deploy:
+      replicas: 3
+  mywebsite2:
+    image: docker-lab
+    ports:
+      - 3001:8080
+    deploy:
+      replicas: 2
+...
